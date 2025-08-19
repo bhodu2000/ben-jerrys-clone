@@ -5,7 +5,7 @@
 
 ## 📌 프로젝트 소개
 
-- **"[Ben & Jerry’s(KOR)](https://www.benjerry.co.kr/) 웹사이트를 기반으로 한 클론으로, 신규 부가 기능을 확장한 웹 애플리케이션"**
+- **"[Ben & Jerry’s](https://www.benjerry.co.kr/) (KOR) 웹사이트를 기반으로 한 클론으로, 신규 부가 기능을 확장한 웹 애플리케이션"**
 
 ---
 
