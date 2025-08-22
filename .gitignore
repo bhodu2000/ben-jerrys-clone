@@ -1,0 +1,22 @@
+# IDE
+.vscode/
+.idea/
+.idea_modules/
+*.iml
+
+# Build system
+.gradle/
+build/
+out/
+bin/
+
+# Logs
+logs/
+*.log
+
+# Uploads
+upload/
+
+# OS
+Thumbs.db
+.DS_Store
