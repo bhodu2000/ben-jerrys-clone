@@ -292,39 +292,32 @@
           const primary = document.getElementById('navbar-primary');
           if (!primary) return;
         
-          // 토글 버튼: 실제로 data-bs-target이 있는 링크만
           const toggles = primary.querySelectorAll('.nav-link-toggle[data-bs-target]');
-          // 패널: primary 안의 collapse 패널들
           const panels  = primary.querySelectorAll('.collapse[data-collapse="nav"]');
         
-          // 모두 닫기(바깥 클릭/ESC용)
           function closeAll() {
             panels.forEach(p => {
               bootstrap.Collapse.getOrCreateInstance(p, { toggle: false }).hide();
             });
           }
         
-          // 토글 클릭: 기본 동작 막고 해당 패널만 토글
           toggles.forEach(btn => {
             btn.addEventListener('click', (e) => {
-              e.preventDefault(); // 링크 이동 방지
+              e.preventDefault(); 
               const sel = btn.getAttribute('data-bs-target');
               const panel = sel && document.querySelector(sel);
               if (!panel) return;
         
               const inst = bootstrap.Collapse.getOrCreateInstance(panel, { toggle: false });
-              // data-bs-parent="#navbar-primary" 덕분에 show()가 다른 패널을 자동으로 닫아줍니다.
               if (panel.classList.contains('show')) inst.hide();
               else inst.show();
             });
           });
         
-          // 바깥 클릭 시 닫기 (옵션)
           document.addEventListener('click', (e) => {
             if (!primary.contains(e.target)) closeAll();
           });
         
-          // ESC로 닫기 (옵션)
           document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeAll();
           });
