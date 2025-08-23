@@ -275,7 +275,8 @@ body {
 /* 배경 레이어 */
 .hero-background {
   aspect-ratio: 2.5;
-  position: absolute;     
+  position: relative; 
+  overflow: hidden;    
   top: 0;
   left: 0;
   width: 100%;
@@ -285,10 +286,31 @@ body {
 
 .hero-background .hero-img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: contain;
   object-position: bottom right;    
 }
+
+
+.hero-background .arrow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;     
+  height: 100%;   
+  z-index: 2;
+  pointer-events: none;
+  transform: translateX(40px);
+  object-fit: contain !important; 
+}
+
+.hero-background .cloud {
+  position: absolute; left: 0;  
+  width: 100%; height: auto;               
+  z-index: 1;                            
+  pointer-events: none;
+}
+
 
 /* 전경 레이어 */
 .hero-foreground {
@@ -441,6 +463,10 @@ h2, .h2, .heading-2 {
 
 .bg-bnj-dark-purple {
   background-color: #201460;
+}
+
+.bg-bnj-medium-blue {
+  background-color: #375d9d;
 }
 
 .banner .banner-image {
@@ -633,6 +659,60 @@ h2, .h2, .heading-2 {
 }
 
 
+/* ===== 제품 검색 영역 ===== */
+
+.search-auto-suggest {
+  padding: 24px 40px 40px 40px;
+}
+
+.search-auto-suggest form {
+  max-width: 576px;
+  margin: 0 auto;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.search-auto-suggest .input-group {
+margin-right: 16px;
+position: relative;
+display: flex;
+flex-wrap: wrap;
+align-items: stretch;
+width: 100%;
+}
+
+.search-auto-suggest .input-group::before {
+  width: 64px;
+  height: 64px;
+  padding: 16px;
+  position: absolute;
+  top: 0;
+  left: 4px;
+  pointer-events: none;
+  z-index: 4;
+  content: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 fill=%22%23141414%22 width=%22100%25%22 viewBox=%220 0 100 100%22%3E%3Cpath d=%22M65.1,70.4C50,83.1,27.4,81.2,14.7,66S4,28.3,19.1,15.6S56.9,4.9,69.6,20c11.1,13.3,11.2,32.6,0,45.9 l23.6,23.6L88.7,94L65.1,70.4z M21.3,22.2c-11.5,11.5-11.5,30.1,0,41.6s30.1,11.5,41.6,0s11.5-30.1,0-41.6c-5.5-5.5-13-8.6-20.8-8.6 C34.4,13.5,26.9,16.6,21.3,22.2z%22/%3E%3C/svg%3E");
+}
+
+.combobox   { display: flex; flex: 1 1 auto; }
+
+
+.search-auto-suggest .input-group .form-control {
+padding: 16px 20px 16px 68px;
+position: relative;
+border-radius: 8px !important;
+border-color: #141414;
+z-index: 3;
+font-weight: 400;
+font-size: 20px;
+line-height: 1.5;
+border: 1px solid #595959;
+appearance: none;
+transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+display: block;
+width: 100%;
+}
 
 
 
