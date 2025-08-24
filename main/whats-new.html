@@ -1,0 +1,425 @@
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>whats-new</title>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body class="template-home">
+        <div class="sticky-guard">
+            <header id="header" style>
+                <div class="container-fluid  ">
+                    <nav id="navbar-primary" data-module="Navbar" aria-label="primary" class="navbar">
+                        <a class="navbar-brand" href="/" aria-label="Ben &amp; Jerry's 홈페이지">
+                                    <img class="logo" alt="Ben &amp; Jerry's 로고" src="../assets/img/logo.png">
+                        </a>
+
+                        <ul role="menubar" class="navbar-nav navbar-nav-primary" data-nav="primary">
+                            <li class="nav-item" role="menuitem" data-width="162">
+                                <a id="navbarDropdownMenu-a" href="/flavours" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#navbarDropdownMenu-collapse-a" 
+                                        class="nav-link nav-link-toggle" 
+                                        aria-current="page" 
+                                        aria-expanded="false" 
+                                        aria-haspopup="true">
+                                    아이스크림</a>
+
+                                <div id="navbarDropdownMenu-collapse-a" data-collapse="nav" 
+                                        class="navbar-collapse navbar-collapse-nav collapse" 
+                                        data-bs-parent="#navbar-primary" style="">
+                                    <ul role="menu" class="nav " style="height: 64px;">
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/flavours">아이스크림</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/flavours/ice-cream-pints">파인트</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/flavours/ice-cream-cups">미니컵</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/flavors/ice-cream-shop-flavors">스쿱</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+
+                            <li class="nav-item" role="menuitem" data-width="125">
+                                <a class="nav-link" href="/ice-cream-near-me">
+                                    구매처</a>
+                            </li>
+                        
+
+                            <li class="nav-item" role="menuitem" data-width="144">
+                                <a id="navbarDropdownMenu-b" href="/values" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#navbarDropdownMenu-collapse-b" 
+                                        class="nav-link nav-link-toggle" 
+                                        aria-expanded="false" 
+                                        aria-haspopup="true">
+                                    행동주의</a>
+
+                                <div id="navbarDropdownMenu-collapse-b" data-collapse="nav" 
+                                        class="navbar-collapse navbar-collapse-nav collapse" 
+                                        data-bs-parent="#navbar-primary" style="">
+                                    <ul role="menu" class="nav " style="height: 96px;">
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/values">행동주의</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/values/how-we-do-business">기업 운영 방식</a>
+                                        </li><li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/values/issues-we-care-about">우리가 중요하게 생각하는 문제</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/values/our-progressive-values">우리가 추구하는 진보적인 가치</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        
+                            <li class="nav-item" role="menuitem">
+                                <a id="navbarDropdownMenu-c" href="/about-us" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#navbarDropdownMenu-collapse-c" 
+                                        class="nav-link nav-link-toggle" 
+                                        aria-expanded="false" 
+                                        aria-haspopup="true">
+                                    회사 소개</a>
+
+                                <div id="navbarDropdownMenu-collapse-c" data-collapse="nav" 
+                                        class="navbar-collapse navbar-collapse-nav collapse" 
+                                        data-bs-parent="#navbar-primary" style="">
+                                    <ul role="menu" class="nav " style="height: 160px;">
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/about-us">회사 소개</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/about-us/how-were-structured">경영 구조</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/about-us/how-we-make-ice-cream">우리가 아이스크림을 제조하는 방식</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/about-us/flavour-gurus">맛 전문가</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/about-us/where-we-do-business">우리가 기업을 운영하는 지역</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        
+                            <li class="nav-item" role="menuitem">
+                                <a class="nav-link " href="/whats-new">새로운 소식</a>
+                            </li>
+                        </ul>
+
+
+                        <button class="navbar-toggler navbar-toggler-search"
+                        data-bs-toggle="collapse" data-bs-target="#navbar-collapse-search"
+                        aria-controls="navbar-collapse-search" aria-expanded="false" aria-label="토글 검색">
+                            <span class="navbar-toggler-icon"></span>    
+                        </button>
+                        <button class="navbar-toggler navbar-toggler-nav" 
+                                data-toggle="nav" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse-nav"
+                                aria-controls="navbar-collapse-nav" aria-expanded="false" aria-haspopup="true" aria-label="토글 탐색" 
+                                style="display: revert; visibility: visible;">
+                                <span class="navbar-toggler-icon"></span>
+                        </button> 
+                    </nav>  
+                </div>
+            </header>
+        </div>
+
+
+            <main id="main" style="margin-top: 112px;">
+                <div class="container-fluid">
+                    <article class="hero theme-light view-default">
+                        <div class="hero-background" style="background-color: #a2d45e">
+                                    <img src="../assets/img/homepage/whats_new.png" alt="히어로 이미지" class="hero-img whatsnew" loading="lazy">
+                                    <img src="../assets/img/misc/landing_clouds.png" alt="구름" class="cloud" loading="lazy">    
+                        </div>
+                        <div class="hero-foreground">
+                            <div class="hero-content">
+                                <h1 class="heading-1">새로운 소식</h1>
+                                <p>Ben &amp; Jerry’s가 전하는 새로운 아이스크림 정보, 사건, 일상의 행복한 소식.</p>
+                                <div class="hero-buttons"></div>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <div class="whats-new" id="whats-new" data-module="WhatsNew" data-url="/whats-new/pagecontent/whats-new.hidden.pageContent.html.ajax" data-page-size="5">
+                        <header>
+                            <div role="region" aria-label="bnjc_whatsNew.label.newsCategoryFilter" data-module="NavContainer" class="nav-container">
+                
+                                <button data-button="prev" class="btn-prev" style="display: none;">
+                                    <svg viewBox="0 0 50 50" aria-hidden="true">
+                                        <circle cx="25" cy="25" r="24" fill="none" stroke="#141414" stroke-width="2"></circle><path d="M0,0,11.691,10.835,0,20.319" transform="translate(29.078 34.823) rotate(180)" fill="none" stroke="#141414" stroke-linecap="round" stroke-width="3"></path>
+                                    </svg>
+                                </button>
+                    
+                                <ul data-nav="" data-container="pills" class="nav nav-pills">
+                                    <li class="nav-item" data-category="">
+                                        <button type="button" class="nav-link active" aria-current="true">전체</button>
+                                    </li>
+                                    <li class="nav-item" data-category="flavours">
+                                            <button type="button" class="nav-link" aria-current="false">아이스크림 맛</button>
+                                        </li>
+                                    <li class="nav-item" data-category="fun">
+                                            <button type="button" class="nav-link" aria-current="false">즐거움</button>
+                                        </li>
+                                    <li class="nav-item" data-category="recipes">
+                                            <button type="button" class="nav-link" aria-current="false">레시피</button>
+                                        </li>
+                                    <li class="nav-item" data-category="values">
+                                            <button type="button" class="nav-link" aria-current="false">가치</button>
+                                        </li>
+                                    </ul>
+                    
+                                <button data-button="next" class="btn-next" style="display: none;">
+                                    <svg viewBox="0 0 50 50" aria-hidden="true">
+                                        <g transform="translate(-66)"><circle cx="25" cy="25" r="24" transform="translate(66)" fill="none" stroke="#141414" stroke-width="2"></circle><path d="M-1137.768,10000.7l11.691,10.835-11.691,9.483" transform="translate(1224.721 -9986.199)" fill="none" stroke="#141414" stroke-linecap="round" stroke-width="3"></path></g>
+                                    </svg>
+                                </button>
+                            </div>
+                    
+                        </header>
+                    
+                        <div class="row g-0">
+                            <div class="col-md-9">
+                                <section class="whats-new-items">
+                                    <div data-container="contents">
+
+                                        <article class="whats-new-item">
+                                            <div class="whats-new-item-image">
+                                                <picture>
+                                                        <img src="../assets/img/misc/fcd-history-whats-new.webp" alt="" class="" loading="lazy">
+                                                </picture>
+                                            </div>
+                                            <div class="content">
+                                                <h3 class="heading heading-2">Free Cone day (프리 콘 데이): 미국 버몬트에서 세계적인 축제가 되기까지</h3>
+                                                <span class="label">2023년 3월 1일</span>
+                                                <div>
+                                                    <p>벤앤제리스의 Free Cone day (프리 콘 데이)가 얼마 남지 않았어요!&nbsp;<br>
+                                                        Free Cone day (프리 콘 데이)의 역사와 지금까지 어떻게 세계적인 축제가 되었는지 확인해 보세요.</p>
+                                                </div>
+                    
+                                                <a href="/whats-new/free-cone-day/free-cone-day-history" class="btn btn-tertiary">
+                                                        더 보기</a>
+                                            </div>
+                                        </article>
+
+                                        <article class="whats-new-item">
+                                            <div class="whats-new-item-image">
+                                                <picture>
+                                                    <img src="../assets/img/misc/FCD_Quiz_Thumbnail.webp" alt="" class="" loading="lazy">
+                                                </picture></div>
+                                            <div class="content">
+                                                <h3 class="heading heading-2">Free Cone day (프리 콘 데이)에는 어떤 맛을 꼭 먹어봐야 할까요?</h3>
+                                                <span class="label">2023년 3월 1일</span>
+                                                <div><p>Free Cone day (프리 콘 데이)를 기다리고 있는 여러분들을 위해 취향 테스트를 준비해 봤어요!<br>
+                                                        내 취향에 맞는 맛은 어떤 맛인지 궁금하다면 지금 바로 퀴즈를 풀어 보세요.</p>
+                                                </div>
+                                                    <a href="/whats-new/free-cone-day/free-cone-day-flavor-quiz" class="btn btn-tertiary">
+                                                        더 보기</a>
+                                            </div>
+                    
+                                        </article>
+                                        
+                                        <article class="whats-new-item">
+                                            <div class="whats-new-item-image">
+                                                <picture>
+                                                    <img src="../assets/img/misc/fcd-flavor-thumbnail.avif" alt="" class="" loading="lazy">
+                                                </picture>
+                                            </div>
+                                            <div class="content">
+                                                <h3 class="heading heading-2">어떻게 하면 보다 특별한 Free Cone day (프리 콘 데이)를 만들 수 있을까요?</h3>
+                                                <span class="label">2023년 3월 1일</span>
+                                                <div><p>여러분이 선택한 아이스크림이 세상을 더 긍정적으로 만드는 데 도움이 될 수 있다는 사실, 알고 계시나요?&nbsp;<br>
+                                                         Free Cone day (프리 콘 데이)를 기다리고 계시는 여러분을 위해, 맛있는 아이스크림 뿐만 아니라 보다 특별하게 맛을 고를 수 있도록, 지금 바로 가이드를 확인해보세요!</p>
+                                                </div>
+                                                <a href="/whats-new/free-cone-day/free-cone-day-flavor" class="btn btn-tertiary">
+                                                        더 보기</a>
+                                            </div>
+                                        </article>
+                                        
+                                        <article class="whats-new-item">
+                                            <div class="whats-new-item-image">
+                                                <picture>
+                                                    <img src="../assets/img/misc/B-J_Evergreen_July2019_Cirilli_200x200.avif" alt="" class="" loading="lazy">
+                                                </picture>
+                                            </div>
+                                            <div class="content">
+                                                <h3 class="heading heading-2">Top Ben &amp; Jerry’s Flavours of 2022</h3>
+                                                <span class="label">2022년 11월 29일</span>
+                                                <div><p>It’s been a swirl of a year! These are the flavours our fans scooped up the most in 2022.</p></div>
+                                                <a href="/whats-new/2022/top-ben-jerrys-flavours-of-2022" class="btn btn-tertiary">
+                                                        더 보기</a>
+                                            </div>
+                                        </article>
+                                        
+                                        <article class="whats-new-item">
+                                            <div class="whats-new-item-image">
+                                                <picture>
+                                                    <img src="../assets/img/misc/Picture2.avif" alt="" class="" loading="lazy">
+                                                </picture>
+                                            </div>
+                                            <div class="content">
+                                                <h3 class="heading heading-2">벤앤제리스 테스트: 나에게 꼭 맞는 Ben&amp;Jerry's 맛은?</h3>
+                                                <span class="label">2022년 11월 21일</span>
+                                                <div>Ben &amp; Jerry's에는 생소한 맛이 너무 많아 무슨 아이스크림을 선택해야 할지 고민이시라고요? 깊은 맛의 초콜릿이냐 상큼한 맛의 과일이냐.." 고민이 되신다면 저희가 도와드리겠습니다!</div>
+                                                <a href="/whats-new/2021/which-flavour-should-you-try" class="btn btn-tertiary">
+                                                        더 보기</a>
+                                            </div>
+                                        </article>
+
+                                        <div data-has-more=""></div>
+                                    </div>
+                                    <div class="loading d-none" data-container="loading">
+                                        로딩 중…</div>
+                                    <div class="footer" data-container="more">
+                                        <button type="button" class="btn btn-primary" data-more="" data-category="" data-page="1">더 표시</button>
+                                    </div>
+                                </section>
+                            </div>
+
+                            <div class="col-md-3">
+                                <aside class="whats-new-sidebar">
+                                    <div class="social-links">
+                                        <h2 class="heading">팔로우하기</h2>
+                                            <ul class="">
+                                                <li>
+                                                    <a href="https://www.facebook.com/benandjerryskr" aria-label="Facebook">
+                                                        <span class="icon icon-facebook">
+                                                    </span></a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://instagram.com/benjerryskorea" aria-label="Instagram">
+                                                        <span class="icon icon-instagram">
+                                                    </span></a>
+                                                </li>
+                                                </ul>
+                                    </div>
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <aside id="aside-footer">
+                <div class="container-fluid">
+                    <div class="footer-top">
+                        <div class="footer-title">
+                            <h2>우리는 아이스크림 만드는 일을 사랑합니다. 하지만 세상을 더 나은 곳으로 만들기 위한 노력들이 우리의 일에 더 큰 의미를 부여합니다.&nbsp;</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <article class="footer-card">
+                                    <div class="footer-card-image" role="presentation">
+                                            <img src="../assets/img/homepage/footer_card_1.png" alt="" class="" loading="lazy">
+                                    </div>
+                                    <div class="footer-card-content">
+                                        <h2 class="heading-3">엄선한 원료</h2>
+                                        <div class="footer-card-body"><p>우리의 원료들은 환상적인 맛의 아이스크림을 만드는 것은 물론, 사회의 긍정적 변화를 지원합니다.&nbsp;</p></div>
+                                        <a href="/values/how-we-do-business" class="btn btn-tertiary">제품의 원료 조달</a>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-md-4">
+                                <article class="footer-card">
+                                    <div class="footer-card-image" role="presentation">
+                                        <img src="../assets/img/homepage/footer_card_2.png" alt="" class="" loading="lazy">
+                                    </div>
+                                    <div class="footer-card-content">
+                                        <h2 class="heading-3">성공을 공유</h2>
+                                        <div class="footer-card-body"><p>사업과 관련된 모든 사람이 상생할 수 있는 기회를 창출하는 것이 목표입니다.</p>
+                                        </div>
+                                        <a href="/values" class="btn btn-tertiary">우리의 사명과 가치</a>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-md-4">
+                                <article class="footer-card">
+                                    <div class="footer-card-image" role="presentation">
+                                        <img src="../assets/img/homepage/footer_card_3.png" alt="" class="" loading="lazy">
+                                    </div>
+                                    <div class="footer-card-content">
+                                        <h2 class="heading-3">변화 만들기</h2>
+                                        <div class="footer-card-body"><p>우리는 우리가 중요하게 생각하는 행동주의의 대의에 대한 인식을 높이고 이를 지원하고 있습니다.</p>
+                                        </div>
+                                        <a href="/values/issues-we-care-about" class="btn btn-tertiary">우리가 중요하게 생각하는 문제</a>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        
+        
+            <footer id="footer">
+                <div class="container-fluid  ">
+                    <div class="footer-bottom">
+                        <div class="footer-image">
+                            <img class="" src="../assets/img/homepage/footer_woody.svg" alt="Illustrated cow holding a megaphone" loading="lazy"></div>
+                        <div class="row">
+                        <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <h2 class="heading">연락하기</h2>
+                                <ul class="">
+                                    <li><a href="/contact-us">피드백 보내기</a></li>
+                                </ul>
+                                <div class="social-links">
+                                    <h2 class="heading">팔로우하기</h2>
+                                    <ul class="">
+                                        <li>
+                                            <a href="https://www.facebook.com/benandjerryskr">
+                                                <span class="icon icon-facebook"></span></a>
+                                        </li>
+                                        <li>
+                                            <a href="https://instagram.com/benjerryskorea">
+                                                <span class="icon icon-instagram"></span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <h2 class="heading">보다 자세한 정보</h2>
+                                <ul class="">
+                                    <li><a href="/whats-new">새로운 소식</a></li>
+                                    <li><a href="/about-us">회사 소개</a></li>
+                                    <li><a href="/values/how-we-do-business">기업 운영 방식</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="main.js"></script>
+            
+    </body>
+</html>
