@@ -458,6 +458,7 @@ p:last-of-type {
   border-color: #40b4e5;
 }
 
+
 .flavour-available-as ul li .card {
   height: 100%;
   margin: 0;
@@ -483,6 +484,21 @@ p:last-of-type {
 }
 
 .card.view-filter .card-image picture img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card .card-buttons {
+  margin: 16px 0 0;
+}
+
+.card-body {
+  padding: 0;
+}
+
+.card .card-image picture img {
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -623,7 +639,7 @@ p:last-of-type {
   border: 0 !important;
 }
 
-.flavor-available-as ul li {
+.flavour-available-as ul li {
   width: 33%;
   padding: 0 16px 16px 0;
 }
@@ -1078,6 +1094,21 @@ a {
   padding-inline-start: 44px;
 }
 
+
+.carousel.view-recommended {
+--swiper-pagination-color: #002f87;
+--swiper-pagination-bullet-size: 12px;
+--swiper-pagination-bullet-width: 12px;
+--swiper-pagination-bullet-height: 12px;
+--swiper-pagination-bullet-inactive-color: #ccc;
+--swiper-pagination-bullet-inactive-opacity: 1;
+--swiper-pagination-bullet-opacity: 1;
+--swiper-pagination-bullet-horizontal-gap: 6px;
+--swiper-pagination-bullet-vertical-gap: 6px;
+padding: 64px 0 0 0;
+}
+
+
 .flex-wrap {
   flex-wrap: wrap !important;
 }
@@ -1090,7 +1121,7 @@ a {
   transition-property: transform;
 }
 
-.flavor-card {
+.flavour-card {
   padding: 16px 16px 24px;
   position: relative;
 }
@@ -1105,7 +1136,7 @@ a {
   content: "";
 }
 
-.flavor-card picture {
+.flavour-card picture {
   aspect-ratio: 1;
   display: flex;
   flex-shrink: 0;
@@ -1117,7 +1148,16 @@ a {
   padding: 1rem;
 }
 
-.flavor-card img {
+.flavour-card.view-recommended picture {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0;
+}
+
+.flavour-card img {
   width: 100%;
   height: auto;
   object-fit: contain;
@@ -1154,6 +1194,93 @@ section {
 .flavour-values .heading {
   margin-bottom: 24px;
 }
+
+.flavour-values ul li .card {
+  height: 100%;
+  margin: 0;
+}
+
+.accordion {
+  margin: 48px 0;
+  --bs-accordion-color: #141414;
+  --bs-accordion-bg: transparent;
+  --bs-accordion-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
+  --bs-accordion-border-color: #595959;
+  --bs-accordion-border-width: 1px;
+  --bs-accordion-border-radius: 0;
+  --bs-accordion-inner-border-radius: -1px;
+  --bs-accordion-btn-padding-x: 20px;
+  --bs-accordion-btn-padding-y: 16px;
+  --bs-accordion-btn-color: #141414;
+  --bs-accordion-btn-bg: transparent;
+  --bs-accordion-btn-icon: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23141414'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e);
+  --bs-accordion-btn-icon-width: 20px;
+  --bs-accordion-btn-icon-transform: rotate(-180deg);
+  --bs-accordion-btn-icon-transition: transform 0.2s ease-in-out;
+  --bs-accordion-btn-active-icon: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23141414'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e);
+  --bs-accordion-btn-focus-border-color: #8097c3;
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem #1a2050;
+  --bs-accordion-body-padding-x: 20px;
+  --bs-accordion-body-padding-y: 16px;
+  --bs-accordion-active-color: #141414;
+  --bs-accordion-active-bg: transparent;
+}
+
+.accordion-item:first-of-type .accordion-button {
+  border-top-left-radius: var(--bs-accordion-inner-border-radius);
+  border-top-right-radius: var(--bs-accordion-inner-border-radius);
+}
+
+.accordion-item:last-of-type .accordion-collapse {
+  border-bottom-right-radius: var(--bs-accordion-border-radius);
+  border-bottom-left-radius: var(--bs-accordion-border-radius);
+}
+
+.accordion .accordion-item {
+  border-right: 0;
+  border-left: 0;
+}
+
+.accordion .accordion-body {
+  margin: 0 64px 24px 0;
+  padding: 0 0 0 16px;
+}
+
+.accordion .accordion-item .accordion-button {
+  margin: 0;
+  padding: 32px 16px 32px 8px;
+  line-height: 100%;
+  font-size: unset;
+  display: flex;
+}
+
+.accordion .accordion-item .accordion-button:not(.collapsed):not(:focus) {
+  box-shadow: none;
+}
+
+.accordion-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: var(--bs-accordion-btn-padding-y) var(--bs-accordion-btn-padding-x);
+  font-size: 20px;
+  color: var(--bs-accordion-btn-color);
+  text-align: left;
+  background-color: var(--bs-accordion-btn-bg);
+  border: 0;
+  border-radius: 0;
+  overflow-anchor: none;
+  transition: var(--bs-accordion-transition);
+}
+
+.accordion-body picture img {
+    max-width: 100%;
+    height: auto;
+}
+
+  
+
 
 .btn.btn-secondary {
       font-size: 20px;
@@ -1339,12 +1466,13 @@ ul.nav.nav-pills li.nav-item+li.nav-item {
   margin: 0 48px;
 }
 
-.whats-new .whats-new-items .whats-new-item .label {
+.whats-new .whats-new-items .whats-new-item .label, .flavour-card.view-recommended .label {
   display: block;
   color: #595959;
   font-size: 14px;
   line-height: 16px;
 }
+
 
 .label {
   letter-spacing: .042rem;
@@ -1451,6 +1579,63 @@ ol, ul {
   width: 33%;
   padding: 0 16px 16px 0;
 }
+
+.flavour-dietary ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flavour-dietary ul li {
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 120px;
+  margin: 0 16px 16px 0;
+  text-align: center;
+}
+
+.flavour-dietary ul li picture img {
+  width: 80px;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card.view-related {
+  flex-direction: row;
+  margin: 40px 0;
+  padding: 24px;
+  background-color: #edf8fb;
+}
+
+.card.view-related, .card.view-action {
+  display: flex;
+  align-items: flex-start;
+}
+
+.card.view-related .card-image, .card.view-action .card-image {
+  margin-right: 32px;
+  width: 25%;
+  max-width: 200px;
+}
+
+.card.view-related .card-image picture img, .card.view-action .card-image picture img {
+  border-radius: 50%;
+}
+
+.card.view-default .card-content {
+  padding: 64px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
 
 img.article {
   overflow-clip-margin: content-box;
