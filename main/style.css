@@ -1013,6 +1013,29 @@ display: block;
 width: 100%;
 }
 
+.d-md-block {
+  display: block !important;
+}
+
+.navbar .navbar-collapse.navbar-collapse-search {
+  overflow: visible;
+  z-index: 1099;
+}
+.navbar .navbar-collapse {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  overflow-y: auto;
+  z-index: 1100;
+}
+.navbar-collapse {
+  flex-basis: 100%;
+  flex-grow: 1;
+  align-items: center;
+}
+
 
 .dropdown {
   position: relative;
@@ -1556,6 +1579,15 @@ nav.nav-secondary ol.breadcrumb {
 
 .content-block {
   padding: 32px 0;
+}
+
+.accordion .content-block a {
+  text-decoration: underline;
+}
+
+.accordion ul {
+  list-style: none;
+  padding: 0;
 }
 
 ol, ul, dl {
