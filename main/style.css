@@ -534,10 +534,6 @@ p:last-of-type {
   z-index: 1;
 }
 
-.swiper-backface-hidden .swiper-slide {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
 
 .gallery .swiper-slide {
   width: 100%;
@@ -1165,8 +1161,8 @@ padding: 64px 0 0 0;
   flex-shrink: 0;
   justify-content: center;
   overflow: hidden;
-  border-radius: 1rem;
-  margin-bottom: 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 24px;
   background-color: #edf8fb;
   padding: 1rem;
 }
@@ -1187,7 +1183,7 @@ padding: 64px 0 0 0;
   object-position: center;
 }
 
-.flavor-card .badge {
+.flavour-card .badge {
   display: inline-block;
   margin: 8px 0;
 }
