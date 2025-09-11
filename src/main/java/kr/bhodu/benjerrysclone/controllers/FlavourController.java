@@ -53,6 +53,7 @@ public class FlavourController {
                 return "flavours/detail";
         }
 
+
         // 키워드 검색
         @GetMapping("/search")
         public String search() {

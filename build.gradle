@@ -43,7 +43,6 @@ dependencies {
 	implementation'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
 	testAnnotationProcessor 'org.projectlombok:lombok'
 	testCompileOnly 'org.projectlombok:lombok'
-	implementation 'org.springframework.session:spring-session-jdbc'
 }
 
 tasks.named('test') {
