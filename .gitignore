@@ -1,22 +1,38 @@
-# IDE
-.vscode/
-.idea/
-.idea_modules/
-*.iml
-
-# Build system
-.gradle/
+HELP.md
+.gradle
 build/
-out/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
 bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
 
-# Logs
-logs/
-*.log
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
 
-# Uploads
-upload/
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
 
-# OS
-Thumbs.db
-.DS_Store
+### VS Code ###
+.vscode/
+benjerry 5/

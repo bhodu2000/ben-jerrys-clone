@@ -1,0 +1,346 @@
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ice-cream-near-me</title>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/css/style.css">
+    </head>
+    <body class="template-home">
+        <div class="sticky-guard">
+            <header id="header" style>
+                <div class="container-fluid  ">
+                    <nav id="navbar-primary" data-module="Navbar" aria-label="primary" class="navbar">
+                        <a class="navbar-brand" href="/" aria-label="Ben &amp; Jerry's 홈페이지">
+                                    <img class="logo" alt="Ben &amp; Jerry's 로고" src="/assets/img/logo.png">
+                        </a>
+
+                        <ul role="menubar" class="navbar-nav navbar-nav-primary" data-nav="primary">
+                            <li class="nav-item" role="menuitem" data-width="162">
+                                <a id="navbarDropdownMenu-a" href="/flavours" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#navbarDropdownMenu-collapse-a" 
+                                        class="nav-link nav-link-toggle" 
+                                        aria-current="page" 
+                                        aria-expanded="false" 
+                                        aria-haspopup="true">
+                                    아이스크림</a>
+
+                                <div id="navbarDropdownMenu-collapse-a" data-collapse="nav" 
+                                        class="navbar-collapse navbar-collapse-nav collapse" 
+                                        data-bs-parent="#navbar-primary" style="">
+                                    <ul role="menu" class="nav " style="height: 64px;">
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/flavours">아이스크림</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/flavours/ice-cream-pints">파인트</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/flavours/ice-cream-cups">미니컵</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/flavors/ice-cream-shop-flavors">스쿱</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+
+                            <li class="nav-item" role="menuitem" data-width="125">
+                                <a class="nav-link" href="/ice-cream-near-me">
+                                    구매처</a>
+                            </li>
+                        
+
+                            <li class="nav-item" role="menuitem" data-width="144">
+                                <a id="navbarDropdownMenu-b" href="/values" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#navbarDropdownMenu-collapse-b" 
+                                        class="nav-link nav-link-toggle" 
+                                        aria-expanded="false" 
+                                        aria-haspopup="true">
+                                    행동주의</a>
+
+                                <div id="navbarDropdownMenu-collapse-b" data-collapse="nav" 
+                                        class="navbar-collapse navbar-collapse-nav collapse" 
+                                        data-bs-parent="#navbar-primary" style="">
+                                    <ul role="menu" class="nav " style="height: 96px;">
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/values">행동주의</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/values/how-we-do-business">기업 운영 방식</a>
+                                        </li><li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/values/issues-we-care-about">우리가 중요하게 생각하는 문제</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/values/our-progressive-values">우리가 추구하는 진보적인 가치</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        
+                            <li class="nav-item" role="menuitem">
+                                <a id="navbarDropdownMenu-c" href="/about-us" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#navbarDropdownMenu-collapse-c" 
+                                        class="nav-link nav-link-toggle" 
+                                        aria-expanded="false" 
+                                        aria-haspopup="true">
+                                    회사 소개</a>
+
+                                <div id="navbarDropdownMenu-collapse-c" data-collapse="nav" 
+                                        class="navbar-collapse navbar-collapse-nav collapse" 
+                                        data-bs-parent="#navbar-primary" style="">
+                                    <ul role="menu" class="nav " style="height: 160px;">
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/about-us">회사 소개</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/about-us/how-were-structured">경영 구조</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/about-us/how-we-make-ice-cream">우리가 아이스크림을 제조하는 방식</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/about-us/flavour-gurus">맛 전문가</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/about-us/where-we-do-business">우리가 기업을 운영하는 지역</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        
+                            <li class="nav-item" role="menuitem">
+                                <a class="nav-link " href="/whats-new">새로운 소식</a>
+                            </li>
+
+                            <li class="nav-item" role="menuitem">
+                                <a class="nav-link" href="/contact-us">연락처</a>
+                            </li>
+                        </ul>
+
+
+                        <button class="navbar-toggler navbar-toggler-search"
+                        data-bs-toggle="collapse" data-bs-target="#navbar-collapse-search"
+                        aria-controls="navbar-collapse-search" aria-expanded="false" aria-label="토글 검색">
+                            <span class="navbar-toggler-icon"></span>    
+                        </button>
+                        <button class="navbar-toggler navbar-toggler-nav" 
+                                data-toggle="nav" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse-nav"
+                                aria-controls="navbar-collapse-nav" aria-expanded="false" aria-haspopup="true" aria-label="토글 탐색" 
+                                style="display: revert; visibility: visible;">
+                                <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div id="navbar-collapse-search" data-collapse="search" data-bs-parent="#navbar-primary" class="navbar-collapse navbar-collapse-search collapse" style="">
+                            <div class="d-none d-md-block">
+                                <section id="search-auto-suggest" data-module="SearchAutoSuggest" class="search-auto-suggest" data-search-auto-suggest-url="/search-results/pagecontent/search-results.json">
+                                    <form role="search" method="post" name="searchForm" action="/search-results" id="search-auto-suggest-form" class="search-auto-suggest">
+                                        <input type="hidden" name="jcrMethodToCall" value="get">
+                                        <input type="hidden" name="src_originSiteKey" value="kr">
+                                        <input name="src_pagePath.value" id="search-auto-suggest-page-pathValue" type="hidden" value="/sites/kr/home">
+                                        <input type="hidden" name="src_pagePath.includeChildren" value="true">
+                                        <div class="d-flex">
+                                            <div class="input-group">
+                                                <label id="search-auto-suggest-label" for="search-auto-suggest-input" class="visually-hidden">
+                            Search Our Website</label>
+                                                <div data-divbox="" aria-owns="search-auto-suggest-combobox-listbox" class="combobox">
+                                                    <input aria-autocomplete="list" role="combobox" aria-controls="search-auto-suggest-combobox-listbox" autocomplete="off" maxlength="100" aria-expanded="false" aria-haspopup="listbox" type="search" autocapitalize="none" name="src_terms[0].term" id="search-auto-suggest-input" placeholder="Search Flavours" class="form-control" aria-label="Search Our Website" value="" aria-activedescendant="">
+                                                    <input type="hidden" name="src_terms[0].applyFilter" value="true">
+                                                    <input type="hidden" name="src_terms[0].match" value="all_words">
+                                                    <input type="hidden" name="src_terms[0].fields.siteContent" value="true">
+                                                    <input type="hidden" name="src_terms[0].fields.tags" value="true">
+                                                    <div id="search-auto-suggest-combobox-listbox" role="listbox" tabindex="0" class="combobox-listbox" aria-labelledby="search-auto-suggest-label" hidden="true"></div>
+                                                    <div class="visually-hidden">
+                                                            제안은 3자 이상 입력 시 제공됩니다. 결과 제공 시 상하 화살표를 이용하여 검토하고 선택하여 입력할 수 있습니다. 터치 기기 이용자의 경우 터치하거나 스와이프 동작으로 둘러볼 수 있습니다.</div>
+                                                    <div role="status" aria-atomic="true" aria-live="polite" class="visually-hidden">
+                                                        <span data-aria-status-results="" data-template-sizenotexact="{0}개 이상 결과 제공됨." data-template="{0}개 결과 제공됨."></span>
+                                                        <span data-aria-status-focus="" data-template="{0}개 살펴보기."></span>
+                                                    </div>
+                                    
+                                                    <div class="no-results" data-no-results="" data-template="결과를 찾을 수 없음: {0}" style="display: none;"></div>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="visually-hidden-focusable btn btn-primary" disabled="">
+                                        검색</button>
+                                        </div>
+
+                                        <input type="hidden" name="src_sites.values" value="kr">
+                                        <input type="hidden" name="src_sitesForReferences.values" value="systemsite">
+                                        <input type="hidden" name="src_languages.values" value="ko_KR">
+                                    </form>
+                                    <div role="status" aria-atomic="true" aria-live="polite" class="visually-hidden">
+                                        <span data-aria-status-results="" data-template="{0}개 결과 제공됨."></span>
+                                        <span data-aria-status-focus="" data-template="{0}개 살펴보기."></span>
+                                    </div>
+                                    <div class="no-results" data-no-results="" data-template="결과를 찾을 수 없음: {0}"></div>
+                                </section>
+                            </div>
+                        </div>
+                    </nav>  
+                </div>
+            </header>
+        </div>
+
+
+        <main id="main" style="margin-top: 112px;">
+            <div class="container-fluid">
+                <article class="hero theme-dark view-default">
+                    <div class="hero-background bg-bnj-medium-blue" style="">
+                                <img src="/assets/img/misc/landing_our_flavors.png" alt="히어로 이미지" class="hero-img" loading="lazy">
+                                <img src="/assets/img/misc/animation_arrows.svg" alt="화살표" class="arrow" loading="lazy">
+                                <img src="/assets/img/misc/landing_clouds.png" alt="구름" class="cloud" loading="lazy">
+                    </div>
+                    <div class="hero-foreground">
+                        <div class="hero-content">
+                            <h1 class="heading-1">가까이에서 벤앤제리스 만나보기</h1>
+                            <div class="hero-body"><p>아이스크림을 찾고 있나요? 벤앤제리스가 가까이에 있습니다! 벤앤제리스가 먹고 싶을 때, "지금 열려있는 매장이 있나?" 고민할 때! 그럴 때 근처 편의점이나 마트, 딜리버리샵을 이용하면 벤앤제리스의 다양한 플레이버를 맛볼 수 있어요!&nbsp;</p></div>
+                        </div>
+                    </div>
+                </article>
+
+
+
+
+                <div class="row grid-row">
+                    <h2 class="heading heading-2">딜리버리 앱으로 주문하기</h2>
+                    <div class="col-12">
+                        <article class="card view-default">
+                            <div class="card-content">
+                                <h3 class="heading heading-3">배민</h3>
+                                <div class="card-body"></div>
+                                <div class="card-buttons">
+                                    <a href="https://www.baemin.com/" class="btn btn-primary" target="_self" data-gtm="commerce_click">배민</a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card view-default">
+                            <div class="card-content">
+                                <h3 class="heading heading-3">Coupang Eats</h3>
+                                <div class="card-body"></div>
+                                <div class="card-buttons">
+                                    <a href="https://www.coupangeats.com/?_branch_match_id=1192272203566705187&amp;utm_source=share&amp;utm_medium=share&amp;_branch_referrer=H4sIAAAAAAAAA8soKSkottLXL85ILErVS84vLUjMS09NLCkGsnP1C90C%2FBLLi%2FMKC5IA24TPmikAAAA%3D" class="btn btn-primary" target="_self" data-gtm="commerce_click">Coupang Eats</a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card view-default">
+                            <div class="card-content">
+                                <h3 class="heading heading-3">요기요</h3>
+                                <div class="card-body"></div>
+                                <div class="card-buttons">
+                                    <a href="https://www.yogiyo.co.kr/mobile/" class="btn btn-primary" target="_self" data-gtm="commerce_click">요기요</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+
+
+
+
+
+                
+            </div>
+        </main>        
+
+
+        <aside id="aside-footer">
+            <div class="container-fluid">
+                <div class="footer-top">
+                    <div class="footer-title">
+                        <h2>우리는 아이스크림 만드는 일을 사랑합니다. 하지만 세상을 더 나은 곳으로 만들기 위한 노력들이 우리의 일에 더 큰 의미를 부여합니다.&nbsp;</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                        <img src="/assets/img/homepage/footer_card_1.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">엄선한 원료</h2>
+                                    <div class="footer-card-body"><p>우리의 원료들은 환상적인 맛의 아이스크림을 만드는 것은 물론, 사회의 긍정적 변화를 지원합니다.&nbsp;</p></div>
+                                    <a href="/values/how-we-do-business" class="btn btn-tertiary">제품의 원료 조달</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                    <img src="/assets/img/homepage/footer_card_2.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">성공을 공유</h2>
+                                    <div class="footer-card-body"><p>사업과 관련된 모든 사람이 상생할 수 있는 기회를 창출하는 것이 목표입니다.</p>
+                                    </div>
+                                    <a href="/values" class="btn btn-tertiary">우리의 사명과 가치</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                    <img src="/assets/img/homepage/footer_card_3.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">변화 만들기</h2>
+                                    <div class="footer-card-body"><p>우리는 우리가 중요하게 생각하는 행동주의의 대의에 대한 인식을 높이고 이를 지원하고 있습니다.</p>
+                                    </div>
+                                    <a href="/values/issues-we-care-about" class="btn btn-tertiary">우리가 중요하게 생각하는 문제</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+
+        <footer id="footer">
+            <div class="container-fluid  ">
+                <div class="footer-bottom">
+                    <div class="footer-image">
+                        <img class="" src="/assets/img/homepage/footer_woody.svg" alt="Illustrated cow holding a megaphone" loading="lazy"></div>
+                    <div class="row">
+                    <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <h2 class="heading">연락하기</h2>
+                            <ul class="">
+                                <li><a href="/contact-us">피드백 보내기</a></li>
+                            </ul>
+                            <div class="social-links">
+                                <h2 class="heading">팔로우하기</h2>
+                                <ul class="">
+                                    <li>
+                                        <a href="https://www.facebook.com/benandjerryskr">
+                                            <span class="icon icon-facebook"></span></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://instagram.com/benjerryskorea">
+                                            <span class="icon icon-instagram"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h2 class="heading">보다 자세한 정보</h2>
+                            <ul class="">
+                                <li><a href="/whats-new">새로운 소식</a></li>
+                                <li><a href="/about-us">회사 소개</a></li>
+                                <li><a href="/values/how-we-do-business">기업 운영 방식</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="main.js"></script>
+            
+    </body>
+</html>

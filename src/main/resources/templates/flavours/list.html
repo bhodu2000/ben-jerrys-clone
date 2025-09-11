@@ -1,0 +1,636 @@
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>flavours</title>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/css/style.css">
+    </head>
+    <body class="template-home">
+        <div class="sticky-guard">
+            <header id="header" style>
+                <div class="container-fluid  ">
+                    <nav id="navbar-primary" data-module="Navbar" aria-label="primary" class="navbar">
+                        <a class="navbar-brand" href="/" aria-label="Ben &amp; Jerry's 홈페이지">
+                                    <img class="logo" alt="Ben &amp; Jerry's 로고" src="/assets/img/logo.png">
+                        </a>
+
+                        <ul role="menubar" class="navbar-nav navbar-nav-primary" data-nav="primary">
+                            <li class="nav-item" role="menuitem" data-width="162">
+                                <a id="navbarDropdownMenu-a" href="/flavours" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#navbarDropdownMenu-collapse-a" 
+                                        class="nav-link nav-link-toggle" 
+                                        aria-current="page" 
+                                        aria-expanded="false" 
+                                        aria-haspopup="true">
+                                    아이스크림</a>
+
+                                <div id="navbarDropdownMenu-collapse-a" data-collapse="nav" 
+                                        class="navbar-collapse navbar-collapse-nav collapse" 
+                                        data-bs-parent="#navbar-primary" style="">
+                                    <ul role="menu" class="nav " style="height: 64px;">
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/flavours">아이스크림</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/flavours/ice-cream-pints">파인트</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/flavours/ice-cream-cups">미니컵</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/flavors/ice-cream-shop-flavors">스쿱</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+
+                            <li class="nav-item" role="menuitem" data-width="125">
+                                <a class="nav-link" href="/ice-cream-near-me">
+                                    구매처</a>
+                            </li>
+                        
+
+                            <li class="nav-item" role="menuitem" data-width="144">
+                                <a id="navbarDropdownMenu-b" href="/values" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#navbarDropdownMenu-collapse-b" 
+                                        class="nav-link nav-link-toggle" 
+                                        aria-expanded="false" 
+                                        aria-haspopup="true">
+                                    행동주의</a>
+
+                                <div id="navbarDropdownMenu-collapse-b" data-collapse="nav" 
+                                        class="navbar-collapse navbar-collapse-nav collapse" 
+                                        data-bs-parent="#navbar-primary" style="">
+                                    <ul role="menu" class="nav " style="height: 96px;">
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/values">행동주의</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/values/how-we-do-business">기업 운영 방식</a>
+                                        </li><li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/values/issues-we-care-about">우리가 중요하게 생각하는 문제</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/values/our-progressive-values">우리가 추구하는 진보적인 가치</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        
+                            <li class="nav-item" role="menuitem">
+                                <a id="navbarDropdownMenu-c" href="/about-us" 
+                                        data-bs-toggle="collapse" 
+                                        data-bs-target="#navbarDropdownMenu-collapse-c" 
+                                        class="nav-link nav-link-toggle" 
+                                        aria-expanded="false" 
+                                        aria-haspopup="true">
+                                    회사 소개</a>
+
+                                <div id="navbarDropdownMenu-collapse-c" data-collapse="nav" 
+                                        class="navbar-collapse navbar-collapse-nav collapse" 
+                                        data-bs-parent="#navbar-primary" style="">
+                                    <ul role="menu" class="nav " style="height: 160px;">
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/about-us">회사 소개</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/about-us/how-were-structured">경영 구조</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/about-us/how-we-make-ice-cream">우리가 아이스크림을 제조하는 방식</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/about-us/flavour-gurus">맛 전문가</a>
+                                        </li>
+                                        <li class="nav-item" role="menuitem">
+                                            <a class="nav-link " href="/about-us/where-we-do-business">우리가 기업을 운영하는 지역</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        
+                            <li class="nav-item" role="menuitem">
+                                <a class="nav-link " href="/whats-new">새로운 소식</a>
+                            </li>
+
+                            <li class="nav-item" role="menuitem">
+                                <a class="nav-link" href="/contact-us">연락처</a>
+                            </li>
+                        </ul>
+
+
+                        <button class="navbar-toggler navbar-toggler-search"
+                        data-bs-toggle="collapse" data-bs-target="#navbar-collapse-search"
+                        aria-controls="navbar-collapse-search" aria-expanded="false" aria-label="토글 검색">
+                            <span class="navbar-toggler-icon"></span>    
+                        </button>
+                        <button class="navbar-toggler navbar-toggler-nav" 
+                                data-toggle="nav" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse-nav"
+                                aria-controls="navbar-collapse-nav" aria-expanded="false" aria-haspopup="true" aria-label="토글 탐색" 
+                                style="display: revert; visibility: visible;">
+                                <span class="navbar-toggler-icon"></span>
+                        </button> 
+
+                        <div id="navbar-collapse-search" data-collapse="search" data-bs-parent="#navbar-primary" class="navbar-collapse navbar-collapse-search collapse" style="">
+                            <div class="d-none d-md-block">
+                                <section id="search-auto-suggest" data-module="SearchAutoSuggest" class="search-auto-suggest" data-search-auto-suggest-url="/search-results/pagecontent/search-results.json">
+                                    <form role="search" method="post" name="searchForm" action="/search-results" id="search-auto-suggest-form" class="search-auto-suggest">
+                                        <input type="hidden" name="jcrMethodToCall" value="get">
+                                        <input type="hidden" name="src_originSiteKey" value="kr">
+                                        <input name="src_pagePath.value" id="search-auto-suggest-page-pathValue" type="hidden" value="/sites/kr/home">
+                                        <input type="hidden" name="src_pagePath.includeChildren" value="true">
+                                        <div class="d-flex">
+                                            <div class="input-group">
+                                                <label id="search-auto-suggest-label" for="search-auto-suggest-input" class="visually-hidden">
+                            Search Our Website</label>
+                                                <div data-divbox="" aria-owns="search-auto-suggest-combobox-listbox" class="combobox">
+                                                    <input aria-autocomplete="list" role="combobox" aria-controls="search-auto-suggest-combobox-listbox" autocomplete="off" maxlength="100" aria-expanded="false" aria-haspopup="listbox" type="search" autocapitalize="none" name="src_terms[0].term" id="search-auto-suggest-input" placeholder="Search Flavours" class="form-control" aria-label="Search Our Website" value="" aria-activedescendant="">
+                                                    <input type="hidden" name="src_terms[0].applyFilter" value="true">
+                                                    <input type="hidden" name="src_terms[0].match" value="all_words">
+                                                    <input type="hidden" name="src_terms[0].fields.siteContent" value="true">
+                                                    <input type="hidden" name="src_terms[0].fields.tags" value="true">
+                                                    <div id="search-auto-suggest-combobox-listbox" role="listbox" tabindex="0" class="combobox-listbox" hidden="true"></div>
+                                                    <div role="status" aria-atomic="true" aria-live="polite" class="visually-hidden">
+                                                        <span data-aria-status-results="" data-template-sizenotexact="{0}개 이상 결과 제공됨." data-template="{0}개 결과 제공됨."></span>
+                                                        <span data-aria-status-focus="" data-template="{0}개 살펴보기."></span>
+                                                    </div>
+                                    
+                                                    <div class="no-results" data-no-results="" data-template="결과를 찾을 수 없음: {0}" style="display: none;"></div>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="visually-hidden-focusable btn btn-primary" disabled="">
+                                        검색</button>
+                                        </div>
+
+                                        <input type="hidden" name="src_sites.values" value="kr">
+                                        <input type="hidden" name="src_sitesForReferences.values" value="systemsite">
+                                        <input type="hidden" name="src_languages.values" value="ko_KR">
+                                    </form>
+                                    <div role="status" aria-atomic="true" aria-live="polite" class="visually-hidden">
+                                        <span data-aria-status-results="" data-template="{0}개 결과 제공됨."></span>
+                                        <span data-aria-status-focus="" data-template="{0}개 살펴보기."></span>
+                                    </div>
+                                    <div class="no-results" data-no-results="" data-template="결과를 찾을 수 없음: {0}"></div>
+                                </section>
+                            </div>
+                        </div>
+                    </nav>  
+                </div>
+            </header>
+        </div>
+
+
+        <main id="main" style="margin-top: 112px;">
+            <div class="container-fluid">
+                <article class="hero theme-dark view-default">
+                    <div class="hero-background bg-bnj-medium-blue" style="">
+                                <img src="/assets/img/misc/landing_our_flavors.png" alt="히어로 이미지" class="hero-img" loading="lazy">
+                                <img src="/assets/img/misc/animation_arrows.svg" alt="화살표" class="arrow" loading="lazy">
+                                <img src="/assets/img/misc/landing_clouds.png" alt="구름" class="cloud" loading="lazy">
+                    </div>
+                    <div class="hero-foreground">
+                        <div class="hero-content">
+                            <h1 class="heading-1">초콜릿 칩 쿠키 도우</h1>
+                            <div class="hero-body"><p>초콜릿 칩 쿠키 도우의 퍼지가 덩어리째 들어간 바닐라 아이스크림</p></div>
+                            <div class="hero-buttons">
+                                <a href="/flavours/chocolate-chip-cookie-dough-ice-cream" class="btn btn-primary" title="초콜릿 칩 쿠키 도우 아이스크림">더 보기</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                
+                <section id="search-auto-suggest-1" data-module="SearchAutoSuggest" class="search-auto-suggest" data-search-auto-suggest-url="/search-results/pagecontent/search-results.json">
+                    <form role="search" method="post" name="searchForm" action="/search-results" id="search-auto-suggest-1-form" class="search-auto-suggest">
+                        <div class="d-flex">
+                            <div class="input-group">
+                                <label id="search-auto-suggest-1-label" for="search-auto-suggest-1-input" class="visually-hidden">
+                                        Search flavours</label>
+            
+                                <div data-divbox="" aria-owns="search-auto-suggest-1-combobox-listbox" class="combobox">
+                                    <input aria-autocomplete="list" role="combobox" aria-controls="search-auto-suggest-1-combobox-listbox" autocomplete="off" maxlength="100" aria-expanded="false" aria-haspopup="listbox" type="search" autocapitalize="none" name="src_terms[0].term" id="search-auto-suggest-1-input" placeholder="Search Flavours" class="form-control" aria-label="Search flavors" value="" aria-activedescendant="">
+                                        <div id="search-auto-suggest-1-combobox-listbox" role="listbox" tabindex="0" class="combobox-listbox" aria-labelledby="search-auto-suggest-1-label" hidden="true"></div>
+                                </div>
+                                <button type="submit" class="visually-hidden-focusable btn btn-primary" disabled="">검색</button>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+
+
+                <div class="row grid-row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="dropdown" style="width: 100%">
+                            <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Browse By Category" class="dropdown-toggle links">
+                                <h2 class="heading-3 m-0">Browse By Category</h2>
+                            </a>
+                            <ul class="dropdown-menu" style="width: 100%;">
+                                <li class="dropdown-item"><a class="nav-link" href="#ice-cream-tubs" style="padding: 0.5rem 2rem 0.5rem 1rem;">
+                                    <img src="/assets/img/misc/IceCreamPints_Flavor_Landing_Icons.png" alt="파인트" aria-hidden="true" loading="lazy" style="width: 2.5rem;">
+                                    <span class="heading-5 d-inline">파인트</span>
+                                </a></li>
+                                <li class="dropdown-item"><a class="nav-link" href="#mini-cups" style="padding: 0.5rem 2rem 0.5rem 1rem;">
+                                    <img src="/assets/img/misc/Mini_Cups_Flavor_Landing_Icons.png" alt="미니컵" aria-hidden="true" loading="lazy" style="width: 2.5rem;">
+                                    <span class="heading-5 d-inline">미니컵</span>
+                                </a></li>
+                                <li class="dropdown-item"><a class="nav-link" href="#scoop" style="padding: 0.5rem 2rem 0.5rem 1rem;">
+                                    <img src="/assets/img/misc/Scoop_Shops_Flavor_Landing_Icons.png" alt="" aria-hidden="true" loading="lazy" style="width: 2.5rem;">
+                                    <span class="heading-5 d-inline">스쿱</span>
+                                </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+
+
+
+                <a id="pints"></a>
+                <section id="carousel-a" data-module="Carousel" data-min-slides="4" class="carousel view-default">
+
+                    <header>
+                        <h2 class="heading heading-2">파인트</h2>
+                        <div class="d-flex justify-content-end">
+                            <a href="/flavours/ice-cream-pints" target="_self" aria-label="View All 파인트">View&nbsp;All</a>
+                                </div>
+                    </header>
+                
+                    <div class="swiper">
+                        <div class="swiper-wrapper flex-wrap">
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="3917">
+                                    <picture>
+                                        <img src="/assets/img/flavours/strawberry-cheesecake-ice-cream/pint/packshot/main.png" alt="스트로베리 치즈케이크 Original Ice Cream Pint" loading="lazy">
+                                    </picture>    
+                                    <h3 class="heading heading-3">
+                                        스트로베리 치즈케이크
+                                        <div><span class="badge">신제품!</span></div>
+                                    </h3>        
+                                    <div>
+                                        <a href="/flavours/strawberry-cheesecake-ice-cream/pint" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 스트로베리 치즈케이크">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">                 
+                                <div class="flavour-card" data-id="3458">
+                                    <picture>
+                                        <img src="/assets/img/flavours/new-york-super-fudge-chunk-ice-cream/pint/packshot/main.png" alt="뉴욕 수퍼 퍼지 청크 Original Ice Cream Pint" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        뉴욕 수퍼 퍼지 청크</h3>
+                                    <div>
+                                        <a href="/flavours/new-york-super-fudge-chunk-ice-cream/pint" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 뉴욕 수퍼 퍼지 청크">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="3240">
+                                    <picture>
+                                        <img src="/assets/img/flavours/mint-chocolate-cookie-ice-cream/pint/packshot/main.png" alt="민트 초콜릿 칩 쿠키 Original Ice Cream Pint" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        민트 초콜릿 칩 쿠키</h3>                        
+                                        <div>
+                                        <a href="/flavours/mint-chocolate-cookie-ice-cream/pint" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 민트 초콜릿 칩 쿠키">
+                                            지금 구입</a>
+                                    </div>
+                                </div>   
+                            </div>
+
+                            <div class="swiper-slide">                                
+                                <div class="flavour-card" data-id="2687">
+                                    <picture>
+                                        <img src="/assets/img/flavours/vanilla-ice-cream/pint/packshot/main.png" alt="바닐라 Original Ice Cream Pint" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        바닐라</h3>
+            
+                                    <div>
+                                        <a href="/flavours/vanilla-ice-cream/pint" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 바닐라">
+                                            지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">                            
+                                <div class="flavour-card" data-id="2686">
+                                    <picture>
+                                        <img src="/assets/img/flavours/chunky-monkey-ice-cream/pint/packshot/main.png" alt="청키 몽키® Original Ice Cream Pint" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        청키 몽키®</h3>
+                                    <div>
+                                        <a href="/flavours/chunky-monkey-ice-cream/pint" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 청키 몽키®">
+                                            지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card">
+                                    <h3 class="heading heading-3">
+                                        파인트</h3>
+                                    <div>
+                                        <a href="/flavours/ice-cream-pints" class="btn btn-secondary stretched-link" aria-label="View All">
+                                            View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+
+                <a id="mini-cups"></a>
+                <section id="carousel-b" data-module="Carousel" data-min-slides="4" class="carousel view-default">
+
+                    <header>
+                        <h2 class="heading heading-2">미니컵</h2>
+                        <div class="d-flex justify-content-end">
+                            <a href="/flavours/ice-cream-cups" target="_self" aria-label="View All 미니컵">View&nbsp;All</a>
+                                </div>
+                    </header>
+                
+                    <div class="swiper">
+                        <div class="swiper-wrapper flex-wrap">
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="3917">
+                                    <picture>
+                                        <img src="/assets/img/flavours/cherry-garcia-ice-cream/mini-cup/packshot/main.png" alt="체리 가르시아® Original Ice Cream Mini Cup" loading="lazy">
+                                    </picture>    
+                                    <h3 class="heading heading-3">
+                                        체리 가르시아®</h3>        
+                                    <div>
+                                        <a href="/flavours/cherry-garcia-ice-cream/mini-cup" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 체리 가르시아®">
+                                            지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2696">
+                                    <picture>
+                                        <img src="/assets/img/flavours/chocolate-chip-cookie-dough-ice-cream/mini-cup/packshot/main.png" alt="초콜릿 칩 쿠키 도우 Original Ice Cream Mini Cup" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        초콜릿 칩 쿠키 도우</h3>
+                                    <div>
+                                        <a href="/flavours/chocolate-chip-cookie-dough-ice-cream/mini-cup" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜릿 칩 쿠키 도우">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2693">
+                                    <picture>
+                                        <img src="/assets/img/flavours/chocolate-fudge-brownie-ice-cream/mini-cup/packshot/main.png" alt="초콜릿 퍼지 브라우니 Original Ice Cream Mini Cup" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        초콜릿 퍼지 브라우니</h3>
+                                    <div>
+                                        <a href="/flavours/chocolate-fudge-brownie-ice-cream/mini-cup" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜릿 퍼지 브라우니">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card">
+                                    <h3 class="heading heading-3">
+                                        미니컵</h3>
+                                    <div>
+                                        <a href="/flavours/ice-cream-cups" class="btn btn-secondary stretched-link" aria-label="View All">
+                                            View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section id="carousel-c" data-module="Carousel" data-min-slides="4" class="carousel view-default">
+                    <header>
+                        <h2 class="heading heading-2">스쿱</h2>
+                        <div class="d-flex justify-content-end">
+                            <a href="/flavors/ice-cream-shop-flavors" target="_self" aria-label="View All 스쿱">View&nbsp;All</a>
+                        </div>
+                    </header>
+                    <div class="swiper">
+                        <div class="swiper-wrapper flex-wrap">
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="3805">
+                                    <picture>
+                                        <img src="/assets/img/flavours/chocolate-ice-cream/scoop-shop/packshot/main.png" alt="초콜렛 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        초콜렛
+                                        <div>
+                                            <span class="badge">신제품!</span>
+                                        </div>
+                                    </h3>
+                                    <div>   
+                                        <a href="/flavours/chocolate-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜렛">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">         
+                                <div class="flavour-card" data-id="2700">
+                                    <picture>
+                                        <img src="/assets/img/flavours/new-york-super-fudge-chunk-ice-cream/scoop-shop/packshot/main.png" alt="뉴욕 수퍼 퍼지 청크® Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        뉴욕 수퍼 퍼지 청크®</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2700"></div>
+                                    <div>
+                                        <a href="/flavours/new-york-super-fudge-chunk-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 뉴욕 수퍼 퍼지 청크®">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            <div class="swiper-slide">                    
+                                <div class="flavour-card" data-id="2702">
+                                    <picture>
+                                        <img src="/assets/img/flavours/mint-chocolate-chunk-ice-cream/scoop-shop/packshot/main.png" alt="민트 초콜릿 청크 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        민트 초콜릿 청크</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2702"></div>
+                                    <div>
+                                        <a href="/flavours/mint-chocolate-chunk-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 민트 초콜릿 청크">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2699">
+                                    <picture>
+                                        <img src="/assets/img/flavours/vanilla-ice-cream/scoop-shop/packshot/main.png" alt="바닐라 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        바닐라</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2699"></div>
+                                    <div>
+                                        <a href="/flavours/vanilla-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 바닐라">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2703">
+                                    <picture>
+                                        <img src="/assets/img/flavours/sweet-cream-and-cookies-ice-cream/scoop-shop/packshot/main.png" alt="스위트 크림&amp;쿠키 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        스위트 크림&amp;쿠키</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2703"></div>
+                                    <div>
+                                        <a href="/flavours/sweet-cream-and-cookies-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 스위트 크림&amp;쿠키">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card">
+                                    <h3 class="heading heading-3">
+                                        스쿱</h3>   
+                                    <div>
+                                        <a href="/flavors/ice-cream-shop-flavors" class="btn btn-secondary stretched-link" aria-label="View All">
+                                                View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <div class="row grid-row media">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <article class="youtube-video">
+                            <h2 class="visually-hidden">Ben &amp; Jerry's Top 10 Flavours</h2>
+                            <div class="ratio ratio-16x9">
+                                <iframe allowfullscreen="" title="Ben &amp; Jerry's Top 10 Flavours" class="optanon-category-C0004" src="https://www.youtube.com/embed/PDHjQBQ-GDg?rel=0&amp;cc_lang_pref=ko&amp;modestbranding=1&amp;disablekb=1" loading="lazy" data-one-trust="C0004" data-warning="consent-warning-b5747ad8-a4b7-42a0-90a7-56c039164202"></iframe>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+        </main>   
+
+
+        <aside id="aside-footer">
+            <div class="container-fluid">
+                <div class="footer-top">
+                    <div class="footer-title">
+                        <h2>우리는 아이스크림 만드는 일을 사랑합니다. 하지만 세상을 더 나은 곳으로 만들기 위한 노력들이 우리의 일에 더 큰 의미를 부여합니다.&nbsp;</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                        <img src="/assets/img/homepage/footer_card_1.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">엄선한 원료</h2>
+                                    <div class="footer-card-body"><p>우리의 원료들은 환상적인 맛의 아이스크림을 만드는 것은 물론, 사회의 긍정적 변화를 지원합니다.&nbsp;</p></div>
+                                    <a href="/values/how-we-do-business" class="btn btn-tertiary">제품의 원료 조달</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                    <img src="/assets/img/homepage/footer_card_2.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">성공을 공유</h2>
+                                    <div class="footer-card-body"><p>사업과 관련된 모든 사람이 상생할 수 있는 기회를 창출하는 것이 목표입니다.</p>
+                                    </div>
+                                    <a href="/values" class="btn btn-tertiary">우리의 사명과 가치</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                    <img src="/assets/img/homepage/footer_card_3.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">변화 만들기</h2>
+                                    <div class="footer-card-body"><p>우리는 우리가 중요하게 생각하는 행동주의의 대의에 대한 인식을 높이고 이를 지원하고 있습니다.</p>
+                                    </div>
+                                    <a href="/values/issues-we-care-about" class="btn btn-tertiary">우리가 중요하게 생각하는 문제</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+
+        <footer id="footer">
+            <div class="container-fluid  ">
+                <div class="footer-bottom">
+                    <div class="footer-image">
+                        <img class="" src="/assets/img/homepage/footer_woody.svg" alt="Illustrated cow holding a megaphone" loading="lazy"></div>
+                    <div class="row">
+                    <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <h2 class="heading">연락하기</h2>
+                            <ul class="">
+                                <li><a href="/contact-us">피드백 보내기</a></li>
+                            </ul>
+                            <div class="social-links">
+                                <h2 class="heading">팔로우하기</h2>
+                                <ul class="">
+                                    <li>
+                                        <a href="https://www.facebook.com/benandjerryskr">
+                                            <span class="icon icon-facebook"></span></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://instagram.com/benjerryskorea">
+                                            <span class="icon icon-instagram"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h2 class="heading">보다 자세한 정보</h2>
+                            <ul class="">
+                                <li><a href="/whats-new">새로운 소식</a></li>
+                                <li><a href="/about-us">회사 소개</a></li>
+                                <li><a href="/values/how-we-do-business">기업 운영 방식</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="main.js"></script>
+            
+    </body>
+</html>

@@ -1,0 +1,2818 @@
+[ERROR] 25-09-10 20:05:59 [SpringApplication:857] - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'myWebConfig': Injection of autowired dependencies failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:515)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1459)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1188)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1123)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at kr.bhodu.benjerrysclone.BenjerryscloneApplication.main(BenjerryscloneApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.util.PlaceholderResolutionException: Could not resolve placeholder 'upload.dir' in value "${upload.dir}"
+	at org.springframework.util.PlaceholderResolutionException.withValue(PlaceholderResolutionException.java:81)
+	at org.springframework.util.PlaceholderParser$ParsedValue.resolve(PlaceholderParser.java:423)
+	at org.springframework.util.PlaceholderParser.replacePlaceholders(PlaceholderParser.java:128)
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:118)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:114)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:293)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:264)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:186)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:971)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1657)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1635)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+	... 24 common frames omitted
+[ERROR] 25-09-10 20:07:12 [SpringApplication:857] - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'myWebConfig': Injection of autowired dependencies failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:515)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1459)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:606)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1188)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1123)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at kr.bhodu.benjerrysclone.BenjerryscloneApplication.main(BenjerryscloneApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.util.PlaceholderResolutionException: Could not resolve placeholder 'upload.dir' in value "${upload.dir}"
+	at org.springframework.util.PlaceholderResolutionException.withValue(PlaceholderResolutionException.java:81)
+	at org.springframework.util.PlaceholderParser$ParsedValue.resolve(PlaceholderParser.java:423)
+	at org.springframework.util.PlaceholderParser.replacePlaceholders(PlaceholderParser.java:128)
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:118)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:114)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:293)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:264)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:186)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:971)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1657)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1635)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509)
+	... 24 common frames omitted
+[ERROR] 25-09-10 20:13:51 [LoggingFailureAnalysisReporter:40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine suitable jdbc url
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+[ERROR] 25-09-10 20:15:39 [LoggingFailureAnalysisReporter:40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine suitable jdbc url
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+[ERROR] 25-09-10 20:18:58 [LoggingFailureAnalysisReporter:40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+[ERROR] 25-09-10 20:22:08 [TemplateEngine:1141] - [THYMELEAF][http-nio-8080-exec-4] Exception processing template "flavours/list": An error happened during template parsing (template: "class path resource [templates/flavours/list.html]" - line 388, col 41)
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/flavours/list.html]" - line 388, col 41)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:239)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1438)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.attoparser.ParseException: (Line = 388, Column = 41) Incomplete structure: "<a href="/flavours/chocolate-chip-cookie-dough-ice-cream/mini-cup" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜릿 칩 쿠키 도우"">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2693">
+                                    <picture>
+                                        <img src="/assets/img/flavours/mini_cups/38876_US_IC_Chocolate-Fudge-Brownie_120ml_Open_Brand-1920px.png" alt="초콜릿 퍼지 브라우니 Original Ice Cream Mini Cup" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        초콜릿 퍼지 브라우니</h3>
+                                    <div>
+                                        <a href="/flavours/chocolate-fudge-brownie-ice-cream/mini-cup" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜릿 퍼지 브라우니">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card">
+                                    <h3 class="heading heading-3">
+                                        미니컵</h3>
+                                    <div>
+                                        <a href="/flavours/ice-cream-cups" class="btn btn-secondary stretched-link" aria-label="View All">
+                                            View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section id="carousel-c" data-module="Carousel" data-min-slides="4" class="carousel view-default">
+                    <header>
+                        <h2 class="heading heading-2">스쿱</h2>
+                        <div class="d-flex justify-content-end">
+                            <a href="/flavors/ice-cream-shop-flavors" target="_self" aria-label="View All 스쿱">View&nbsp;All</a>
+                        </div>
+                    </header>
+                    <div class="swiper">
+                        <div class="swiper-wrapper flex-wrap">
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="3805">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0032_Chocolate_RGB_HR28_bulk.png" alt="초콜렛 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        초콜렛
+                                        <div>
+                                            <span class="badge">신제품!</span>
+                                        </div>
+                                    </h3>
+                                    <div>   
+                                        <a href="/flavours/chocolate-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜렛">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">         
+                                <div class="flavour-card" data-id="2700">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0103_NewYorkSuperFudgeChunk_RGB_bulk.png" alt="뉴욕 수퍼 퍼지 청크® Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        뉴욕 수퍼 퍼지 청크®</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2700"></div>
+                                    <div>
+                                        <a href="/flavours/new-york-super-fudge-chunk-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 뉴욕 수퍼 퍼지 청크®">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            <div class="swiper-slide">                    
+                                <div class="flavour-card" data-id="2702">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0096_MintChocolateChunk_RGB_bulk.png" alt="민트 초콜릿 청크 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        민트 초콜릿 청크</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2702"></div>
+                                    <div>
+                                        <a href="/flavours/mint-chocolate-chunk-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 민트 초콜릿 청크">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2699">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0165_Vanilla_RGB_bulk.png" alt="바닐라 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        바닐라</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2699"></div>
+                                    <div>
+                                        <a href="/flavours/vanilla-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 바닐라">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2703">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/sweet_cream_and_cookies_bulk.png" alt="스위트 크림&amp;쿠키 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        스위트 크림&amp;쿠키</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2703"></div>
+                                    <div>
+                                        <a href="/flavours/sweet-cream-and-cookies-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 스위트 크림&amp;쿠키">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card">
+                                    <h3 class="heading heading-3">
+                                        스쿱</h3>   
+                                    <div>
+                                        <a href="/flavors/ice-cream-shop-flavors" class="btn btn-secondary stretched-link" aria-label="View All">
+                                                View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <div class="row grid-row media">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <article class="youtube-video">
+                            <h2 class="visually-hidden">Ben &amp; Jerry's Top 10 Flavours</h2>
+                            <div class="ratio ratio-16x9">
+                                <iframe allowfullscreen="" title="Ben &amp; Jerry's Top 10 Flavours" class="optanon-category-C0004" src="https://www.youtube.com/embed/PDHjQBQ-GDg?rel=0&amp;cc_lang_pref=ko&amp;modestbranding=1&amp;disablekb=1" loading="lazy" data-one-trust="C0004" data-warning="consent-warning-b5747ad8-a4b7-42a0-90a7-56c039164202"></iframe>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+        </main>   
+
+
+        <aside id="aside-footer">
+            <div class="container-fluid">
+                <div class="footer-top">
+                    <div class="footer-title">
+                        <h2>우리는 아이스크림 만드는 일을 사랑합니다. 하지만 세상을 더 나은 곳으로 만들기 위한 노력들이 우리의 일에 더 큰 의미를 부여합니다.&nbsp;</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                        <img src="/assets/img/homepage/footer_card_1.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">엄선한 원료</h2>
+                                    <div class="footer-card-body"><p>우리의 원료들은 환상적인 맛의 아이스크림을 만드는 것은 물론, 사회의 긍정적 변화를 지원합니다.&nbsp;</p></div>
+                                    <a href="/values/how-we-do-business" class="btn btn-tertiary">제품의 원료 조달</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                    <img src="/assets/img/homepage/footer_card_2.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">성공을 공유</h2>
+                                    <div class="footer-card-body"><p>사업과 관련된 모든 사람이 상생할 수 있는 기회를 창출하는 것이 목표입니다.</p>
+                                    </div>
+                                    <a href="/values" class="btn btn-tertiary">우리의 사명과 가치</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                    <img src="/assets/img/homepage/footer_card_3.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">변화 만들기</h2>
+                                    <div class="footer-card-body"><p>우리는 우리가 중요하게 생각하는 행동주의의 대의에 대한 인식을 높이고 이를 지원하고 있습니다.</p>
+                                    </div>
+                                    <a href="/values/issues-we-care-about" class="btn btn-tertiary">우리가 중요하게 생각하는 문제</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+
+        <footer id="footer">
+            <div class="container-fluid  ">
+                <div class="footer-bottom">
+                    <div class="footer-image">
+                        <img class="" src="/assets/img/homepage/footer_woody.svg" alt="Illustrated cow holding a megaphone" loading="lazy"></div>
+                    <div class="row">
+                    <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <h2 class="heading">연락하기</h2>
+                            <ul class="">
+                                <li><a href="/contact-us">피드백 보내기</a></li>
+                            </ul>
+                            <div class="social-links">
+                                <h2 class="heading">팔로우하기</h2>
+                                <ul class="">
+                                    <li>
+                                        <a href="https://www.facebook.com/benandjerryskr">
+                                            <span class="icon icon-facebook"></span></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://instagram.com/benjerryskorea">
+                                            <span class="icon icon-instagram"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h2 class="heading">보다 자세한 정보</h2>
+                            <ul class="">
+                                <li><a href="/whats-new">새로운 소식</a></li>
+                                <li><a href="/about-us">회사 소개</a></li>
+                                <li><a href="/values/how-we-do-business">기업 운영 방식</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="main.js"></script>
+            
+    </body>
+</html>"
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:366)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 56 common frames omitted
+[ERROR] 25-09-10 20:22:08 [[dispatcherServlet]:170] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/flavours/list.html]" - line 388, col 41)] with root cause
+org.attoparser.ParseException: (Line = 388, Column = 41) Incomplete structure: "<a href="/flavours/chocolate-chip-cookie-dough-ice-cream/mini-cup" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜릿 칩 쿠키 도우"">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2693">
+                                    <picture>
+                                        <img src="/assets/img/flavours/mini_cups/38876_US_IC_Chocolate-Fudge-Brownie_120ml_Open_Brand-1920px.png" alt="초콜릿 퍼지 브라우니 Original Ice Cream Mini Cup" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        초콜릿 퍼지 브라우니</h3>
+                                    <div>
+                                        <a href="/flavours/chocolate-fudge-brownie-ice-cream/mini-cup" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜릿 퍼지 브라우니">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card">
+                                    <h3 class="heading heading-3">
+                                        미니컵</h3>
+                                    <div>
+                                        <a href="/flavours/ice-cream-cups" class="btn btn-secondary stretched-link" aria-label="View All">
+                                            View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section id="carousel-c" data-module="Carousel" data-min-slides="4" class="carousel view-default">
+                    <header>
+                        <h2 class="heading heading-2">스쿱</h2>
+                        <div class="d-flex justify-content-end">
+                            <a href="/flavors/ice-cream-shop-flavors" target="_self" aria-label="View All 스쿱">View&nbsp;All</a>
+                        </div>
+                    </header>
+                    <div class="swiper">
+                        <div class="swiper-wrapper flex-wrap">
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="3805">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0032_Chocolate_RGB_HR28_bulk.png" alt="초콜렛 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        초콜렛
+                                        <div>
+                                            <span class="badge">신제품!</span>
+                                        </div>
+                                    </h3>
+                                    <div>   
+                                        <a href="/flavours/chocolate-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜렛">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">         
+                                <div class="flavour-card" data-id="2700">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0103_NewYorkSuperFudgeChunk_RGB_bulk.png" alt="뉴욕 수퍼 퍼지 청크® Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        뉴욕 수퍼 퍼지 청크®</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2700"></div>
+                                    <div>
+                                        <a href="/flavours/new-york-super-fudge-chunk-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 뉴욕 수퍼 퍼지 청크®">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            <div class="swiper-slide">                    
+                                <div class="flavour-card" data-id="2702">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0096_MintChocolateChunk_RGB_bulk.png" alt="민트 초콜릿 청크 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        민트 초콜릿 청크</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2702"></div>
+                                    <div>
+                                        <a href="/flavours/mint-chocolate-chunk-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 민트 초콜릿 청크">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2699">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0165_Vanilla_RGB_bulk.png" alt="바닐라 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        바닐라</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2699"></div>
+                                    <div>
+                                        <a href="/flavours/vanilla-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 바닐라">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2703">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/sweet_cream_and_cookies_bulk.png" alt="스위트 크림&amp;쿠키 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        스위트 크림&amp;쿠키</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2703"></div>
+                                    <div>
+                                        <a href="/flavours/sweet-cream-and-cookies-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 스위트 크림&amp;쿠키">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card">
+                                    <h3 class="heading heading-3">
+                                        스쿱</h3>   
+                                    <div>
+                                        <a href="/flavors/ice-cream-shop-flavors" class="btn btn-secondary stretched-link" aria-label="View All">
+                                                View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <div class="row grid-row media">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <article class="youtube-video">
+                            <h2 class="visually-hidden">Ben &amp; Jerry's Top 10 Flavours</h2>
+                            <div class="ratio ratio-16x9">
+                                <iframe allowfullscreen="" title="Ben &amp; Jerry's Top 10 Flavours" class="optanon-category-C0004" src="https://www.youtube.com/embed/PDHjQBQ-GDg?rel=0&amp;cc_lang_pref=ko&amp;modestbranding=1&amp;disablekb=1" loading="lazy" data-one-trust="C0004" data-warning="consent-warning-b5747ad8-a4b7-42a0-90a7-56c039164202"></iframe>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+        </main>   
+
+
+        <aside id="aside-footer">
+            <div class="container-fluid">
+                <div class="footer-top">
+                    <div class="footer-title">
+                        <h2>우리는 아이스크림 만드는 일을 사랑합니다. 하지만 세상을 더 나은 곳으로 만들기 위한 노력들이 우리의 일에 더 큰 의미를 부여합니다.&nbsp;</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                        <img src="/assets/img/homepage/footer_card_1.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">엄선한 원료</h2>
+                                    <div class="footer-card-body"><p>우리의 원료들은 환상적인 맛의 아이스크림을 만드는 것은 물론, 사회의 긍정적 변화를 지원합니다.&nbsp;</p></div>
+                                    <a href="/values/how-we-do-business" class="btn btn-tertiary">제품의 원료 조달</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                    <img src="/assets/img/homepage/footer_card_2.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">성공을 공유</h2>
+                                    <div class="footer-card-body"><p>사업과 관련된 모든 사람이 상생할 수 있는 기회를 창출하는 것이 목표입니다.</p>
+                                    </div>
+                                    <a href="/values" class="btn btn-tertiary">우리의 사명과 가치</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                    <img src="/assets/img/homepage/footer_card_3.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">변화 만들기</h2>
+                                    <div class="footer-card-body"><p>우리는 우리가 중요하게 생각하는 행동주의의 대의에 대한 인식을 높이고 이를 지원하고 있습니다.</p>
+                                    </div>
+                                    <a href="/values/issues-we-care-about" class="btn btn-tertiary">우리가 중요하게 생각하는 문제</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+
+        <footer id="footer">
+            <div class="container-fluid  ">
+                <div class="footer-bottom">
+                    <div class="footer-image">
+                        <img class="" src="/assets/img/homepage/footer_woody.svg" alt="Illustrated cow holding a megaphone" loading="lazy"></div>
+                    <div class="row">
+                    <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <h2 class="heading">연락하기</h2>
+                            <ul class="">
+                                <li><a href="/contact-us">피드백 보내기</a></li>
+                            </ul>
+                            <div class="social-links">
+                                <h2 class="heading">팔로우하기</h2>
+                                <ul class="">
+                                    <li>
+                                        <a href="https://www.facebook.com/benandjerryskr">
+                                            <span class="icon icon-facebook"></span></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://instagram.com/benjerryskorea">
+                                            <span class="icon icon-instagram"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h2 class="heading">보다 자세한 정보</h2>
+                            <ul class="">
+                                <li><a href="/whats-new">새로운 소식</a></li>
+                                <li><a href="/about-us">회사 소개</a></li>
+                                <li><a href="/values/how-we-do-business">기업 운영 방식</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="main.js"></script>
+            
+    </body>
+</html>"
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:366)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1438)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+[ERROR] 25-09-10 20:22:08 [ErrorMvcAutoConfiguration$StaticView:202] - Cannot render error page for request [/flavours] and exception [An error happened during template parsing (template: "class path resource [templates/flavours/list.html]" - line 388, col 41)] as the response has already been committed. As a result, the response may have the wrong status code.
+[ERROR] 25-09-10 20:22:09 [TemplateEngine:1141] - [THYMELEAF][http-nio-8080-exec-7] Exception processing template "flavours/list": An error happened during template parsing (template: "class path resource [templates/flavours/list.html]" - line 388, col 41)
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/flavours/list.html]" - line 388, col 41)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:239)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1438)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.attoparser.ParseException: (Line = 388, Column = 41) Incomplete structure: "<a href="/flavours/chocolate-chip-cookie-dough-ice-cream/mini-cup" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜릿 칩 쿠키 도우"">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2693">
+                                    <picture>
+                                        <img src="/assets/img/flavours/mini_cups/38876_US_IC_Chocolate-Fudge-Brownie_120ml_Open_Brand-1920px.png" alt="초콜릿 퍼지 브라우니 Original Ice Cream Mini Cup" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        초콜릿 퍼지 브라우니</h3>
+                                    <div>
+                                        <a href="/flavours/chocolate-fudge-brownie-ice-cream/mini-cup" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜릿 퍼지 브라우니">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card">
+                                    <h3 class="heading heading-3">
+                                        미니컵</h3>
+                                    <div>
+                                        <a href="/flavours/ice-cream-cups" class="btn btn-secondary stretched-link" aria-label="View All">
+                                            View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section id="carousel-c" data-module="Carousel" data-min-slides="4" class="carousel view-default">
+                    <header>
+                        <h2 class="heading heading-2">스쿱</h2>
+                        <div class="d-flex justify-content-end">
+                            <a href="/flavors/ice-cream-shop-flavors" target="_self" aria-label="View All 스쿱">View&nbsp;All</a>
+                        </div>
+                    </header>
+                    <div class="swiper">
+                        <div class="swiper-wrapper flex-wrap">
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="3805">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0032_Chocolate_RGB_HR28_bulk.png" alt="초콜렛 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        초콜렛
+                                        <div>
+                                            <span class="badge">신제품!</span>
+                                        </div>
+                                    </h3>
+                                    <div>   
+                                        <a href="/flavours/chocolate-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜렛">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">         
+                                <div class="flavour-card" data-id="2700">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0103_NewYorkSuperFudgeChunk_RGB_bulk.png" alt="뉴욕 수퍼 퍼지 청크® Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        뉴욕 수퍼 퍼지 청크®</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2700"></div>
+                                    <div>
+                                        <a href="/flavours/new-york-super-fudge-chunk-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 뉴욕 수퍼 퍼지 청크®">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            <div class="swiper-slide">                    
+                                <div class="flavour-card" data-id="2702">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0096_MintChocolateChunk_RGB_bulk.png" alt="민트 초콜릿 청크 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        민트 초콜릿 청크</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2702"></div>
+                                    <div>
+                                        <a href="/flavours/mint-chocolate-chunk-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 민트 초콜릿 청크">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2699">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0165_Vanilla_RGB_bulk.png" alt="바닐라 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        바닐라</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2699"></div>
+                                    <div>
+                                        <a href="/flavours/vanilla-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 바닐라">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2703">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/sweet_cream_and_cookies_bulk.png" alt="스위트 크림&amp;쿠키 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        스위트 크림&amp;쿠키</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2703"></div>
+                                    <div>
+                                        <a href="/flavours/sweet-cream-and-cookies-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 스위트 크림&amp;쿠키">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card">
+                                    <h3 class="heading heading-3">
+                                        스쿱</h3>   
+                                    <div>
+                                        <a href="/flavors/ice-cream-shop-flavors" class="btn btn-secondary stretched-link" aria-label="View All">
+                                                View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <div class="row grid-row media">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <article class="youtube-video">
+                            <h2 class="visually-hidden">Ben &amp; Jerry's Top 10 Flavours</h2>
+                            <div class="ratio ratio-16x9">
+                                <iframe allowfullscreen="" title="Ben &amp; Jerry's Top 10 Flavours" class="optanon-category-C0004" src="https://www.youtube.com/embed/PDHjQBQ-GDg?rel=0&amp;cc_lang_pref=ko&amp;modestbranding=1&amp;disablekb=1" loading="lazy" data-one-trust="C0004" data-warning="consent-warning-b5747ad8-a4b7-42a0-90a7-56c039164202"></iframe>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+        </main>   
+
+
+        <aside id="aside-footer">
+            <div class="container-fluid">
+                <div class="footer-top">
+                    <div class="footer-title">
+                        <h2>우리는 아이스크림 만드는 일을 사랑합니다. 하지만 세상을 더 나은 곳으로 만들기 위한 노력들이 우리의 일에 더 큰 의미를 부여합니다.&nbsp;</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                        <img src="/assets/img/homepage/footer_card_1.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">엄선한 원료</h2>
+                                    <div class="footer-card-body"><p>우리의 원료들은 환상적인 맛의 아이스크림을 만드는 것은 물론, 사회의 긍정적 변화를 지원합니다.&nbsp;</p></div>
+                                    <a href="/values/how-we-do-business" class="btn btn-tertiary">제품의 원료 조달</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                    <img src="/assets/img/homepage/footer_card_2.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">성공을 공유</h2>
+                                    <div class="footer-card-body"><p>사업과 관련된 모든 사람이 상생할 수 있는 기회를 창출하는 것이 목표입니다.</p>
+                                    </div>
+                                    <a href="/values" class="btn btn-tertiary">우리의 사명과 가치</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                    <img src="/assets/img/homepage/footer_card_3.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">변화 만들기</h2>
+                                    <div class="footer-card-body"><p>우리는 우리가 중요하게 생각하는 행동주의의 대의에 대한 인식을 높이고 이를 지원하고 있습니다.</p>
+                                    </div>
+                                    <a href="/values/issues-we-care-about" class="btn btn-tertiary">우리가 중요하게 생각하는 문제</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+
+        <footer id="footer">
+            <div class="container-fluid  ">
+                <div class="footer-bottom">
+                    <div class="footer-image">
+                        <img class="" src="/assets/img/homepage/footer_woody.svg" alt="Illustrated cow holding a megaphone" loading="lazy"></div>
+                    <div class="row">
+                    <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <h2 class="heading">연락하기</h2>
+                            <ul class="">
+                                <li><a href="/contact-us">피드백 보내기</a></li>
+                            </ul>
+                            <div class="social-links">
+                                <h2 class="heading">팔로우하기</h2>
+                                <ul class="">
+                                    <li>
+                                        <a href="https://www.facebook.com/benandjerryskr">
+                                            <span class="icon icon-facebook"></span></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://instagram.com/benjerryskorea">
+                                            <span class="icon icon-instagram"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h2 class="heading">보다 자세한 정보</h2>
+                            <ul class="">
+                                <li><a href="/whats-new">새로운 소식</a></li>
+                                <li><a href="/about-us">회사 소개</a></li>
+                                <li><a href="/values/how-we-do-business">기업 운영 방식</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="main.js"></script>
+            
+    </body>
+</html>"
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:366)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 56 common frames omitted
+[ERROR] 25-09-10 20:22:09 [[dispatcherServlet]:170] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/flavours/list.html]" - line 388, col 41)] with root cause
+org.attoparser.ParseException: (Line = 388, Column = 41) Incomplete structure: "<a href="/flavours/chocolate-chip-cookie-dough-ice-cream/mini-cup" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜릿 칩 쿠키 도우"">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2693">
+                                    <picture>
+                                        <img src="/assets/img/flavours/mini_cups/38876_US_IC_Chocolate-Fudge-Brownie_120ml_Open_Brand-1920px.png" alt="초콜릿 퍼지 브라우니 Original Ice Cream Mini Cup" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        초콜릿 퍼지 브라우니</h3>
+                                    <div>
+                                        <a href="/flavours/chocolate-fudge-brownie-ice-cream/mini-cup" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜릿 퍼지 브라우니">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card">
+                                    <h3 class="heading heading-3">
+                                        미니컵</h3>
+                                    <div>
+                                        <a href="/flavours/ice-cream-cups" class="btn btn-secondary stretched-link" aria-label="View All">
+                                            View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section id="carousel-c" data-module="Carousel" data-min-slides="4" class="carousel view-default">
+                    <header>
+                        <h2 class="heading heading-2">스쿱</h2>
+                        <div class="d-flex justify-content-end">
+                            <a href="/flavors/ice-cream-shop-flavors" target="_self" aria-label="View All 스쿱">View&nbsp;All</a>
+                        </div>
+                    </header>
+                    <div class="swiper">
+                        <div class="swiper-wrapper flex-wrap">
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="3805">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0032_Chocolate_RGB_HR28_bulk.png" alt="초콜렛 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        초콜렛
+                                        <div>
+                                            <span class="badge">신제품!</span>
+                                        </div>
+                                    </h3>
+                                    <div>   
+                                        <a href="/flavours/chocolate-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜렛">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">         
+                                <div class="flavour-card" data-id="2700">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0103_NewYorkSuperFudgeChunk_RGB_bulk.png" alt="뉴욕 수퍼 퍼지 청크® Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        뉴욕 수퍼 퍼지 청크®</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2700"></div>
+                                    <div>
+                                        <a href="/flavours/new-york-super-fudge-chunk-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 뉴욕 수퍼 퍼지 청크®">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            <div class="swiper-slide">                    
+                                <div class="flavour-card" data-id="2702">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0096_MintChocolateChunk_RGB_bulk.png" alt="민트 초콜릿 청크 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        민트 초콜릿 청크</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2702"></div>
+                                    <div>
+                                        <a href="/flavours/mint-chocolate-chunk-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 민트 초콜릿 청크">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2699">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0165_Vanilla_RGB_bulk.png" alt="바닐라 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        바닐라</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2699"></div>
+                                    <div>
+                                        <a href="/flavours/vanilla-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 바닐라">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2703">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/sweet_cream_and_cookies_bulk.png" alt="스위트 크림&amp;쿠키 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        스위트 크림&amp;쿠키</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2703"></div>
+                                    <div>
+                                        <a href="/flavours/sweet-cream-and-cookies-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 스위트 크림&amp;쿠키">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card">
+                                    <h3 class="heading heading-3">
+                                        스쿱</h3>   
+                                    <div>
+                                        <a href="/flavors/ice-cream-shop-flavors" class="btn btn-secondary stretched-link" aria-label="View All">
+                                                View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <div class="row grid-row media">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <article class="youtube-video">
+                            <h2 class="visually-hidden">Ben &amp; Jerry's Top 10 Flavours</h2>
+                            <div class="ratio ratio-16x9">
+                                <iframe allowfullscreen="" title="Ben &amp; Jerry's Top 10 Flavours" class="optanon-category-C0004" src="https://www.youtube.com/embed/PDHjQBQ-GDg?rel=0&amp;cc_lang_pref=ko&amp;modestbranding=1&amp;disablekb=1" loading="lazy" data-one-trust="C0004" data-warning="consent-warning-b5747ad8-a4b7-42a0-90a7-56c039164202"></iframe>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+        </main>   
+
+
+        <aside id="aside-footer">
+            <div class="container-fluid">
+                <div class="footer-top">
+                    <div class="footer-title">
+                        <h2>우리는 아이스크림 만드는 일을 사랑합니다. 하지만 세상을 더 나은 곳으로 만들기 위한 노력들이 우리의 일에 더 큰 의미를 부여합니다.&nbsp;</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                        <img src="/assets/img/homepage/footer_card_1.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">엄선한 원료</h2>
+                                    <div class="footer-card-body"><p>우리의 원료들은 환상적인 맛의 아이스크림을 만드는 것은 물론, 사회의 긍정적 변화를 지원합니다.&nbsp;</p></div>
+                                    <a href="/values/how-we-do-business" class="btn btn-tertiary">제품의 원료 조달</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                    <img src="/assets/img/homepage/footer_card_2.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">성공을 공유</h2>
+                                    <div class="footer-card-body"><p>사업과 관련된 모든 사람이 상생할 수 있는 기회를 창출하는 것이 목표입니다.</p>
+                                    </div>
+                                    <a href="/values" class="btn btn-tertiary">우리의 사명과 가치</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                    <img src="/assets/img/homepage/footer_card_3.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">변화 만들기</h2>
+                                    <div class="footer-card-body"><p>우리는 우리가 중요하게 생각하는 행동주의의 대의에 대한 인식을 높이고 이를 지원하고 있습니다.</p>
+                                    </div>
+                                    <a href="/values/issues-we-care-about" class="btn btn-tertiary">우리가 중요하게 생각하는 문제</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+
+        <footer id="footer">
+            <div class="container-fluid  ">
+                <div class="footer-bottom">
+                    <div class="footer-image">
+                        <img class="" src="/assets/img/homepage/footer_woody.svg" alt="Illustrated cow holding a megaphone" loading="lazy"></div>
+                    <div class="row">
+                    <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <h2 class="heading">연락하기</h2>
+                            <ul class="">
+                                <li><a href="/contact-us">피드백 보내기</a></li>
+                            </ul>
+                            <div class="social-links">
+                                <h2 class="heading">팔로우하기</h2>
+                                <ul class="">
+                                    <li>
+                                        <a href="https://www.facebook.com/benandjerryskr">
+                                            <span class="icon icon-facebook"></span></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://instagram.com/benjerryskorea">
+                                            <span class="icon icon-instagram"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h2 class="heading">보다 자세한 정보</h2>
+                            <ul class="">
+                                <li><a href="/whats-new">새로운 소식</a></li>
+                                <li><a href="/about-us">회사 소개</a></li>
+                                <li><a href="/values/how-we-do-business">기업 운영 방식</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="main.js"></script>
+            
+    </body>
+</html>"
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:366)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1438)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+[ERROR] 25-09-10 20:22:09 [ErrorMvcAutoConfiguration$StaticView:202] - Cannot render error page for request [/flavours] and exception [An error happened during template parsing (template: "class path resource [templates/flavours/list.html]" - line 388, col 41)] as the response has already been committed. As a result, the response may have the wrong status code.
+[ERROR] 25-09-10 20:22:56 [TemplateEngine:1141] - [THYMELEAF][http-nio-8080-exec-6] Exception processing template "flavours/list": An error happened during template parsing (template: "class path resource [templates/flavours/list.html]" - line 388, col 41)
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/flavours/list.html]" - line 388, col 41)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:239)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1438)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.attoparser.ParseException: (Line = 388, Column = 41) Incomplete structure: "<a href="/flavours/chocolate-chip-cookie-dough-ice-cream/mini-cup" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜릿 칩 쿠키 도우"">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2693">
+                                    <picture>
+                                        <img src="/assets/img/flavours/mini_cups/38876_US_IC_Chocolate-Fudge-Brownie_120ml_Open_Brand-1920px.png" alt="초콜릿 퍼지 브라우니 Original Ice Cream Mini Cup" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        초콜릿 퍼지 브라우니</h3>
+                                    <div>
+                                        <a href="/flavours/chocolate-fudge-brownie-ice-cream/mini-cup" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜릿 퍼지 브라우니">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card">
+                                    <h3 class="heading heading-3">
+                                        미니컵</h3>
+                                    <div>
+                                        <a href="/flavours/ice-cream-cups" class="btn btn-secondary stretched-link" aria-label="View All">
+                                            View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section id="carousel-c" data-module="Carousel" data-min-slides="4" class="carousel view-default">
+                    <header>
+                        <h2 class="heading heading-2">스쿱</h2>
+                        <div class="d-flex justify-content-end">
+                            <a href="/flavors/ice-cream-shop-flavors" target="_self" aria-label="View All 스쿱">View&nbsp;All</a>
+                        </div>
+                    </header>
+                    <div class="swiper">
+                        <div class="swiper-wrapper flex-wrap">
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="3805">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0032_Chocolate_RGB_HR28_bulk.png" alt="초콜렛 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        초콜렛
+                                        <div>
+                                            <span class="badge">신제품!</span>
+                                        </div>
+                                    </h3>
+                                    <div>   
+                                        <a href="/flavours/chocolate-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜렛">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">         
+                                <div class="flavour-card" data-id="2700">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0103_NewYorkSuperFudgeChunk_RGB_bulk.png" alt="뉴욕 수퍼 퍼지 청크® Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        뉴욕 수퍼 퍼지 청크®</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2700"></div>
+                                    <div>
+                                        <a href="/flavours/new-york-super-fudge-chunk-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 뉴욕 수퍼 퍼지 청크®">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            <div class="swiper-slide">                    
+                                <div class="flavour-card" data-id="2702">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0096_MintChocolateChunk_RGB_bulk.png" alt="민트 초콜릿 청크 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        민트 초콜릿 청크</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2702"></div>
+                                    <div>
+                                        <a href="/flavours/mint-chocolate-chunk-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 민트 초콜릿 청크">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2699">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0165_Vanilla_RGB_bulk.png" alt="바닐라 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        바닐라</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2699"></div>
+                                    <div>
+                                        <a href="/flavours/vanilla-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 바닐라">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2703">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/sweet_cream_and_cookies_bulk.png" alt="스위트 크림&amp;쿠키 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        스위트 크림&amp;쿠키</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2703"></div>
+                                    <div>
+                                        <a href="/flavours/sweet-cream-and-cookies-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 스위트 크림&amp;쿠키">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card">
+                                    <h3 class="heading heading-3">
+                                        스쿱</h3>   
+                                    <div>
+                                        <a href="/flavors/ice-cream-shop-flavors" class="btn btn-secondary stretched-link" aria-label="View All">
+                                                View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <div class="row grid-row media">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <article class="youtube-video">
+                            <h2 class="visually-hidden">Ben &amp; Jerry's Top 10 Flavours</h2>
+                            <div class="ratio ratio-16x9">
+                                <iframe allowfullscreen="" title="Ben &amp; Jerry's Top 10 Flavours" class="optanon-category-C0004" src="https://www.youtube.com/embed/PDHjQBQ-GDg?rel=0&amp;cc_lang_pref=ko&amp;modestbranding=1&amp;disablekb=1" loading="lazy" data-one-trust="C0004" data-warning="consent-warning-b5747ad8-a4b7-42a0-90a7-56c039164202"></iframe>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+        </main>   
+
+
+        <aside id="aside-footer">
+            <div class="container-fluid">
+                <div class="footer-top">
+                    <div class="footer-title">
+                        <h2>우리는 아이스크림 만드는 일을 사랑합니다. 하지만 세상을 더 나은 곳으로 만들기 위한 노력들이 우리의 일에 더 큰 의미를 부여합니다.&nbsp;</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                        <img src="/assets/img/homepage/footer_card_1.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">엄선한 원료</h2>
+                                    <div class="footer-card-body"><p>우리의 원료들은 환상적인 맛의 아이스크림을 만드는 것은 물론, 사회의 긍정적 변화를 지원합니다.&nbsp;</p></div>
+                                    <a href="/values/how-we-do-business" class="btn btn-tertiary">제품의 원료 조달</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                    <img src="/assets/img/homepage/footer_card_2.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">성공을 공유</h2>
+                                    <div class="footer-card-body"><p>사업과 관련된 모든 사람이 상생할 수 있는 기회를 창출하는 것이 목표입니다.</p>
+                                    </div>
+                                    <a href="/values" class="btn btn-tertiary">우리의 사명과 가치</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                    <img src="/assets/img/homepage/footer_card_3.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">변화 만들기</h2>
+                                    <div class="footer-card-body"><p>우리는 우리가 중요하게 생각하는 행동주의의 대의에 대한 인식을 높이고 이를 지원하고 있습니다.</p>
+                                    </div>
+                                    <a href="/values/issues-we-care-about" class="btn btn-tertiary">우리가 중요하게 생각하는 문제</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+
+        <footer id="footer">
+            <div class="container-fluid  ">
+                <div class="footer-bottom">
+                    <div class="footer-image">
+                        <img class="" src="/assets/img/homepage/footer_woody.svg" alt="Illustrated cow holding a megaphone" loading="lazy"></div>
+                    <div class="row">
+                    <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <h2 class="heading">연락하기</h2>
+                            <ul class="">
+                                <li><a href="/contact-us">피드백 보내기</a></li>
+                            </ul>
+                            <div class="social-links">
+                                <h2 class="heading">팔로우하기</h2>
+                                <ul class="">
+                                    <li>
+                                        <a href="https://www.facebook.com/benandjerryskr">
+                                            <span class="icon icon-facebook"></span></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://instagram.com/benjerryskorea">
+                                            <span class="icon icon-instagram"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h2 class="heading">보다 자세한 정보</h2>
+                            <ul class="">
+                                <li><a href="/whats-new">새로운 소식</a></li>
+                                <li><a href="/about-us">회사 소개</a></li>
+                                <li><a href="/values/how-we-do-business">기업 운영 방식</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="main.js"></script>
+            
+    </body>
+</html>"
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:366)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 56 common frames omitted
+[ERROR] 25-09-10 20:22:56 [[dispatcherServlet]:170] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/flavours/list.html]" - line 388, col 41)] with root cause
+org.attoparser.ParseException: (Line = 388, Column = 41) Incomplete structure: "<a href="/flavours/chocolate-chip-cookie-dough-ice-cream/mini-cup" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜릿 칩 쿠키 도우"">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2693">
+                                    <picture>
+                                        <img src="/assets/img/flavours/mini_cups/38876_US_IC_Chocolate-Fudge-Brownie_120ml_Open_Brand-1920px.png" alt="초콜릿 퍼지 브라우니 Original Ice Cream Mini Cup" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        초콜릿 퍼지 브라우니</h3>
+                                    <div>
+                                        <a href="/flavours/chocolate-fudge-brownie-ice-cream/mini-cup" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜릿 퍼지 브라우니">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card">
+                                    <h3 class="heading heading-3">
+                                        미니컵</h3>
+                                    <div>
+                                        <a href="/flavours/ice-cream-cups" class="btn btn-secondary stretched-link" aria-label="View All">
+                                            View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section id="carousel-c" data-module="Carousel" data-min-slides="4" class="carousel view-default">
+                    <header>
+                        <h2 class="heading heading-2">스쿱</h2>
+                        <div class="d-flex justify-content-end">
+                            <a href="/flavors/ice-cream-shop-flavors" target="_self" aria-label="View All 스쿱">View&nbsp;All</a>
+                        </div>
+                    </header>
+                    <div class="swiper">
+                        <div class="swiper-wrapper flex-wrap">
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="3805">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0032_Chocolate_RGB_HR28_bulk.png" alt="초콜렛 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        초콜렛
+                                        <div>
+                                            <span class="badge">신제품!</span>
+                                        </div>
+                                    </h3>
+                                    <div>   
+                                        <a href="/flavours/chocolate-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜렛">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">         
+                                <div class="flavour-card" data-id="2700">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0103_NewYorkSuperFudgeChunk_RGB_bulk.png" alt="뉴욕 수퍼 퍼지 청크® Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        뉴욕 수퍼 퍼지 청크®</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2700"></div>
+                                    <div>
+                                        <a href="/flavours/new-york-super-fudge-chunk-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 뉴욕 수퍼 퍼지 청크®">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            <div class="swiper-slide">                    
+                                <div class="flavour-card" data-id="2702">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0096_MintChocolateChunk_RGB_bulk.png" alt="민트 초콜릿 청크 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        민트 초콜릿 청크</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2702"></div>
+                                    <div>
+                                        <a href="/flavours/mint-chocolate-chunk-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 민트 초콜릿 청크">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2699">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0165_Vanilla_RGB_bulk.png" alt="바닐라 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        바닐라</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2699"></div>
+                                    <div>
+                                        <a href="/flavours/vanilla-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 바닐라">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2703">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/sweet_cream_and_cookies_bulk.png" alt="스위트 크림&amp;쿠키 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        스위트 크림&amp;쿠키</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2703"></div>
+                                    <div>
+                                        <a href="/flavours/sweet-cream-and-cookies-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 스위트 크림&amp;쿠키">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card">
+                                    <h3 class="heading heading-3">
+                                        스쿱</h3>   
+                                    <div>
+                                        <a href="/flavors/ice-cream-shop-flavors" class="btn btn-secondary stretched-link" aria-label="View All">
+                                                View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <div class="row grid-row media">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <article class="youtube-video">
+                            <h2 class="visually-hidden">Ben &amp; Jerry's Top 10 Flavours</h2>
+                            <div class="ratio ratio-16x9">
+                                <iframe allowfullscreen="" title="Ben &amp; Jerry's Top 10 Flavours" class="optanon-category-C0004" src="https://www.youtube.com/embed/PDHjQBQ-GDg?rel=0&amp;cc_lang_pref=ko&amp;modestbranding=1&amp;disablekb=1" loading="lazy" data-one-trust="C0004" data-warning="consent-warning-b5747ad8-a4b7-42a0-90a7-56c039164202"></iframe>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+        </main>   
+
+
+        <aside id="aside-footer">
+            <div class="container-fluid">
+                <div class="footer-top">
+                    <div class="footer-title">
+                        <h2>우리는 아이스크림 만드는 일을 사랑합니다. 하지만 세상을 더 나은 곳으로 만들기 위한 노력들이 우리의 일에 더 큰 의미를 부여합니다.&nbsp;</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                        <img src="/assets/img/homepage/footer_card_1.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">엄선한 원료</h2>
+                                    <div class="footer-card-body"><p>우리의 원료들은 환상적인 맛의 아이스크림을 만드는 것은 물론, 사회의 긍정적 변화를 지원합니다.&nbsp;</p></div>
+                                    <a href="/values/how-we-do-business" class="btn btn-tertiary">제품의 원료 조달</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                    <img src="/assets/img/homepage/footer_card_2.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">성공을 공유</h2>
+                                    <div class="footer-card-body"><p>사업과 관련된 모든 사람이 상생할 수 있는 기회를 창출하는 것이 목표입니다.</p>
+                                    </div>
+                                    <a href="/values" class="btn btn-tertiary">우리의 사명과 가치</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                    <img src="/assets/img/homepage/footer_card_3.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">변화 만들기</h2>
+                                    <div class="footer-card-body"><p>우리는 우리가 중요하게 생각하는 행동주의의 대의에 대한 인식을 높이고 이를 지원하고 있습니다.</p>
+                                    </div>
+                                    <a href="/values/issues-we-care-about" class="btn btn-tertiary">우리가 중요하게 생각하는 문제</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+
+        <footer id="footer">
+            <div class="container-fluid  ">
+                <div class="footer-bottom">
+                    <div class="footer-image">
+                        <img class="" src="/assets/img/homepage/footer_woody.svg" alt="Illustrated cow holding a megaphone" loading="lazy"></div>
+                    <div class="row">
+                    <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <h2 class="heading">연락하기</h2>
+                            <ul class="">
+                                <li><a href="/contact-us">피드백 보내기</a></li>
+                            </ul>
+                            <div class="social-links">
+                                <h2 class="heading">팔로우하기</h2>
+                                <ul class="">
+                                    <li>
+                                        <a href="https://www.facebook.com/benandjerryskr">
+                                            <span class="icon icon-facebook"></span></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://instagram.com/benjerryskorea">
+                                            <span class="icon icon-instagram"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h2 class="heading">보다 자세한 정보</h2>
+                            <ul class="">
+                                <li><a href="/whats-new">새로운 소식</a></li>
+                                <li><a href="/about-us">회사 소개</a></li>
+                                <li><a href="/values/how-we-do-business">기업 운영 방식</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="main.js"></script>
+            
+    </body>
+</html>"
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:366)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1438)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+[ERROR] 25-09-10 20:22:56 [ErrorMvcAutoConfiguration$StaticView:202] - Cannot render error page for request [/flavours] and exception [An error happened during template parsing (template: "class path resource [templates/flavours/list.html]" - line 388, col 41)] as the response has already been committed. As a result, the response may have the wrong status code.
+[ERROR] 25-09-10 20:22:57 [TemplateEngine:1141] - [THYMELEAF][http-nio-8080-exec-9] Exception processing template "flavours/list": An error happened during template parsing (template: "class path resource [templates/flavours/list.html]" - line 388, col 41)
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/flavours/list.html]" - line 388, col 41)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:239)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1438)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.attoparser.ParseException: (Line = 388, Column = 41) Incomplete structure: "<a href="/flavours/chocolate-chip-cookie-dough-ice-cream/mini-cup" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜릿 칩 쿠키 도우"">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2693">
+                                    <picture>
+                                        <img src="/assets/img/flavours/mini_cups/38876_US_IC_Chocolate-Fudge-Brownie_120ml_Open_Brand-1920px.png" alt="초콜릿 퍼지 브라우니 Original Ice Cream Mini Cup" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        초콜릿 퍼지 브라우니</h3>
+                                    <div>
+                                        <a href="/flavours/chocolate-fudge-brownie-ice-cream/mini-cup" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜릿 퍼지 브라우니">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card">
+                                    <h3 class="heading heading-3">
+                                        미니컵</h3>
+                                    <div>
+                                        <a href="/flavours/ice-cream-cups" class="btn btn-secondary stretched-link" aria-label="View All">
+                                            View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section id="carousel-c" data-module="Carousel" data-min-slides="4" class="carousel view-default">
+                    <header>
+                        <h2 class="heading heading-2">스쿱</h2>
+                        <div class="d-flex justify-content-end">
+                            <a href="/flavors/ice-cream-shop-flavors" target="_self" aria-label="View All 스쿱">View&nbsp;All</a>
+                        </div>
+                    </header>
+                    <div class="swiper">
+                        <div class="swiper-wrapper flex-wrap">
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="3805">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0032_Chocolate_RGB_HR28_bulk.png" alt="초콜렛 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        초콜렛
+                                        <div>
+                                            <span class="badge">신제품!</span>
+                                        </div>
+                                    </h3>
+                                    <div>   
+                                        <a href="/flavours/chocolate-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜렛">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">         
+                                <div class="flavour-card" data-id="2700">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0103_NewYorkSuperFudgeChunk_RGB_bulk.png" alt="뉴욕 수퍼 퍼지 청크® Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        뉴욕 수퍼 퍼지 청크®</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2700"></div>
+                                    <div>
+                                        <a href="/flavours/new-york-super-fudge-chunk-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 뉴욕 수퍼 퍼지 청크®">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            <div class="swiper-slide">                    
+                                <div class="flavour-card" data-id="2702">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0096_MintChocolateChunk_RGB_bulk.png" alt="민트 초콜릿 청크 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        민트 초콜릿 청크</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2702"></div>
+                                    <div>
+                                        <a href="/flavours/mint-chocolate-chunk-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 민트 초콜릿 청크">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2699">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0165_Vanilla_RGB_bulk.png" alt="바닐라 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        바닐라</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2699"></div>
+                                    <div>
+                                        <a href="/flavours/vanilla-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 바닐라">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2703">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/sweet_cream_and_cookies_bulk.png" alt="스위트 크림&amp;쿠키 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        스위트 크림&amp;쿠키</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2703"></div>
+                                    <div>
+                                        <a href="/flavours/sweet-cream-and-cookies-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 스위트 크림&amp;쿠키">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card">
+                                    <h3 class="heading heading-3">
+                                        스쿱</h3>   
+                                    <div>
+                                        <a href="/flavors/ice-cream-shop-flavors" class="btn btn-secondary stretched-link" aria-label="View All">
+                                                View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <div class="row grid-row media">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <article class="youtube-video">
+                            <h2 class="visually-hidden">Ben &amp; Jerry's Top 10 Flavours</h2>
+                            <div class="ratio ratio-16x9">
+                                <iframe allowfullscreen="" title="Ben &amp; Jerry's Top 10 Flavours" class="optanon-category-C0004" src="https://www.youtube.com/embed/PDHjQBQ-GDg?rel=0&amp;cc_lang_pref=ko&amp;modestbranding=1&amp;disablekb=1" loading="lazy" data-one-trust="C0004" data-warning="consent-warning-b5747ad8-a4b7-42a0-90a7-56c039164202"></iframe>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+        </main>   
+
+
+        <aside id="aside-footer">
+            <div class="container-fluid">
+                <div class="footer-top">
+                    <div class="footer-title">
+                        <h2>우리는 아이스크림 만드는 일을 사랑합니다. 하지만 세상을 더 나은 곳으로 만들기 위한 노력들이 우리의 일에 더 큰 의미를 부여합니다.&nbsp;</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                        <img src="/assets/img/homepage/footer_card_1.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">엄선한 원료</h2>
+                                    <div class="footer-card-body"><p>우리의 원료들은 환상적인 맛의 아이스크림을 만드는 것은 물론, 사회의 긍정적 변화를 지원합니다.&nbsp;</p></div>
+                                    <a href="/values/how-we-do-business" class="btn btn-tertiary">제품의 원료 조달</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                    <img src="/assets/img/homepage/footer_card_2.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">성공을 공유</h2>
+                                    <div class="footer-card-body"><p>사업과 관련된 모든 사람이 상생할 수 있는 기회를 창출하는 것이 목표입니다.</p>
+                                    </div>
+                                    <a href="/values" class="btn btn-tertiary">우리의 사명과 가치</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                    <img src="/assets/img/homepage/footer_card_3.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">변화 만들기</h2>
+                                    <div class="footer-card-body"><p>우리는 우리가 중요하게 생각하는 행동주의의 대의에 대한 인식을 높이고 이를 지원하고 있습니다.</p>
+                                    </div>
+                                    <a href="/values/issues-we-care-about" class="btn btn-tertiary">우리가 중요하게 생각하는 문제</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+
+        <footer id="footer">
+            <div class="container-fluid  ">
+                <div class="footer-bottom">
+                    <div class="footer-image">
+                        <img class="" src="/assets/img/homepage/footer_woody.svg" alt="Illustrated cow holding a megaphone" loading="lazy"></div>
+                    <div class="row">
+                    <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <h2 class="heading">연락하기</h2>
+                            <ul class="">
+                                <li><a href="/contact-us">피드백 보내기</a></li>
+                            </ul>
+                            <div class="social-links">
+                                <h2 class="heading">팔로우하기</h2>
+                                <ul class="">
+                                    <li>
+                                        <a href="https://www.facebook.com/benandjerryskr">
+                                            <span class="icon icon-facebook"></span></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://instagram.com/benjerryskorea">
+                                            <span class="icon icon-instagram"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h2 class="heading">보다 자세한 정보</h2>
+                            <ul class="">
+                                <li><a href="/whats-new">새로운 소식</a></li>
+                                <li><a href="/about-us">회사 소개</a></li>
+                                <li><a href="/values/how-we-do-business">기업 운영 방식</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="main.js"></script>
+            
+    </body>
+</html>"
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:366)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 56 common frames omitted
+[ERROR] 25-09-10 20:22:57 [[dispatcherServlet]:170] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/flavours/list.html]" - line 388, col 41)] with root cause
+org.attoparser.ParseException: (Line = 388, Column = 41) Incomplete structure: "<a href="/flavours/chocolate-chip-cookie-dough-ice-cream/mini-cup" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜릿 칩 쿠키 도우"">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2693">
+                                    <picture>
+                                        <img src="/assets/img/flavours/mini_cups/38876_US_IC_Chocolate-Fudge-Brownie_120ml_Open_Brand-1920px.png" alt="초콜릿 퍼지 브라우니 Original Ice Cream Mini Cup" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        초콜릿 퍼지 브라우니</h3>
+                                    <div>
+                                        <a href="/flavours/chocolate-fudge-brownie-ice-cream/mini-cup" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜릿 퍼지 브라우니">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card">
+                                    <h3 class="heading heading-3">
+                                        미니컵</h3>
+                                    <div>
+                                        <a href="/flavours/ice-cream-cups" class="btn btn-secondary stretched-link" aria-label="View All">
+                                            View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section id="carousel-c" data-module="Carousel" data-min-slides="4" class="carousel view-default">
+                    <header>
+                        <h2 class="heading heading-2">스쿱</h2>
+                        <div class="d-flex justify-content-end">
+                            <a href="/flavors/ice-cream-shop-flavors" target="_self" aria-label="View All 스쿱">View&nbsp;All</a>
+                        </div>
+                    </header>
+                    <div class="swiper">
+                        <div class="swiper-wrapper flex-wrap">
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="3805">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0032_Chocolate_RGB_HR28_bulk.png" alt="초콜렛 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        초콜렛
+                                        <div>
+                                            <span class="badge">신제품!</span>
+                                        </div>
+                                    </h3>
+                                    <div>   
+                                        <a href="/flavours/chocolate-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 초콜렛">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">         
+                                <div class="flavour-card" data-id="2700">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0103_NewYorkSuperFudgeChunk_RGB_bulk.png" alt="뉴욕 수퍼 퍼지 청크® Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        뉴욕 수퍼 퍼지 청크®</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2700"></div>
+                                    <div>
+                                        <a href="/flavours/new-york-super-fudge-chunk-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 뉴욕 수퍼 퍼지 청크®">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                                
+                            <div class="swiper-slide">                    
+                                <div class="flavour-card" data-id="2702">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0096_MintChocolateChunk_RGB_bulk.png" alt="민트 초콜릿 청크 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        민트 초콜릿 청크</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2702"></div>
+                                    <div>
+                                        <a href="/flavours/mint-chocolate-chunk-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 민트 초콜릿 청크">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2699">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/1920x1920__0165_Vanilla_RGB_bulk.png" alt="바닐라 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        바닐라</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2699"></div>
+                                    <div>
+                                        <a href="/flavours/vanilla-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 바닐라">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide">
+                                <div class="flavour-card" data-id="2703">
+                                    <picture>
+                                        <img src="/assets/img/flavours/scoop/sweet_cream_and_cookies_bulk.png" alt="스위트 크림&amp;쿠키 Original Ice Cream Scoop Shop" loading="lazy">
+                                    </picture>
+                                    <h3 class="heading heading-3">
+                                        스위트 크림&amp;쿠키</h3>
+                                    <div data-bv-show="inline_rating" data-bv-product-id="2703"></div>
+                                    <div>
+                                        <a href="/flavours/sweet-cream-and-cookies-ice-cream/scoop-shop" class="btn btn-secondary stretched-link" aria-label="지금 구입 - 스위트 크림&amp;쿠키">
+                                                지금 구입</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="flavour-card">
+                                    <h3 class="heading heading-3">
+                                        스쿱</h3>   
+                                    <div>
+                                        <a href="/flavors/ice-cream-shop-flavors" class="btn btn-secondary stretched-link" aria-label="View All">
+                                                View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <div class="row grid-row media">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <article class="youtube-video">
+                            <h2 class="visually-hidden">Ben &amp; Jerry's Top 10 Flavours</h2>
+                            <div class="ratio ratio-16x9">
+                                <iframe allowfullscreen="" title="Ben &amp; Jerry's Top 10 Flavours" class="optanon-category-C0004" src="https://www.youtube.com/embed/PDHjQBQ-GDg?rel=0&amp;cc_lang_pref=ko&amp;modestbranding=1&amp;disablekb=1" loading="lazy" data-one-trust="C0004" data-warning="consent-warning-b5747ad8-a4b7-42a0-90a7-56c039164202"></iframe>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+        </main>   
+
+
+        <aside id="aside-footer">
+            <div class="container-fluid">
+                <div class="footer-top">
+                    <div class="footer-title">
+                        <h2>우리는 아이스크림 만드는 일을 사랑합니다. 하지만 세상을 더 나은 곳으로 만들기 위한 노력들이 우리의 일에 더 큰 의미를 부여합니다.&nbsp;</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                        <img src="/assets/img/homepage/footer_card_1.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">엄선한 원료</h2>
+                                    <div class="footer-card-body"><p>우리의 원료들은 환상적인 맛의 아이스크림을 만드는 것은 물론, 사회의 긍정적 변화를 지원합니다.&nbsp;</p></div>
+                                    <a href="/values/how-we-do-business" class="btn btn-tertiary">제품의 원료 조달</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                    <img src="/assets/img/homepage/footer_card_2.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">성공을 공유</h2>
+                                    <div class="footer-card-body"><p>사업과 관련된 모든 사람이 상생할 수 있는 기회를 창출하는 것이 목표입니다.</p>
+                                    </div>
+                                    <a href="/values" class="btn btn-tertiary">우리의 사명과 가치</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="footer-card">
+                                <div class="footer-card-image" role="presentation">
+                                    <img src="/assets/img/homepage/footer_card_3.png" alt="" class="" loading="lazy">
+                                </div>
+                                <div class="footer-card-content">
+                                    <h2 class="heading-3">변화 만들기</h2>
+                                    <div class="footer-card-body"><p>우리는 우리가 중요하게 생각하는 행동주의의 대의에 대한 인식을 높이고 이를 지원하고 있습니다.</p>
+                                    </div>
+                                    <a href="/values/issues-we-care-about" class="btn btn-tertiary">우리가 중요하게 생각하는 문제</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+
+        <footer id="footer">
+            <div class="container-fluid  ">
+                <div class="footer-bottom">
+                    <div class="footer-image">
+                        <img class="" src="/assets/img/homepage/footer_woody.svg" alt="Illustrated cow holding a megaphone" loading="lazy"></div>
+                    <div class="row">
+                    <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <h2 class="heading">연락하기</h2>
+                            <ul class="">
+                                <li><a href="/contact-us">피드백 보내기</a></li>
+                            </ul>
+                            <div class="social-links">
+                                <h2 class="heading">팔로우하기</h2>
+                                <ul class="">
+                                    <li>
+                                        <a href="https://www.facebook.com/benandjerryskr">
+                                            <span class="icon icon-facebook"></span></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://instagram.com/benjerryskorea">
+                                            <span class="icon icon-instagram"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h2 class="heading">보다 자세한 정보</h2>
+                            <ul class="">
+                                <li><a href="/whats-new">새로운 소식</a></li>
+                                <li><a href="/about-us">회사 소개</a></li>
+                                <li><a href="/values/how-we-do-business">기업 운영 방식</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="main.js"></script>
+            
+    </body>
+</html>"
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:366)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1438)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1168)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+[ERROR] 25-09-10 20:22:57 [ErrorMvcAutoConfiguration$StaticView:202] - Cannot render error page for request [/flavours] and exception [An error happened during template parsing (template: "class path resource [templates/flavours/list.html]" - line 388, col 41)] as the response has already been committed. As a result, the response may have the wrong status code.
+[ERROR] 25-09-10 20:38:50 [LoggingFailureAnalysisReporter:40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Invalid mapping pattern detected:
+/flavours/{slug}, /flavours/{slug}/{category}
+                            ^
+Not allowed to capture 'slug' twice in the same pattern
+
+Action:
+
+Fix this pattern in your application or switch to the legacy parser implementation with 'spring.mvc.pathmatch.matching-strategy=ant_path_matcher'.
+
+[ERROR] 25-09-10 20:46:19 [[dispatcherServlet]:170] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalStateException: Ambiguous handler methods mapped for '/flavours/strawberry-ice-cream': {public java.lang.String kr.bhodu.benjerrysclone.controllers.FlavourController.listByCategory(), public java.lang.String kr.bhodu.benjerrysclone.controllers.FlavourController.productDetail()}] with root cause
+java.lang.IllegalStateException: Ambiguous handler methods mapped for '/flavours/strawberry-ice-cream': {public java.lang.String kr.bhodu.benjerrysclone.controllers.FlavourController.listByCategory(), public java.lang.String kr.bhodu.benjerrysclone.controllers.FlavourController.productDetail()}
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lookupHandlerMethod(AbstractHandlerMethodMapping.java:431)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.getHandlerInternal(AbstractHandlerMethodMapping.java:382)
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:127)
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:68)
+	at org.springframework.web.servlet.handler.AbstractHandlerMapping.getHandler(AbstractHandlerMapping.java:509)
+	at org.springframework.web.servlet.DispatcherServlet.getHandler(DispatcherServlet.java:1284)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1065)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+[ERROR] 25-09-10 20:46:46 [[dispatcherServlet]:170] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalStateException: Ambiguous handler methods mapped for '/flavours/detail': {public java.lang.String kr.bhodu.benjerrysclone.controllers.FlavourController.listByCategory(), public java.lang.String kr.bhodu.benjerrysclone.controllers.FlavourController.productDetail()}] with root cause
+java.lang.IllegalStateException: Ambiguous handler methods mapped for '/flavours/detail': {public java.lang.String kr.bhodu.benjerrysclone.controllers.FlavourController.listByCategory(), public java.lang.String kr.bhodu.benjerrysclone.controllers.FlavourController.productDetail()}
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lookupHandlerMethod(AbstractHandlerMethodMapping.java:431)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.getHandlerInternal(AbstractHandlerMethodMapping.java:382)
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:127)
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:68)
+	at org.springframework.web.servlet.handler.AbstractHandlerMapping.getHandler(AbstractHandlerMapping.java:509)
+	at org.springframework.web.servlet.DispatcherServlet.getHandler(DispatcherServlet.java:1284)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1065)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+[ERROR] 25-09-10 20:47:01 [[dispatcherServlet]:170] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalStateException: Ambiguous handler methods mapped for '/flavours/detail': {public java.lang.String kr.bhodu.benjerrysclone.controllers.FlavourController.listByCategory(), public java.lang.String kr.bhodu.benjerrysclone.controllers.FlavourController.productDetail()}] with root cause
+java.lang.IllegalStateException: Ambiguous handler methods mapped for '/flavours/detail': {public java.lang.String kr.bhodu.benjerrysclone.controllers.FlavourController.listByCategory(), public java.lang.String kr.bhodu.benjerrysclone.controllers.FlavourController.productDetail()}
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lookupHandlerMethod(AbstractHandlerMethodMapping.java:431)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.getHandlerInternal(AbstractHandlerMethodMapping.java:382)
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:127)
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:68)
+	at org.springframework.web.servlet.handler.AbstractHandlerMapping.getHandler(AbstractHandlerMapping.java:509)
+	at org.springframework.web.servlet.DispatcherServlet.getHandler(DispatcherServlet.java:1284)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1065)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
