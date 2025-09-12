@@ -15,7 +15,7 @@ public class FlavourController {
 
         // 1) 전체 리스트
         @GetMapping("/flavours")
-        public String listAll() {
+        public String listAllFlavours() {
 
                 return "flavours/list";
         }

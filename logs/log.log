@@ -1,1182 +1,157 @@
-[INFO ] 25-09-11 21:41:54 [BenjerryscloneApplication:53] - Starting BenjerryscloneApplication using Java 17.0.14 with PID 39284 (/Users/sieun/ben-jerrys-clone/build/classes/java/main started by sieun in /Users/sieun/ben-jerrys-clone)
-[DEBUG] 25-09-11 21:41:54 [BenjerryscloneApplication:54] - Running with Spring Boot v3.5.5, Spring v6.2.10
-[INFO ] 25-09-11 21:41:54 [BenjerryscloneApplication:652] - No active profile set, falling back to 1 default profile: "default"
-[WARN ] 25-09-11 21:41:56 [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[kr.bhodu.benjerrysclone]' package. Please check your configuration.
-[INFO ] 25-09-11 21:41:59 [BenjerryscloneApplication:59] - Started BenjerryscloneApplication in 6.059 seconds (process running for 6.706)
-[INFO ] 25-09-11 21:42:00 [sqlonly:228] - DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757594520034
-
-[ERROR] 25-09-11 21:42:00 [sqlonly:144] - 1. PreparedStatement.executeUpdate() DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757594520034
-
-java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[ERROR] 25-09-11 21:42:00 [TaskUtils$LoggingErrorHandler:95] - Unexpected error occurred in scheduled task
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < ?
-]
-	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
-	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:677)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	... 14 common frames omitted
-[INFO ] 25-09-11 21:43:00 [sqlonly:228] - DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757594580019
-
-[ERROR] 25-09-11 21:43:00 [sqlonly:144] - 1. PreparedStatement.executeUpdate() DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757594580019
-
-java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[ERROR] 25-09-11 21:43:00 [TaskUtils$LoggingErrorHandler:95] - Unexpected error occurred in scheduled task
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < ?
-]
-	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
-	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:677)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	... 14 common frames omitted
-[INFO ] 25-09-11 21:44:00 [sqlonly:228] - DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757594640010
-
-[ERROR] 25-09-11 21:44:00 [sqlonly:144] - 1. PreparedStatement.executeUpdate() DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757594640010
-
-java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[ERROR] 25-09-11 21:44:00 [TaskUtils$LoggingErrorHandler:95] - Unexpected error occurred in scheduled task
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < ?
-]
-	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
-	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:677)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	... 14 common frames omitted
-[INFO ] 25-09-11 21:45:00 [sqlonly:228] - DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757594700034
-
-[ERROR] 25-09-11 21:45:00 [sqlonly:144] - 1. PreparedStatement.executeUpdate() DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757594700034
-
-java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[ERROR] 25-09-11 21:45:00 [TaskUtils$LoggingErrorHandler:95] - Unexpected error occurred in scheduled task
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < ?
-]
-	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
-	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:677)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	... 14 common frames omitted
-[INFO ] 25-09-11 21:46:00 [sqlonly:228] - DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757594760010
-
-[ERROR] 25-09-11 21:46:00 [sqlonly:144] - 1. PreparedStatement.executeUpdate() DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757594760010
-
-java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[ERROR] 25-09-11 21:46:00 [TaskUtils$LoggingErrorHandler:95] - Unexpected error occurred in scheduled task
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < ?
-]
-	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
-	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:677)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	... 14 common frames omitted
-[INFO ] 25-09-11 21:47:00 [sqlonly:228] - DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757594820011
-
-[ERROR] 25-09-11 21:47:00 [sqlonly:144] - 1. PreparedStatement.executeUpdate() DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757594820011
-
-java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[ERROR] 25-09-11 21:47:00 [TaskUtils$LoggingErrorHandler:95] - Unexpected error occurred in scheduled task
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < ?
-]
-	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
-	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:677)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	... 14 common frames omitted
-[INFO ] 25-09-11 21:48:00 [sqlonly:228] - DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757594880025
-
-[ERROR] 25-09-11 21:48:00 [sqlonly:144] - 1. PreparedStatement.executeUpdate() DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757594880025
-
-java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[ERROR] 25-09-11 21:48:00 [TaskUtils$LoggingErrorHandler:95] - Unexpected error occurred in scheduled task
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < ?
-]
-	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
-	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:677)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	... 14 common frames omitted
-[INFO ] 25-09-11 21:49:00 [sqlonly:228] - DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757594940016
-
-[ERROR] 25-09-11 21:49:00 [sqlonly:144] - 1. PreparedStatement.executeUpdate() DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757594940016
-
-java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[ERROR] 25-09-11 21:49:00 [TaskUtils$LoggingErrorHandler:95] - Unexpected error occurred in scheduled task
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < ?
-]
-	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
-	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:677)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	... 14 common frames omitted
-[INFO ] 25-09-11 21:50:00 [sqlonly:228] - DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757595000008
-
-[ERROR] 25-09-11 21:50:00 [sqlonly:144] - 1. PreparedStatement.executeUpdate() DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757595000008
-
-java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[ERROR] 25-09-11 21:50:00 [TaskUtils$LoggingErrorHandler:95] - Unexpected error occurred in scheduled task
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < ?
-]
-	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
-	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:677)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	... 14 common frames omitted
-[INFO ] 25-09-11 21:51:00 [sqlonly:228] - DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757595060010
-
-[ERROR] 25-09-11 21:51:00 [sqlonly:144] - 1. PreparedStatement.executeUpdate() DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757595060010
-
-java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[ERROR] 25-09-11 21:51:00 [TaskUtils$LoggingErrorHandler:95] - Unexpected error occurred in scheduled task
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < ?
-]
-	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
-	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:677)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	... 14 common frames omitted
-[INFO ] 25-09-11 21:52:00 [sqlonly:228] - DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757595120013
-
-[ERROR] 25-09-11 21:52:00 [sqlonly:144] - 1. PreparedStatement.executeUpdate() DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757595120013
-
-java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[ERROR] 25-09-11 21:52:00 [TaskUtils$LoggingErrorHandler:95] - Unexpected error occurred in scheduled task
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < ?
-]
-	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
-	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:677)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	... 14 common frames omitted
-[INFO ] 25-09-11 21:53:00 [sqlonly:228] - DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757595180030
-
-[ERROR] 25-09-11 21:53:00 [sqlonly:144] - 1. PreparedStatement.executeUpdate() DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757595180030
-
-java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[ERROR] 25-09-11 21:53:00 [TaskUtils$LoggingErrorHandler:95] - Unexpected error occurred in scheduled task
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < ?
-]
-	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
-	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:677)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	... 14 common frames omitted
-[INFO ] 25-09-11 21:54:00 [sqlonly:228] - DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757595240008
-
-[ERROR] 25-09-11 21:54:00 [sqlonly:144] - 1. PreparedStatement.executeUpdate() DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757595240008
-
-java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[ERROR] 25-09-11 21:54:00 [TaskUtils$LoggingErrorHandler:95] - Unexpected error occurred in scheduled task
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < ?
-]
-	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
-	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:677)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	... 14 common frames omitted
-[INFO ] 25-09-11 21:55:00 [sqlonly:228] - DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757595300006
-
-[ERROR] 25-09-11 21:55:00 [sqlonly:144] - 1. PreparedStatement.executeUpdate() DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757595300006
-
-java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[ERROR] 25-09-11 21:55:00 [TaskUtils$LoggingErrorHandler:95] - Unexpected error occurred in scheduled task
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < ?
-]
-	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
-	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:677)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	... 14 common frames omitted
-[INFO ] 25-09-11 21:56:00 [sqlonly:228] - DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757595360010
-
-[ERROR] 25-09-11 21:56:00 [sqlonly:144] - 1. PreparedStatement.executeUpdate() DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757595360010
-
-java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[ERROR] 25-09-11 21:56:00 [TaskUtils$LoggingErrorHandler:95] - Unexpected error occurred in scheduled task
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < ?
-]
-	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
-	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:677)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	... 14 common frames omitted
-[INFO ] 25-09-11 21:57:00 [sqlonly:228] - DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757595420018
-
-[ERROR] 25-09-11 21:57:00 [sqlonly:144] - 1. PreparedStatement.executeUpdate() DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < 1757595420018
-
-java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-[ERROR] 25-09-11 21:57:00 [TaskUtils$LoggingErrorHandler:95] - Unexpected error occurred in scheduled task
-org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [DELETE FROM SPRING_SESSION
-WHERE EXPIRY_TIME < ?
-]
-	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
-	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:677)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:972)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1016)
-	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:1026)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.lambda$cleanUpExpiredSessions$8(JdbcIndexedSessionRepository.java:649)
-	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140)
-	at org.springframework.session.jdbc.JdbcIndexedSessionRepository.cleanUpExpiredSessions(JdbcIndexedSessionRepository.java:648)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:96)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: java.sql.SQLSyntaxErrorException: Table 'benjerrysclone.spring_session' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084)
-	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.executeUpdate(PreparedStatementSpy.java:1080)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
-	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
-	... 14 common frames omitted
-[INFO ] 25-09-11 21:57:49 [BenjerryscloneApplication:53] - Starting BenjerryscloneApplication using Java 17.0.14 with PID 40423 (/Users/sieun/ben-jerrys-clone/build/classes/java/main started by sieun in /Users/sieun/ben-jerrys-clone)
-[DEBUG] 25-09-11 21:57:49 [BenjerryscloneApplication:54] - Running with Spring Boot v3.5.5, Spring v6.2.10
-[INFO ] 25-09-11 21:57:49 [BenjerryscloneApplication:652] - No active profile set, falling back to 1 default profile: "default"
-[WARN ] 25-09-11 21:57:51 [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[kr.bhodu.benjerrysclone]' package. Please check your configuration.
-[INFO ] 25-09-11 21:57:53 [BenjerryscloneApplication:59] - Started BenjerryscloneApplication in 4.861 seconds (process running for 5.468)
-[INFO ] 25-09-11 21:58:13 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-11 21:58:13 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-11 21:58:13 [MyInterceptor:85] - [GET] http://localhost:8080/detail
-[INFO ] 25-09-11 21:58:13 [MyInterceptor:122] - running time: 370(ms)
-[INFO ] 25-09-11 21:58:14 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-11 21:58:14 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-11 21:58:14 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
-[INFO ] 25-09-11 21:58:24 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-11 21:58:24 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-11 21:58:24 [MyInterceptor:85] - [GET] http://localhost:8080/detail
-[INFO ] 25-09-11 21:58:24 [MyInterceptor:122] - running time: 98(ms)
-[INFO ] 25-09-11 21:58:24 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-11 21:58:24 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-11 21:58:24 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
-[INFO ] 25-09-11 21:58:44 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-11 21:58:44 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-11 21:58:44 [MyInterceptor:85] - [GET] http://localhost:8080/detail
-[INFO ] 25-09-11 21:58:44 [MyInterceptor:122] - running time: 103(ms)
-[INFO ] 25-09-11 21:58:44 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-11 21:58:44 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-11 21:58:44 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
-[INFO ] 25-09-11 21:58:46 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-11 21:58:46 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-11 21:58:46 [MyInterceptor:85] - [GET] http://localhost:8080/flavours/mint-chocolate-cookie-ice-cream/pint
-[INFO ] 25-09-11 21:58:46 [MyInterceptor:101] - - REFERER : time=2069, url=http://localhost:8080/detail
-[INFO ] 25-09-11 21:58:46 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-11 21:58:46 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-11 21:58:46 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
-[INFO ] 25-09-11 21:58:47 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-11 21:58:47 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-11 21:58:47 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
-[INFO ] 25-09-11 21:58:47 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-11 21:58:47 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-11 21:58:47 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
-[INFO ] 25-09-11 21:58:49 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-11 21:58:49 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-11 21:58:49 [MyInterceptor:85] - [GET] http://localhost:8080/flavours
-[INFO ] 25-09-11 21:58:49 [MyInterceptor:101] - - REFERER : time=4769, url=http://localhost:8080/detail
-[INFO ] 25-09-11 21:58:49 [MyInterceptor:122] - running time: 53(ms)
-[INFO ] 25-09-11 21:58:49 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-11 21:58:49 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-11 21:58:49 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
-[INFO ] 25-09-11 21:58:53 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-11 21:58:53 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-11 21:58:53 [MyInterceptor:85] - [GET] http://localhost:8080/flavours/strawberry-cheesecake-ice-cream/pint
-[INFO ] 25-09-11 21:58:53 [MyInterceptor:101] - - REFERER : time=4734, url=http://localhost:8080/flavours
-[INFO ] 25-09-11 21:58:53 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-11 21:58:53 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-11 21:58:53 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
-[INFO ] 25-09-11 21:58:54 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-11 21:58:55 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-11 21:58:55 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
-[INFO ] 25-09-11 21:58:55 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-11 21:58:55 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-11 21:58:55 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
-[INFO ] 25-09-11 21:58:55 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-11 21:58:55 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-11 21:58:55 [MyInterceptor:85] - [GET] http://localhost:8080/flavours/new-york-super-fudge-chunk-ice-cream/pint
-[INFO ] 25-09-11 21:58:55 [MyInterceptor:101] - - REFERER : time=6598, url=http://localhost:8080/flavours
-[INFO ] 25-09-11 21:58:55 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-11 21:58:55 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-11 21:58:55 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
-[INFO ] 25-09-11 21:58:56 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-11 21:58:56 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-11 21:58:56 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
-[INFO ] 25-09-11 21:58:56 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-11 21:58:56 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-11 21:58:56 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
+[INFO ] 25-09-12 20:23:56 [BenjerryscloneApplication:53] - Starting BenjerryscloneApplication using Java 17.0.14 with PID 61519 (/Users/sieun/ben-jerrys-clone/build/classes/java/main started by sieun in /Users/sieun/ben-jerrys-clone)
+[DEBUG] 25-09-12 20:23:56 [BenjerryscloneApplication:54] - Running with Spring Boot v3.5.5, Spring v6.2.10
+[INFO ] 25-09-12 20:23:56 [BenjerryscloneApplication:652] - No active profile set, falling back to 1 default profile: "default"
+[WARN ] 25-09-12 20:23:58 [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[kr.bhodu.benjerrysclone]' package. Please check your configuration.
+[INFO ] 25-09-12 20:24:00 [BenjerryscloneApplication:59] - Started BenjerryscloneApplication in 4.788 seconds (process running for 5.43)
+[INFO ] 25-09-12 20:24:46 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:24:46 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-12 20:24:46 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new
+[INFO ] 25-09-12 20:24:46 [MyInterceptor:122] - running time: 430(ms)
+[INFO ] 25-09-12 20:25:47 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:25:48 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-12 20:25:48 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new/
+[INFO ] 25-09-12 20:25:48 [MyInterceptor:122] - running time: 153(ms)
+[INFO ] 25-09-12 20:25:54 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:25:54 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-12 20:25:54 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new/list
+[INFO ] 25-09-12 20:25:54 [MyInterceptor:122] - running time: 97(ms)
+[INFO ] 25-09-12 20:26:16 [BenjerryscloneApplication:53] - Starting BenjerryscloneApplication using Java 17.0.14 with PID 61715 (/Users/sieun/ben-jerrys-clone/build/classes/java/main started by sieun in /Users/sieun/ben-jerrys-clone)
+[DEBUG] 25-09-12 20:26:16 [BenjerryscloneApplication:54] - Running with Spring Boot v3.5.5, Spring v6.2.10
+[INFO ] 25-09-12 20:26:16 [BenjerryscloneApplication:652] - No active profile set, falling back to 1 default profile: "default"
+[WARN ] 25-09-12 20:26:18 [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[kr.bhodu.benjerrysclone]' package. Please check your configuration.
+[INFO ] 25-09-12 20:26:20 [BenjerryscloneApplication:59] - Started BenjerryscloneApplication in 4.726 seconds (process running for 5.336)
+[INFO ] 25-09-12 20:26:32 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:26:32 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-12 20:26:32 [MyInterceptor:85] - [GET] http://localhost:8080/whatsnew
+[INFO ] 25-09-12 20:26:32 [MyInterceptor:122] - running time: 383(ms)
+[INFO ] 25-09-12 20:29:09 [BenjerryscloneApplication:53] - Starting BenjerryscloneApplication using Java 17.0.14 with PID 61948 (/Users/sieun/ben-jerrys-clone/build/classes/java/main started by sieun in /Users/sieun/ben-jerrys-clone)
+[DEBUG] 25-09-12 20:29:09 [BenjerryscloneApplication:54] - Running with Spring Boot v3.5.5, Spring v6.2.10
+[INFO ] 25-09-12 20:29:09 [BenjerryscloneApplication:652] - No active profile set, falling back to 1 default profile: "default"
+[WARN ] 25-09-12 20:29:11 [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[kr.bhodu.benjerrysclone]' package. Please check your configuration.
+[INFO ] 25-09-12 20:29:13 [BenjerryscloneApplication:59] - Started BenjerryscloneApplication in 4.86 seconds (process running for 5.487)
+[INFO ] 25-09-12 20:29:53 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:29:53 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-12 20:29:53 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new
+[INFO ] 25-09-12 20:29:53 [MyInterceptor:122] - running time: 480(ms)
+[INFO ] 25-09-12 20:30:15 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:30:15 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-12 20:30:15 [MyInterceptor:85] - [GET] http://localhost:8080/flavours
+[INFO ] 25-09-12 20:30:15 [MyInterceptor:122] - running time: 152(ms)
+[INFO ] 25-09-12 20:30:25 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:30:25 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-12 20:30:25 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new
+[INFO ] 25-09-12 20:30:25 [MyInterceptor:122] - running time: 106(ms)
+[INFO ] 25-09-12 20:30:48 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:30:48 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Safari 18.6
+[INFO ] 25-09-12 20:30:48 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new
+[INFO ] 25-09-12 20:30:48 [MyInterceptor:122] - running time: 127(ms)
+[INFO ] 25-09-12 20:31:00 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:31:00 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-12 20:31:00 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
+[INFO ] 25-09-12 20:33:11 [BenjerryscloneApplication:53] - Starting BenjerryscloneApplication using Java 17.0.14 with PID 62259 (/Users/sieun/ben-jerrys-clone/build/classes/java/main started by sieun in /Users/sieun/ben-jerrys-clone)
+[DEBUG] 25-09-12 20:33:11 [BenjerryscloneApplication:54] - Running with Spring Boot v3.5.5, Spring v6.2.10
+[INFO ] 25-09-12 20:33:11 [BenjerryscloneApplication:652] - No active profile set, falling back to 1 default profile: "default"
+[WARN ] 25-09-12 20:33:13 [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[kr.bhodu.benjerrysclone]' package. Please check your configuration.
+[INFO ] 25-09-12 20:33:15 [BenjerryscloneApplication:59] - Started BenjerryscloneApplication in 4.71 seconds (process running for 5.327)
+[INFO ] 25-09-12 20:33:55 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:33:55 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Safari 18.6
+[INFO ] 25-09-12 20:33:55 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new
+[INFO ] 25-09-12 20:33:55 [MyInterceptor:122] - running time: 364(ms)
+[INFO ] 25-09-12 20:33:55 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:33:56 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Safari 18.6
+[INFO ] 25-09-12 20:33:56 [MyInterceptor:85] - [GET] http://localhost:8080/style.css
+[INFO ] 25-09-12 20:33:56 [MyInterceptor:101] - - REFERER : time=258, url=http://localhost:8080/whats-new
+[INFO ] 25-09-12 20:33:56 [MyInterceptor:122] - running time: 150(ms)
+[INFO ] 25-09-12 20:34:02 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:34:02 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Safari 18.6
+[INFO ] 25-09-12 20:34:02 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new
+[INFO ] 25-09-12 20:34:02 [MyInterceptor:122] - running time: 116(ms)
+[INFO ] 25-09-12 20:34:02 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:34:02 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Safari 18.6
+[INFO ] 25-09-12 20:34:02 [MyInterceptor:85] - [GET] http://localhost:8080/style.css
+[INFO ] 25-09-12 20:34:02 [MyInterceptor:101] - - REFERER : time=62, url=http://localhost:8080/whats-new
+[INFO ] 25-09-12 20:34:02 [MyInterceptor:122] - running time: 40(ms)
+[INFO ] 25-09-12 20:35:30 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:35:30 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Safari 18.6
+[INFO ] 25-09-12 20:35:30 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new
+[INFO ] 25-09-12 20:35:30 [MyInterceptor:122] - running time: 104(ms)
+[INFO ] 25-09-12 20:35:30 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:35:30 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Safari 18.6
+[INFO ] 25-09-12 20:35:30 [MyInterceptor:85] - [GET] http://localhost:8080/style.css
+[INFO ] 25-09-12 20:35:30 [MyInterceptor:101] - - REFERER : time=114, url=http://localhost:8080/whats-new
+[INFO ] 25-09-12 20:35:30 [MyInterceptor:122] - running time: 87(ms)
+[INFO ] 25-09-12 20:35:57 [BenjerryscloneApplication:53] - Starting BenjerryscloneApplication using Java 17.0.14 with PID 62513 (/Users/sieun/ben-jerrys-clone/build/classes/java/main started by sieun in /Users/sieun/ben-jerrys-clone)
+[DEBUG] 25-09-12 20:35:57 [BenjerryscloneApplication:54] - Running with Spring Boot v3.5.5, Spring v6.2.10
+[INFO ] 25-09-12 20:35:57 [BenjerryscloneApplication:652] - No active profile set, falling back to 1 default profile: "default"
+[WARN ] 25-09-12 20:35:59 [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[kr.bhodu.benjerrysclone]' package. Please check your configuration.
+[INFO ] 25-09-12 20:36:01 [BenjerryscloneApplication:59] - Started BenjerryscloneApplication in 4.696 seconds (process running for 5.301)
+[INFO ] 25-09-12 20:37:15 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:37:16 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Safari 18.6
+[INFO ] 25-09-12 20:37:16 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new
+[INFO ] 25-09-12 20:37:16 [MyInterceptor:122] - running time: 399(ms)
+[INFO ] 25-09-12 20:39:11 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:39:11 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Safari 18.6
+[INFO ] 25-09-12 20:39:11 [MyInterceptor:85] - [GET] http://localhost:8080/
+[INFO ] 25-09-12 20:39:11 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:39:11 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Safari 18.6
+[INFO ] 25-09-12 20:39:11 [MyInterceptor:85] - [GET] http://localhost:8080/files/2025/07/30/17538757345920.jpeg
+[INFO ] 25-09-12 20:39:15 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:39:15 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Safari 18.6
+[INFO ] 25-09-12 20:39:15 [MyInterceptor:85] - [GET] http://localhost:8080/flavours
+[INFO ] 25-09-12 20:39:15 [MyInterceptor:122] - running time: 88(ms)
+[INFO ] 25-09-12 20:48:27 [BenjerryscloneApplication:53] - Starting BenjerryscloneApplication using Java 17.0.14 with PID 63453 (/Users/sieun/ben-jerrys-clone/build/classes/java/main started by sieun in /Users/sieun/ben-jerrys-clone)
+[DEBUG] 25-09-12 20:48:27 [BenjerryscloneApplication:54] - Running with Spring Boot v3.5.5, Spring v6.2.10
+[INFO ] 25-09-12 20:48:27 [BenjerryscloneApplication:652] - No active profile set, falling back to 1 default profile: "default"
+[WARN ] 25-09-12 20:48:29 [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[kr.bhodu.benjerrysclone]' package. Please check your configuration.
+[INFO ] 25-09-12 20:48:31 [BenjerryscloneApplication:59] - Started BenjerryscloneApplication in 4.734 seconds (process running for 5.332)
+[INFO ] 25-09-12 20:48:53 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:48:53 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-12 20:48:53 [MyInterceptor:85] - [GET] http://localhost:8080/news/top-ben-jerrys-flavours-of-2022
+[INFO ] 25-09-12 20:48:53 [MyInterceptor:122] - running time: 380(ms)
+[INFO ] 25-09-12 20:48:54 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:48:54 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-12 20:48:54 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
+[INFO ] 25-09-12 20:49:49 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:49:50 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-12 20:49:50 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new/top-ben-jerrys-flavours-of-2022
+[INFO ] 25-09-12 20:49:50 [MyInterceptor:122] - running time: 105(ms)
+[INFO ] 25-09-12 20:49:50 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:49:50 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-12 20:49:50 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
+[INFO ] 25-09-12 20:50:02 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:50:02 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-12 20:50:02 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
+[INFO ] 25-09-12 20:50:02 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:50:02 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-12 20:50:02 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
+[INFO ] 25-09-12 20:50:05 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:50:05 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-12 20:50:05 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
+[INFO ] 25-09-12 20:50:05 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:50:05 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-12 20:50:05 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
+[INFO ] 25-09-12 20:50:07 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:50:07 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-12 20:50:07 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
+[INFO ] 25-09-12 20:50:07 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:50:07 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-12 20:50:07 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
+[INFO ] 25-09-12 20:54:26 [BenjerryscloneApplication:53] - Starting BenjerryscloneApplication using Java 17.0.14 with PID 63899 (/Users/sieun/ben-jerrys-clone/build/classes/java/main started by sieun in /Users/sieun/ben-jerrys-clone)
+[DEBUG] 25-09-12 20:54:26 [BenjerryscloneApplication:54] - Running with Spring Boot v3.5.5, Spring v6.2.10
+[INFO ] 25-09-12 20:54:26 [BenjerryscloneApplication:652] - No active profile set, falling back to 1 default profile: "default"
+[WARN ] 25-09-12 20:54:28 [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[kr.bhodu.benjerrysclone]' package. Please check your configuration.
+[INFO ] 25-09-12 20:54:30 [BenjerryscloneApplication:59] - Started BenjerryscloneApplication in 4.819 seconds (process running for 5.416)
+[INFO ] 25-09-12 20:54:35 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:54:36 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-12 20:54:36 [MyInterceptor:85] - [GET] http://localhost:8080/news/top-ben-jerrys-flavours-of-2022
+[INFO ] 25-09-12 20:54:36 [MyInterceptor:122] - running time: 398(ms)
+[INFO ] 25-09-12 20:54:36 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:54:36 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-12 20:54:36 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
+[INFO ] 25-09-12 20:54:50 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:54:50 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-12 20:54:50 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new/top-ben-jerrys-flavours-of-2022
+[INFO ] 25-09-12 20:54:50 [MyInterceptor:122] - running time: 125(ms)
+[INFO ] 25-09-12 20:54:50 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-12 20:54:50 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-12 20:54:50 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
