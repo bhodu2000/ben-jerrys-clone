@@ -44,12 +44,20 @@ public class FlavourController {
         // 3-2) variant 상세
         // slug + category 들어온 경우: 해당 카테고리 강제
         //category.slug
-        @GetMapping("/{slug}/{category}")
-        public String productDetailByCategory(@PathVariable String slug,
-                                              @PathVariable String category,
-                                              Model model) {
-                model.addAttribute("slug", slug);
-                model.addAttribute("category", category);
+//        @GetMapping("/{slug}/{category}")
+//        public String productDetailByCategory(@PathVariable String slug,
+//                                              @PathVariable String category,
+//                                              Model model) {
+//                model.addAttribute("slug", slug);
+//                model.addAttribute("category", category);
+//                return "flavours/detail";
+//        }
+
+
+
+        @GetMapping("/detail")
+        public String productDetailByCategory() {
+
                 return "flavours/detail";
         }
 

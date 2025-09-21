@@ -2,25 +2,27 @@
    Ben & Jerry's – Full Schema + Seed
    ============================================================ */
 
-
 DROP DATABASE IF EXISTS benjerrysclone;
 CREATE DATABASE benjerrysclone
   DEFAULT CHARACTER SET utf8mb4
   COLLATE utf8mb4_0900_ai_ci;
 USE benjerrysclone;
 
-
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ======================
--- Drop 
+-- Drop 기존 트리거/테이블
 -- ======================
 DROP TRIGGER IF EXISTS trg_vm_bi;
 DROP TRIGGER IF EXISTS trg_vm_bu;
 DROP TRIGGER IF EXISTS trg_variant_bu_active;
 DROP TRIGGER IF EXISTS trg_reco_bi;
 DROP TRIGGER IF EXISTS trg_reco_bu;
+DROP TRIGGER IF EXISTS trg_flavour_bi;
+DROP TRIGGER IF EXISTS trg_flavour_bu;
+
+DROP PROCEDURE IF EXISTS promote_latest_cohort;
 
 DROP TABLE IF EXISTS variant_reco;
 DROP TABLE IF EXISTS variant_relation;
@@ -37,51 +39,61 @@ DROP TABLE IF EXISTS product_variant;
 DROP TABLE IF EXISTS article;
 DROP TABLE IF EXISTS flavour;
 DROP TABLE IF EXISTS category;
+DROP TABLE IF EXISTS flavour_type;
 
--- ======================
--- Base master tables
--- ======================
+/* ======================
+   Base master tables
+   ====================== */
 
 CREATE TABLE category (
   id                  BIGINT PRIMARY KEY AUTO_INCREMENT,
-  code                VARCHAR(50)  NOT NULL UNIQUE,          -- PINT, MINI_CUP, SCOOP ...
-  slug                VARCHAR(100) NOT NULL UNIQUE,          -- pint, mini-cup, scoop-shop (단수)
-  list_slug           VARCHAR(150) NOT NULL UNIQUE,          -- pints, mini-cups, ice-cream-shop-flavors (복수/리스트)
-  name_ko             VARCHAR(100) NOT NULL,
-  priority            INT NOT NULL DEFAULT 100,              -- 대표 변형 선택/정렬
-  packshot_basename   VARCHAR(100) NOT NULL DEFAULT 'main',  -- packshot/main.{ext}
-  nutrition_basename  VARCHAR(100) NULL                     -- nutrition/{basename}.{ext} (예: 473ml, 120ml)
+  code                VARCHAR(30)  NOT NULL UNIQUE,
+  slug                VARCHAR(30) NOT NULL UNIQUE,
+  list_slug           VARCHAR(30) NOT NULL UNIQUE,
+  name_ko             VARCHAR(30) NOT NULL,
+  priority            INT NOT NULL DEFAULT 100,
+  packshot_basename   VARCHAR(50) NOT NULL DEFAULT 'main',
+  nutrition_basename  VARCHAR(50) NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE flavour_type (
+  id            TINYINT PRIMARY KEY,
+  code          VARCHAR(30) NOT NULL UNIQUE,
+  name_ko       VARCHAR(30) NOT NULL,
+  sort_priority TINYINT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE flavour (
   id              BIGINT PRIMARY KEY AUTO_INCREMENT,
-  slug            VARCHAR(255) NOT NULL UNIQUE,   -- /flavours/{slug}
-  name_ko         VARCHAR(200) NOT NULL,
+  slug            VARCHAR(150) NOT NULL UNIQUE,
+  name_ko         VARCHAR(100) NOT NULL,
   description_ko  TEXT,
   is_active       TINYINT(1)   NOT NULL DEFAULT 1,
   is_new          TINYINT(1)   NOT NULL DEFAULT 0,
+  flavour_type_id TINYINT      NOT NULL DEFAULT 1,
+  flavour_sort_rank TINYINT    NOT NULL DEFAULT 9,
   created_at      DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  updated_at      DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  updated_at      DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  CONSTRAINT fk_flavour_type
+    FOREIGN KEY (flavour_type_id) REFERENCES flavour_type(id)
+    ON UPDATE RESTRICT ON DELETE RESTRICT,
+  INDEX idx_flavour_list       (is_active, flavour_sort_rank, name_ko),
+  INDEX idx_flavour_created_at (created_at),
+  INDEX idx_flavour_is_new     (is_new)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- ======================
--- Variant (flavour × category)
--- ======================
 
 CREATE TABLE product_variant (
   id            BIGINT PRIMARY KEY AUTO_INCREMENT,
   flavour_id    BIGINT NOT NULL,
   category_id   BIGINT NOT NULL,
-  variant_description_ko     TEXT,
+  variant_description_ko TEXT,
   is_active     TINYINT(1) NOT NULL DEFAULT 1,
-  sort_order    INT NOT NULL DEFAULT 0,
+  sort_order    INT NULL COMMENT 'NULL=기본정렬, 값 있으면 그룹 내 수동 오버라이드',
   created_at    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
   UNIQUE KEY uq_variant (flavour_id, category_id),
-  INDEX idx_variant_active_sort (is_active, sort_order),
-  INDEX idx_variant_category_active (category_id, is_active, sort_order),
-
+  INDEX idx_variant_active_category (is_active, category_id),
   CONSTRAINT fk_variant_flavour
     FOREIGN KEY (flavour_id) REFERENCES flavour(id)
     ON UPDATE RESTRICT ON DELETE CASCADE,
@@ -90,20 +102,18 @@ CREATE TABLE product_variant (
     ON UPDATE RESTRICT ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- ======================
--- Variant media (packshot/nutrition/gallery)
--- ======================
+/* ======================
+   Variant media (하이브리드 정렬)
+   ====================== */
 
--- 자식 테이블: FK 없이 먼저 생성
-CREATE TABLE IF NOT EXISTS variant_media (
+CREATE TABLE variant_media (
   id           BIGINT PRIMARY KEY AUTO_INCREMENT,
   variant_id   BIGINT NOT NULL,
   role         ENUM('PACKSHOT','GALLERY','NUTRITION') NOT NULL DEFAULT 'GALLERY',
-  url          VARCHAR(600) NOT NULL,
-  alt_ko       VARCHAR(255),
+  url          VARCHAR(300) NOT NULL,
+  alt_ko       VARCHAR(150),
   sort_order   INT NOT NULL DEFAULT 0,
 
-  -- 파생 컬럼
   file_basename       VARCHAR(255)
     GENERATED ALWAYS AS (SUBSTRING_INDEX(url, '/', -1)) STORED,
   gallery_num_prefix  INT
@@ -111,37 +121,38 @@ CREATE TABLE IF NOT EXISTS variant_media (
       CAST(REGEXP_SUBSTR(SUBSTRING_INDEX(url, '/', -1), '^[0-9]+') AS UNSIGNED)
     ) STORED,
 
-  -- GALLERY면 숫자 접두어(1~99) 필수
-  CONSTRAINT chk_vm_gallery_prefix
-    CHECK (role <> 'GALLERY' OR (gallery_num_prefix IS NOT NULL AND gallery_num_prefix BETWEEN 1 AND 99)),
+  CONSTRAINT chk_vm_gallery_prefix_relaxed
+    CHECK (
+      role <> 'GALLERY'
+      OR (
+        (gallery_num_prefix BETWEEN 1 AND 99)
+        OR (sort_order BETWEEN 1 AND 99)
+      )
+    ),
 
-  -- 중복 방지 유니크(같은 이미지 중복 금지)
   UNIQUE KEY uq_vm_nodup (variant_id, role, url),
-
-  -- 조회/정렬 인덱스
   INDEX idx_vm_variant (variant_id, role, sort_order),
-
-  -- FK 성능 보조(자식 단일 인덱스)
   INDEX idx_vm_variant_id (variant_id),
 
-  -- “부분 유니크” : PACKSHOT/NUTRITION는 변형당 1장, GALLERY는 NULL로 중복 허용
   UNIQUE KEY uq_vm_single_role_expr (
     (CASE
        WHEN role IN ('PACKSHOT','NUTRITION') THEN CONCAT(variant_id,'#',role)
        ELSE NULL
      END)
-  )
+  ),
+
+  UNIQUE KEY uq_vm_gallery_order_expr (
+    (CASE
+       WHEN role='GALLERY' THEN CONCAT(variant_id,'#',LPAD(sort_order,2,'0'))
+       ELSE NULL
+     END)
+  ),
+
+  CONSTRAINT fk_variant_media__product_variant
+    FOREIGN KEY (variant_id) REFERENCES product_variant(id)
+    ON UPDATE RESTRICT ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- FK는 테이블 생성 후 별도 추가 (생성 순서 이슈 방지)
-ALTER TABLE variant_media
-  ADD CONSTRAINT fk_variant_media__product_variant
-  FOREIGN KEY (variant_id)
-  REFERENCES product_variant(id)
-  ON UPDATE RESTRICT
-  ON DELETE CASCADE;
-  
-  
 -- ======================
 -- Variant ingredients (영양 이미지는 variant_media.NUTRITION 사용)
 -- ======================
@@ -150,7 +161,7 @@ CREATE TABLE variant_ingredients (
   id               BIGINT PRIMARY KEY AUTO_INCREMENT,
   variant_id       BIGINT NOT NULL,
   ingredients_ko   MEDIUMTEXT,                    -- HTML/문단 허용
-  smartlabel_url   VARCHAR(600),
+  smartlabel_url   VARCHAR(300),
 
   UNIQUE KEY uq_vi_variant (variant_id),
   CONSTRAINT fk_vi_variant
@@ -164,9 +175,9 @@ CREATE TABLE variant_ingredients (
 
 CREATE TABLE sourcing_feature (
   id         BIGINT PRIMARY KEY AUTO_INCREMENT,
-  code       VARCHAR(80)  NOT NULL UNIQUE,        -- NON_GMO, FAIRTRADE ...
-  name_ko    VARCHAR(120) NOT NULL,
-  icon_url   VARCHAR(600) NOT NULL
+  code       VARCHAR(50)  NOT NULL UNIQUE,        -- NON_GMO, FAIRTRADE ...
+  name_ko    VARCHAR(100) NOT NULL,
+  icon_url   VARCHAR(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE variant_sourcing (
@@ -190,9 +201,9 @@ CREATE TABLE variant_sourcing (
 
 CREATE TABLE dietary_cert (
   id         BIGINT PRIMARY KEY AUTO_INCREMENT,
-  code       VARCHAR(80)  NOT NULL UNIQUE,        -- KOSHER_DAIRY, GLUTEN_FREE ...
-  name_ko    VARCHAR(120) NOT NULL,
-  icon_url   VARCHAR(600) NOT NULL
+  code       VARCHAR(50)  NOT NULL UNIQUE,        -- KOSHER_DAIRY, GLUTEN_FREE ...
+  name_ko    VARCHAR(100) NOT NULL,
+  icon_url   VARCHAR(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE variant_cert (
@@ -251,11 +262,11 @@ CREATE TABLE flavour_tag (
 
 CREATE TABLE article (
   id           BIGINT PRIMARY KEY AUTO_INCREMENT,
-  slug         VARCHAR(255) NOT NULL UNIQUE,       -- free-cone-day-flavor
-  title_ko     VARCHAR(255) NOT NULL,              
-  excerpt_ko   TEXT,                               
-  content_ko   LONGTEXT,                           
-  is_active    TINYINT(1) NOT NULL DEFAULT 1,      
+  slug         VARCHAR(150) NOT NULL UNIQUE,       -- free-cone-day-flavor
+  title_ko     VARCHAR(150) NOT NULL,
+  excerpt_ko   TEXT,
+  content_ko   LONGTEXT,
+  is_active    TINYINT(1) NOT NULL DEFAULT 1,
   created_at   DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at   DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
                     ON UPDATE CURRENT_TIMESTAMP,
@@ -286,172 +297,167 @@ CREATE TABLE variant_reco (
     REFERENCES product_variant(id) ON UPDATE RESTRICT ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- 외래키 재활성화
-SET FOREIGN_KEY_CHECKS = 1;
 
--- ======================
--- Triggers: 이미지 규칙/확장자 + GALLERY 정렬 자동화
--- ======================
+/* ======================
+   Triggers & Procedures
+   ====================== */
 DELIMITER $$
 
--- variant_media: INSERT
+DROP TRIGGER IF EXISTS trg_flavour_bi $$
+CREATE TRIGGER trg_flavour_bi
+BEFORE INSERT ON flavour
+FOR EACH ROW
+BEGIN
+  DECLARE v_original_id TINYINT;
+  DECLARE v_core_id     TINYINT;
+  DECLARE v_sorbet_id   TINYINT;
+  DECLARE v_pri         TINYINT;
+
+  SELECT id INTO v_original_id FROM flavour_type WHERE code='ORIGINAL' LIMIT 1;
+  IF v_original_id IS NULL THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='flavour_type ORIGINAL is missing';
+  END IF;
+  SELECT id INTO v_core_id   FROM flavour_type WHERE code='CORE'   LIMIT 1;
+  SELECT id INTO v_sorbet_id FROM flavour_type WHERE code='SORBET' LIMIT 1;
+
+  -- 기본은 항상 ORIGINAL
+  SET NEW.flavour_type_id = v_original_id;
+
+  -- slug 접미사 규칙 오버라이드
+  IF NEW.slug LIKE '%-core' THEN
+    IF v_core_id IS NULL THEN
+      SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='flavour_type CORE is missing for -core slug';
+    END IF;
+    SET NEW.flavour_type_id = v_core_id;
+
+  ELSEIF NEW.slug LIKE '%-sorbet' THEN
+    IF v_sorbet_id IS NULL THEN
+      SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='flavour_type SORBET is missing for -sorbet slug';
+    END IF;
+    SET NEW.flavour_type_id = v_sorbet_id;
+  END IF;
+
+  SELECT sort_priority INTO v_pri
+    FROM flavour_type WHERE id = NEW.flavour_type_id LIMIT 1;
+
+  SET NEW.flavour_sort_rank =
+    CASE WHEN NEW.is_new=1 THEN 0 ELSE COALESCE(v_pri,9) END;
+END$$
+
+
+DROP TRIGGER IF EXISTS trg_flavour_bu $$
+CREATE TRIGGER trg_flavour_bu
+BEFORE UPDATE ON flavour
+FOR EACH ROW
+BEGIN
+  DECLARE v_original_id TINYINT;
+  DECLARE v_core_id     TINYINT;
+  DECLARE v_sorbet_id   TINYINT;
+  DECLARE v_pri         TINYINT;
+
+  SELECT id INTO v_original_id FROM flavour_type WHERE code='ORIGINAL' LIMIT 1;
+  IF v_original_id IS NULL THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='flavour_type ORIGINAL is missing';
+  END IF;
+  SELECT id INTO v_core_id   FROM flavour_type WHERE code='CORE'   LIMIT 1;
+  SELECT id INTO v_sorbet_id FROM flavour_type WHERE code='SORBET' LIMIT 1;
+
+  SET NEW.flavour_type_id = v_original_id;
+
+  IF NEW.slug LIKE '%-core' THEN
+    IF v_core_id IS NULL THEN
+      SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='flavour_type CORE is missing for -core slug';
+    END IF;
+    SET NEW.flavour_type_id = v_core_id;
+
+  ELSEIF NEW.slug LIKE '%-sorbet' THEN
+    IF v_sorbet_id IS NULL THEN
+      SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='flavour_type SORBET is missing for -sorbet slug';
+    END IF;
+    SET NEW.flavour_type_id = v_sorbet_id;
+  END IF;
+
+  SELECT sort_priority INTO v_pri
+    FROM flavour_type WHERE id = NEW.flavour_type_id LIMIT 1;
+
+  SET NEW.flavour_sort_rank =
+    CASE WHEN NEW.is_new=1 THEN 0 ELSE COALESCE(v_pri,9) END;
+END$$
+
+-- variant_media BEFORE INSERT
+DROP TRIGGER IF EXISTS trg_vm_bi $$
 CREATE TRIGGER trg_vm_bi
 BEFORE INSERT ON variant_media
 FOR EACH ROW
 BEGIN
-  DECLARE v_cat_id BIGINT;
-  DECLARE cat_pack VARCHAR(100);
-  DECLARE cat_nut  VARCHAR(100);
-  DECLARE url_tail VARCHAR(600);
-  DECLARE allowed_ext_regex VARCHAR(200) DEFAULT '\\.(png|jpg|jpeg|avif|webp)$';
-
-  -- variant → category
-  SELECT v.category_id INTO v_cat_id FROM product_variant v WHERE v.id = NEW.variant_id;
-  IF v_cat_id IS NULL THEN
-    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Invalid variant_id for variant_media';
-  END IF;
-
-  SELECT c.packshot_basename, c.nutrition_basename INTO cat_pack, cat_nut
-  FROM category c WHERE c.id = v_cat_id;
-
-  SET url_tail = SUBSTRING_INDEX(NEW.url, '/', -2);  -- "packshot/main.avif", "nutrition/473ml.png", "gallery/01-*.webp"
-
-  -- 확장자 허용
-  IF NEW.role IN ('PACKSHOT','NUTRITION','GALLERY') THEN
-    IF url_tail REGEXP allowed_ext_regex = 0 THEN
-      SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'Unsupported image extension. Allowed: png, jpg, jpeg, avif, webp';
-    END IF;
-  END IF;
-
-  -- 역할별 규칙
-  IF NEW.role = 'PACKSHOT' THEN
-    IF url_tail NOT LIKE CONCAT('packshot/', cat_pack, '.%') THEN
-      SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'PACKSHOT must be packshot/{basename}.{ext}';
-    END IF;
-
-  ELSEIF NEW.role = 'NUTRITION' THEN
-    IF cat_nut IS NULL THEN
-      SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'This category does not accept NUTRITION image';
-    END IF;
-    IF url_tail NOT LIKE CONCAT('nutrition/', cat_nut, '.%') THEN
-      SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'NUTRITION must be nutrition/{basename}.{ext}';
-    END IF;
-
-  ELSEIF NEW.role = 'GALLERY' THEN
-    IF INSTR(NEW.url, '/gallery/') = 0 THEN
-      SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'GALLERY image must be under /gallery/';
-    END IF;
-    -- 파일명 숫자 접두 → sort_order 자동 세팅
-    SET NEW.sort_order = CAST(REGEXP_SUBSTR(SUBSTRING_INDEX(NEW.url, '/', -1), '^[0-9]+') AS UNSIGNED);
+  IF NEW.role = 'GALLERY' THEN
+    SET NEW.sort_order = COALESCE(NULLIF(NEW.sort_order,0), NEW.gallery_num_prefix);
+  ELSEIF NEW.role IN ('PACKSHOT','NUTRITION') THEN
+    SET NEW.sort_order = 0;
   END IF;
 END$$
 
--- variant_media: UPDATE
+-- variant_media BEFORE UPDATE
+DROP TRIGGER IF EXISTS trg_vm_bu $$
 CREATE TRIGGER trg_vm_bu
 BEFORE UPDATE ON variant_media
 FOR EACH ROW
 BEGIN
-  DECLARE v_cat_id BIGINT;
-  DECLARE cat_pack VARCHAR(100);
-  DECLARE cat_nut  VARCHAR(100);
-  DECLARE url_tail VARCHAR(600);
-  DECLARE allowed_ext_regex VARCHAR(200) DEFAULT '\\.(png|jpg|jpeg|avif|webp)$';
-
-  SELECT v.category_id INTO v_cat_id FROM product_variant v WHERE v.id = NEW.variant_id;
-  IF v_cat_id IS NULL THEN
-    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Invalid variant_id for variant_media';
-  END IF;
-
-  SELECT c.packshot_basename, c.nutrition_basename INTO cat_pack, cat_nut
-  FROM category c WHERE c.id = v_cat_id;
-
-  SET url_tail = SUBSTRING_INDEX(NEW.url, '/', -2);
-
-  IF NEW.role IN ('PACKSHOT','NUTRITION','GALLERY') THEN
-    IF url_tail REGEXP allowed_ext_regex = 0 THEN
-      SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'Unsupported image extension. Allowed: png, jpg, jpeg, avif, webp';
-    END IF;
-  END IF;
-
-  IF NEW.role = 'PACKSHOT' THEN
-    IF url_tail NOT LIKE CONCAT('packshot/', cat_pack, '.%') THEN
-      SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'PACKSHOT must be packshot/{basename}.{ext}';
-    END IF;
-
-  ELSEIF NEW.role = 'NUTRITION' THEN
-    IF cat_nut IS NULL THEN
-      SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'This category does not accept NUTRITION image';
-    END IF;
-    IF url_tail NOT LIKE CONCAT('nutrition/', cat_nut, '.%') THEN
-      SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'NUTRITION must be nutrition/{basename}.{ext}';
-    END IF;
-
-  ELSEIF NEW.role = 'GALLERY' THEN
-    IF INSTR(NEW.url, '/gallery/') = 0 THEN
-      SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'GALLERY image must be under /gallery/';
-    END IF;
-    SET NEW.sort_order = CAST(REGEXP_SUBSTR(SUBSTRING_INDEX(NEW.url, '/', -1), '^[0-9]+') AS UNSIGNED);
+  IF NEW.role = 'GALLERY' THEN
+    SET NEW.sort_order = COALESCE(NULLIF(NEW.sort_order,0), NEW.gallery_num_prefix);
+  ELSEIF NEW.role IN ('PACKSHOT','NUTRITION') THEN
+    SET NEW.sort_order = 0;
   END IF;
 END$$
 
--- variant_reco: 동일 카테고리 강제 (INSERT/UPDATE)
-CREATE TRIGGER trg_reco_bi
-BEFORE INSERT ON variant_reco
-FOR EACH ROW
-BEGIN
-  DECLARE src_cat BIGINT; DECLARE tgt_cat BIGINT;
 
-  SELECT category_id INTO src_cat FROM product_variant WHERE id = NEW.source_variant_id;
-  SELECT category_id INTO tgt_cat FROM product_variant WHERE id = NEW.target_variant_id;
-
-  IF src_cat IS NULL OR tgt_cat IS NULL THEN
-    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Invalid variant_id in recommendation';
+-- 최신 코호트 승격 프로시저
+CREATE PROCEDURE promote_latest_cohort()
+proc: BEGIN
+  DECLARE v_max DATETIME(6);
+  START TRANSACTION;
+  SELECT MAX(created_at) INTO v_max FROM flavour;
+  IF v_max IS NULL THEN
+    COMMIT;
+    LEAVE proc;
   END IF;
-
-  IF src_cat <> tgt_cat THEN
-    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Recommendation must target the SAME category';
-  END IF;
-END$$
-
-CREATE TRIGGER trg_reco_bu
-BEFORE UPDATE ON variant_reco
-FOR EACH ROW
-BEGIN
-  DECLARE src_cat BIGINT; DECLARE tgt_cat BIGINT;
-
-  SELECT category_id INTO src_cat FROM product_variant WHERE id = NEW.source_variant_id;
-  SELECT category_id INTO tgt_cat FROM product_variant WHERE id = NEW.target_variant_id;
-
-  IF src_cat <> tgt_cat THEN
-    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Recommendation must target the SAME category';
-  END IF;
-END$$
-
+  UPDATE flavour f
+     SET f.is_new = 0,
+         f.flavour_sort_rank = COALESCE((
+           SELECT ft.sort_priority FROM flavour_type ft
+            WHERE ft.id = f.flavour_type_id LIMIT 1
+         ), 9)
+   WHERE f.is_new = 1;
+  UPDATE flavour f
+     SET f.is_new = 1,
+         f.flavour_sort_rank = 0
+   WHERE f.created_at = v_max;
+  COMMIT;
+END $$
 DELIMITER ;
 
 
+
 /* ============================================
-    seed data 
+    seed data
    ============================================ */
 
 SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
 
--- 1) Category
+-- 0) Category
 INSERT INTO category (id, code, slug, list_slug, name_ko, priority, packshot_basename, nutrition_basename) VALUES
   (10001,'PINT','pint','pints','파인트',1,'main','473ml'),
   (10002,'MINI_CUP','mini-cup','mini-cups','미니컵',2,'main','120ml'),
   (10003,'SCOOP','scoop-shop','ice-cream-shop-flavors','스쿱 샵',3,'main',NULL)
 ON DUPLICATE KEY UPDATE name_ko=VALUES(name_ko), priority=VALUES(priority),
   packshot_basename=VALUES(packshot_basename), nutrition_basename=VALUES(nutrition_basename);
+
+-- 1) Flavour types
+INSERT INTO flavour_type (id, code, name_ko, sort_priority) VALUES
+  (1, 'ORIGINAL', '오리지널 아이스크림', 1),
+  (2, 'CORE',     '코어', 2),
+  (3, 'SORBET',   '소르베(셔벗)', 3)
+ON DUPLICATE KEY UPDATE name_ko=VALUES(name_ko), sort_priority=VALUES(sort_priority);
 
 -- 2) Values-led features
 INSERT INTO sourcing_feature (id, code, name_ko, icon_url) VALUES
@@ -477,7 +483,7 @@ INSERT INTO flavour (id, slug, name_ko, description_ko, is_active, is_new) VALUE
   (20001,'chunky-monkey-ice-cream','청키 몽키®','호두 퍼지 덩어리가 들어간 바나나 아이스크림',1,0),
   (20002,'half-baked-ice-cream','하프베이크드®','초코칩 쿠키도우와 퍼지 브라우니의 청크가 절묘하게 어우러진 초콜릿 & 바닐라 아이스크림',1,0),
   (20003,'chocolate-fudge-brownie-ice-cream','초콜릿 퍼지 브라우니','퍼지 브라우니가 들어간 초콜릿 아이스크림',1,0),
-  (20004,'strawberry-cheesecake-ice-cream','스트로베리 치즈케이크','그라함 크래커 스월이 가득한 스트로베리 치즈케이크 아이스크림',1,0),
+  (20004,'strawberry-cheesecake-ice-cream','스트로베리 치즈케이크','그라함 크래커 스월이 가득한 스트로베리 치즈케이크 아이스크림',1,1),
   (20005,'chocolate-chip-cookie-dough-ice-cream','초콜릿 칩 쿠키 도우','초콜릿 칩 쿠키 도우의 퍼지 덩어리가 들어간 바닐라 아이스크림',1,0),
   (20006,'cherry-garcia-ice-cream','체리 가르시아®','체리 퍼지 플레이크가 들어간 체리 아이스크림',1,0),
   (20007,'coffee-coffee-buzz-buzz-buzz-ice-cream','커피커피 버즈버즈버즈!','커피 아이스크림 베이스에 에스프레소 빈 퍼지가 들어있는 아이스크림',1,0),
@@ -487,7 +493,7 @@ INSERT INTO flavour (id, slug, name_ko, description_ko, is_active, is_new) VALUE
   (20011,'peanut-butter-cup-ice-cream','피넛 버터 컵','고소한 피넛버터 아이스크림에 피넛버터 초콜릿이 콕콕 박혀있는 아이스크림',1,0),
   (20012,'pistachio-pistachio-ice-cream','피스타치오 피스타치오','가볍게 로스팅한 피스타치오가 들어있는 피스타치오 아이스크림',1,0),
   (20013,'vanilla-ice-cream','바닐라','바닐라 아이스크림',1,0),
-  (20014,'chocolate-ice-cream','초콜릿','초콜릿 아이스크림',1,0),
+  (20014,'chocolate-ice-cream','초콜릿','초콜릿 아이스크림',1,1),
   (20015,'lemonade-sorbet','레모네이드 소르베','상큼한 레모네이드 맛의 소르베',1,0),
   (20016,'mint-chocolate-chunk-ice-cream','민트 초콜릿 청크','민트 아이스크림 베이스에 초콜릿 칩이 덩어리 채 들어있는 아이스크림',1,0),
   (20017,'strawberry-ice-cream','스트로베리','딸기 아이스크림 베이스에 딸기 과육이 듬뿍 들어있는 아이스크림',1,0),
@@ -495,42 +501,53 @@ INSERT INTO flavour (id, slug, name_ko, description_ko, is_active, is_new) VALUE
   (20019,'sweet-cream-and-cookies-ice-cream','스위트 크림&쿠키','바닐라 아이스크림 베이스에 초코 쿠키와 스위트 크림이 듬뿍 들어있는 아이스크림',1,0)
 ON DUPLICATE KEY UPDATE name_ko=VALUES(name_ko), description_ko=VALUES(description_ko);
 
+-- (보정) slug 규칙 백필
+UPDATE flavour f
+JOIN flavour_type t ON t.code='CORE'
+SET f.flavour_type_id = t.id
+WHERE f.slug LIKE '%-core';
+UPDATE flavour f
+JOIN flavour_type t ON t.code='SORBET'
+SET f.flavour_type_id = t.id
+WHERE f.slug LIKE '%-sorbet';
+
+
 -- 5) Product variants (All)
 INSERT INTO product_variant (id, flavour_id, category_id, variant_description_ko, is_active, sort_order) VALUES
   -- PINT 13개
-  (30001,20001,10001,'이름만큼 재미있는 맛을 내기 위해 최종적으로 맛을 결정할 때까지 여러 개의 테스트 배치를 가지고 놀았습니다. 원숭이가 먹을 바나나는 없지만 견과류와 초콜릿 덩어리가 가득 들어있습니다.',1,10),
-  (30002,20002,10001,'우리는 스쿱샵에 들릴 때 마다 우리의 친구들이 가장 맛있을 법한 새롭고 쿨한 콤보를 만들기 위해 다양한 맛의 조합을 시도하는 것을 알게 되었습니다. 그때 우리는 이것이 정말 엄청난 아이디어라고 생각 했어요. 그래서 우리는 여러분이 사랑하는 벤앤제리스의 맛과 절묘하게 어우러진 새로운 맛을 찾기 위해 여러분이 새롭게 조합한 맛을 함께 섞어 보았습니다. 여러분은 우리가 엉뚱하다고 말할지도 모르겠지만, 우리는 말할 수 있어요. 이건 하프 베이크드 라고 해! Enjoy! 벤앤제리스를 사랑하는 모든 이들에게 감사해요.',1,20),
-  (30003,20003,10001,'풍부한 맛을 지닌 다크 초콜릿에 브라우니 퍼지 덩어리를 절묘하게 배합한 아이스크림입니다. 꿈꿔왔던 그 맛.',1,30),
-  (30004,20004,10001,'항상 치즈케이크를 먹고 싶어하는 애호가들을 위해 딸기 과육이 가득하고, 부드러운 치즈케이크의 풍미와 환상적인 그라함 크래커 스월이 가득 찬 아이스크림 입니다.',1,40),
-  (30005,20005,10001,'크리미 바닐라 아이스크림이 커다란 초콜릿 칩 쿠키 도우 덩어리를 부드럽게 감싸며 조화를 이룹니다. 요즘은 그렇게 생각하지 않지만, 1984년에는 혁명적인 맛이었습니다.',1,50),
-  (30006,20006,10001,'전세계 기타리스트 제리 가르시아와 그레이트풀 데드 팬들에게 바치는 먹을 수 있는 최고의 찬사를 보내며, 팬들이 제안한 맛으로 가장 유명한 전설적인 락 밴드의 이름을 따서 만든 최초의 아이스크림입니다.',1,60),
-  (30007,20007,10001,'당신의 정신을 번쩍 들게 할, 그리고 곧 사랑을 빠져 노래를 흥얼거리게 만드는 맛! 크리미한 커피 맛 아이스크림에 에스프레소 퍼지가 가득!',1,70),
-  (30008,20008,10001,'벤앤제리스 Core를 통해 최고의 아이스크림을 경험해보세요. 원초적인 충동이 카라멜 수트라의 중심에 있는 부드러운 카라멜로 이끌든 퍼지 칩으로 이끌든, 당신은 카라멜 수트라 맛에 빠져들거에요. 글루텐 프리 제품.',1,80),
-  (30009,20009,10001,'신선한 민트 아이스크림 베이스에 초콜릿 쿠키가 덩어리 채 들어있는 아이스크림.인공색소가 들어가지 않은 하얀색 민트 아이스크림과 초콜릿이 선사하는 색다른 달콤함을 즐겨보세요!',1,90),
-  (30010,20010,10001,'1985년에 벤앤제리스는 뉴욕만의 새로운 플레이버로 다양한 종류의 청크들을 넣은 뉴욕 수퍼 퍼지 청크를 탄생시켰습니다. 뉴욕에서도 인기있는 플레이버라면 어디서든 맛 볼 수 있을거라 생각했어요. 실제로도 그렇고요.',1,100),
-  (30011,20011,10001,'고소한 피넛(땅콩) 버터 아이스크림에 달콤하고 짭조름한 피넛(땅콩) 버터 초콜릿이 콕콕 박혀있는 아이스크림.',1,110),
-  (30012,20012,10001,'이름만으로도 우리가 피스타치오를 얼마나 사랑하는지 알 수 있습니다. 하지만 우리의 말을 그대로 받아들이지 말고, 맛 자체를 말하도록 하세요!',1,120),
-  (30013,20013,10001,'이 파인트를 더 먹어보면 풍부한 맛의 크림같은 바닐라를 느낄 수 있습니다. 지금까지 맛본 어떤 바닐라보다 더 맛있는 바닐라 맛을 즐겨보세요.',1,130),
+  (30001,20001,10001,'이름만큼 재미있는 맛을 내기 위해 최종적으로 맛을 결정할 때까지 여러 개의 테스트 배치를 가지고 놀았습니다. 원숭이가 먹을 바나나는 없지만 견과류와 초콜릿 덩어리가 가득 들어있습니다.',1,NULL),
+  (30002,20002,10001,'우리는 스쿱샵에 들릴 때 마다 우리의 친구들이 가장 맛있을 법한 새롭고 쿨한 콤보를 만들기 위해 다양한 맛의 조합을 시도하는 것을 알게 되었습니다. 그때 우리는 이것이 정말 엄청난 아이디어라고 생각 했어요. 그래서 우리는 여러분이 사랑하는 벤앤제리스의 맛과 절묘하게 어우러진 새로운 맛을 찾기 위해 여러분이 새롭게 조합한 맛을 함께 섞어 보았습니다. 여러분은 우리가 엉뚱하다고 말할지도 모르겠지만, 우리는 말할 수 있어요. 이건 하프 베이크드 라고 해! Enjoy! 벤앤제리스를 사랑하는 모든 이들에게 감사해요.',1,NULL),
+  (30003,20003,10001,'풍부한 맛을 지닌 다크 초콜릿에 브라우니 퍼지 덩어리를 절묘하게 배합한 아이스크림입니다. 꿈꿔왔던 그 맛.',1,NULL),
+  (30004,20004,10001,'항상 치즈케이크를 먹고 싶어하는 애호가들을 위해 딸기 과육이 가득하고, 부드러운 치즈케이크의 풍미와 환상적인 그라함 크래커 스월이 가득 찬 아이스크림 입니다.',1,NULL),
+  (30005,20005,10001,'크리미 바닐라 아이스크림이 커다란 초콜릿 칩 쿠키 도우 덩어리를 부드럽게 감싸며 조화를 이룹니다. 요즘은 그렇게 생각하지 않지만, 1984년에는 혁명적인 맛이었습니다.',1,NULL),
+  (30006,20006,10001,'전세계 기타리스트 제리 가르시아와 그레이트풀 데드 팬들에게 바치는 먹을 수 있는 최고의 찬사를 보내며, 팬들이 제안한 맛으로 가장 유명한 전설적인 락 밴드의 이름을 따서 만든 최초의 아이스크림입니다.',1,NULL),
+  (30007,20007,10001,'당신의 정신을 번쩍 들게 할, 그리고 곧 사랑을 빠져 노래를 흥얼거리게 만드는 맛! 크리미한 커피 맛 아이스크림에 에스프레소 퍼지가 가득!',1,NULL),
+  (30008,20008,10001,'벤앤제리스 Core를 통해 최고의 아이스크림을 경험해보세요. 원초적인 충동이 카라멜 수트라의 중심에 있는 부드러운 카라멜로 이끌든 퍼지 칩으로 이끌든, 당신은 카라멜 수트라 맛에 빠져들거에요. 글루텐 프리 제품.',1,NULL),
+  (30009,20009,10001,'신선한 민트 아이스크림 베이스에 초콜릿 쿠키가 덩어리 채 들어있는 아이스크림.인공색소가 들어가지 않은 하얀색 민트 아이스크림과 초콜릿이 선사하는 색다른 달콤함을 즐겨보세요!',1,NULL),
+  (30010,20010,10001,'1985년에 벤앤제리스는 뉴욕만의 새로운 플레이버로 다양한 종류의 청크들을 넣은 뉴욕 수퍼 퍼지 청크를 탄생시켰습니다. 뉴욕에서도 인기있는 플레이버라면 어디서든 맛 볼 수 있을거라 생각했어요. 실제로도 그렇고요.',1,NULL),
+  (30011,20011,10001,'고소한 피넛(땅콩) 버터 아이스크림에 달콤하고 짭조름한 피넛(땅콩) 버터 초콜릿이 콕콕 박혀있는 아이스크림.',1,NULL),
+  (30012,20012,10001,'이름만으로도 우리가 피스타치오를 얼마나 사랑하는지 알 수 있습니다. 하지만 우리의 말을 그대로 받아들이지 말고, 맛 자체를 말하도록 하세요!',1,NULL),
+  (30013,20013,10001,'이 파인트를 더 먹어보면 풍부한 맛의 크림같은 바닐라를 느낄 수 있습니다. 지금까지 맛본 어떤 바닐라보다 더 맛있는 바닐라 맛을 즐겨보세요.',1,NULL),
 
   -- MINI_CUP 3개
-  (30021,20003,10002,'풍부한 맛을 지닌 다크 초콜릿에 브라우니 퍼지 덩어리를 절묘하게 배합한 아이스크림입니다. 꿈꿔왔던 그 맛.',1,10),
-  (30022,20005,10002,'크리미 바닐라 아이스크림이 커다란 초콜릿 칩 쿠키 도우 덩어리를 부드럽게 감싸며 조화를 이룹니다. 요즘은 그렇게 생각하지 않지만, 1984년에는 혁명적인 맛이었습니다.',1,20),
-  (30023,20006,10002,'기타리스트인 제리 가르시아 (Jerry Garcia)와 그레이트 풀 데드 (Grateful Dead) 팬들에게 헌사하는 벤앤제리스의 대표 메뉴. 록 전설의 이름을 딴 최초의 아이스크림이자 벤앤제리스의 팬들이 추천하는 가장 유명한 맛입니다.',1,30),
+  (30021,20003,10002,'풍부한 맛을 지닌 다크 초콜릿에 브라우니 퍼지 덩어리를 절묘하게 배합한 아이스크림입니다. 꿈꿔왔던 그 맛.',1,NULL),
+  (30022,20005,10002,'크리미 바닐라 아이스크림이 커다란 초콜릿 칩 쿠키 도우 덩어리를 부드럽게 감싸며 조화를 이룹니다. 요즘은 그렇게 생각하지 않지만, 1984년에는 혁명적인 맛이었습니다.',1,NULL),
+  (30023,20006,10002,'기타리스트인 제리 가르시아 (Jerry Garcia)와 그레이트 풀 데드 (Grateful Dead) 팬들에게 헌사하는 벤앤제리스의 대표 메뉴. 록 전설의 이름을 딴 최초의 아이스크림이자 벤앤제리스의 팬들이 추천하는 가장 유명한 맛입니다.',1,NULL),
 
   -- SCOOP 13개
-  (30031,20006,10003,'전세계 기타리스트 제리 가르시아와 그레이트풀 데드 팬들에게 바치는 먹을 수 있는 최고의 찬사.',1,10),
-  (30032,20014,10003,'저희 초콜릿 아이스크림은 공정무역 인증® 코코아에서 초콜릿 맛을 얻습니다. 공정무역은 코코아 재배자들이 그들의 수확에 대한 공정한 가격을 보장하고, 그들이 그들의 땅과 생계를 보호하고, 그들의 가족을 위해 제공하고, 그들의 미래에 투자할 수 있도록 합니다. 즐기세요!',1,20),
-  (30033,20005,10003,'크리미 바닐라 아이스크림이 커다란 초콜릿 칩 쿠키 도우 덩어리를 부드럽게 감싸며 조화를 이룹니다. 요즘은 그렇게 생각하지 않지만, 1984년에는 혁명적인 맛이었습니다.',1,30),
-  (30034,20003,10003,'초콜릿 퍼지 브라우니 퍼지 브라우니가 들어간 초콜릿 아이스크림 초콜릿 아이스크림에 쫀득한 브라우니가 가득! 사회적 약자들에게 직업교육과 일자리 창출에 힘쓰고 있는 뉴욕의 Greyston Bakery 에서 구워진 벤앤제리스 브라우니가 가득 들어있습니다. 당신의 선택이 그들에게 따뜻한 도움의 손길이 될 수 있다는 걸 잊지 마세요!',1,40),
-  (30035,20001,10003,'원숭이만 바나나에 반하나? 벤앤제리스도 바나나에 반했다! 고소한 넛츠와 달콤한 초콜릿, 그리고 바나나 아이스크림이 이루는 환상적인 조화! 벤앤제리스에서만 느낄 수 있는 특별한 맛을 지금 맛보세요!',1,50),
-  (30036,20002,10003,'미국의 그레이스톤 베이커리의 브라우니와 라이노 베이커리의 쿠키도우의 만남! B Corps 인증을 받은 두 회사가 협력하여 만들어진 플레이버, 하프 베이크드. 한 스쿱으로 더 나은 세상을 위한 특별한 맛의 아이스크림 입니다',1,60),
-  (30037,20015,10003,'이보다 더 상큼할 수 없다! 상큼함과 시원함을 동시에 느껴보세요. 입안에서 살살 녹는 그 상큼한 맛, 궁금하지 않으세요?',1,70),
-  (30038,20016,10003,'민트 초코 덕후들은 주목! 벤앤제리스 아이스크림 맛의 비결이 무엇일까요? 벤앤제리스는 성장호르몬을 맞지 않은 친환경적인 젖소들을 사랑합니다. 그들이 만들어낸 우유로 만든 아이스크림과 민트, 그리고 덩어리 채 들어있는 초콜릿 칩이 기대되지 않나요?',1,80),
-  (30039,20010,10003,'오늘부턴 나도 뉴요커! 고소한 아몬드, 호두와 풍부한 초콜릿의 맛이 당신에게 잊을 수 없는 순간을 선물합니다. 뉴욕의 풍부하고 깊은 맛을 사랑하는 사람과 함께 즐겨보세요!',1,90),
-  (30040,20017,10003,'딸기에 퐁당! 상큼한 딸기 맛 볼 준비되었나요? 벤앤제리스는 성장호르몬을 맞지 않은 친환경적인 젖소를 사랑합니다. 부드럽고 신선한 우유와 풍부한 딸기 청크가 가득한 신선한 맛의 벤앤제리스를 즐겨보세요!',1,100),
-  (30041,20013,10003,'홈메이드 보다 더 부드러운, 바닐라 아이스크림! 벤앤제리스의 바닐라 빈이 소규모 농부들에 의해 키워진다는 것을 아시나요? 당신의 현명한 선택이 소작농과 농업 사회에 긍정적인 변화의 씨앗이 될 수 있습니다!',1,110),
-  (30042,20018,10003,'벤앤제리스만의 특별한 베리 맛, 흔하게 맛 볼 수 없는 기쁨의 맛! 상큼한 베리의 조합은 당신이 생각한 무엇보다도 놀라울 거예요',1,120),
-  (30043,20019,10003,'농장에서 신선한 우유와 크림, 그리고 벤앤제리스가 선택한 스페셜한 청크를 함께 맛보세요! 당신의 하루가 달콤하게 변할거예요',1,130);
+  (30031,20006,10003,'전세계 기타리스트 제리 가르시아와 그레이트풀 데드 팬들에게 바치는 먹을 수 있는 최고의 찬사.',1,NULL),
+  (30032,20014,10003,'저희 초콜릿 아이스크림은 공정무역 인증® 코코아에서 초콜릿 맛을 얻습니다. 공정무역은 코코아 재배자들이 그들의 수확에 대한 공정한 가격을 보장하고, 그들이 그들의 땅과 생계를 보호하고, 그들의 가족을 위해 제공하고, 그들의 미래에 투자할 수 있도록 합니다. 즐기세요!',1,NULL),
+  (30033,20005,10003,'크리미 바닐라 아이스크림이 커다란 초콜릿 칩 쿠키 도우 덩어리를 부드럽게 감싸며 조화를 이룹니다. 요즘은 그렇게 생각하지 않지만, 1984년에는 혁명적인 맛이었습니다.',1,NULL),
+  (30034,20003,10003,'초콜릿 퍼지 브라우니 퍼지 브라우니가 들어간 초콜릿 아이스크림 초콜릿 아이스크림에 쫀득한 브라우니가 가득! 사회적 약자들에게 직업교육과 일자리 창출에 힘쓰고 있는 뉴욕의 Greyston Bakery 에서 구워진 벤앤제리스 브라우니가 가득 들어있습니다. 당신의 선택이 그들에게 따뜻한 도움의 손길이 될 수 있다는 걸 잊지 마세요!',1,NULL),
+  (30035,20001,10003,'원숭이만 바나나에 반하나? 벤앤제리스도 바나나에 반했다! 고소한 넛츠와 달콤한 초콜릿, 그리고 바나나 아이스크림이 이루는 환상적인 조화! 벤앤제리스에서만 느낄 수 있는 특별한 맛을 지금 맛보세요!',1,NULL),
+  (30036,20002,10003,'미국의 그레이스톤 베이커리의 브라우니와 라이노 베이커리의 쿠키도우의 만남! B Corps 인증을 받은 두 회사가 협력하여 만들어진 플레이버, 하프 베이크드. 한 스쿱으로 더 나은 세상을 위한 특별한 맛의 아이스크림 입니다',1,NULL),
+  (30037,20015,10003,'이보다 더 상큼할 수 없다! 상큼함과 시원함을 동시에 느껴보세요. 입안에서 살살 녹는 그 상큼한 맛, 궁금하지 않으세요?',1,NULL),
+  (30038,20016,10003,'민트 초코 덕후들은 주목! 벤앤제리스 아이스크림 맛의 비결이 무엇일까요? 벤앤제리스는 성장호르몬을 맞지 않은 친환경적인 젖소들을 사랑합니다. 그들이 만들어낸 우유로 만든 아이스크림과 민트, 그리고 덩어리 채 들어있는 초콜릿 칩이 기대되지 않나요?',1,NULL),
+  (30039,20010,10003,'오늘부턴 나도 뉴요커! 고소한 아몬드, 호두와 풍부한 초콜릿의 맛이 당신에게 잊을 수 없는 순간을 선물합니다. 뉴욕의 풍부하고 깊은 맛을 사랑하는 사람과 함께 즐겨보세요!',1,NULL),
+  (30040,20017,10003,'딸기에 퐁당! 상큼한 딸기 맛 볼 준비되었나요? 벤앤제리스는 성장호르몬을 맞지 않은 친환경적인 젖소를 사랑합니다. 부드럽고 신선한 우유와 풍부한 딸기 청크가 가득한 신선한 맛의 벤앤제리스를 즐겨보세요!',1,NULL),
+  (30041,20013,10003,'홈메이드 보다 더 부드러운, 바닐라 아이스크림! 벤앤제리스의 바닐라 빈이 소규모 농부들에 의해 키워진다는 것을 아시나요? 당신의 현명한 선택이 소작농과 농업 사회에 긍정적인 변화의 씨앗이 될 수 있습니다!',1,NULL),
+  (30042,20018,10003,'벤앤제리스만의 특별한 베리 맛, 흔하게 맛 볼 수 없는 기쁨의 맛! 상큼한 베리의 조합은 당신이 생각한 무엇보다도 놀라울 거예요',1,NULL),
+  (30043,20019,10003,'농장에서 신선한 우유와 크림, 그리고 벤앤제리스가 선택한 스페셜한 청크를 함께 맛보세요! 당신의 하루가 달콤하게 변할거예요',1,NULL);
 
 -- 6) Variant media
 -- PACKSHOT (각 variant당 1장)
@@ -661,7 +678,7 @@ INSERT INTO variant_media (id, variant_id, role, url, alt_ko, sort_order) VALUES
 
 
 
--- NUTRITION (pint, mini-cup)  
+-- NUTRITION (pint, mini-cup)
 INSERT INTO variant_media (id, variant_id, role, url, alt_ko, sort_order) VALUES
   (42001,30001,'NUTRITION','/assets/img/flavours/chunky-monkey-ice-cream/pint/nutrition/473ml.png','영양성분표 473ml',0),
   (42002,30002,'NUTRITION','/assets/img/flavours/half-baked-ice-cream/pint/nutrition/473ml.png','영양성분표 473ml',0),
@@ -863,7 +880,7 @@ SELECT 30041, id, 0 FROM dietary_cert WHERE code IN ('KOSHER_DAIRY');
 
 
 /* ================================
-   tag + tag_alias 
+   tag + tag_alias
    ================================ */
 
 -- Tags
@@ -966,7 +983,7 @@ SELECT id, a.alias FROM tag t
 JOIN (SELECT '소르베' alias UNION ALL SELECT 'sorbet') a
 ON t.slug = 'sorbet';
 
--- berry 
+-- berry
 INSERT INTO tag_alias (tag_id, alias)
 SELECT id, a.alias FROM tag t
 JOIN (
@@ -1397,6 +1414,50 @@ INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
   (30043,30038,3);
 
 
+/* ======================
+   Backfill
+   ====================== */
+
+-- 1) product_variant.sort_order 초기화
+UPDATE product_variant
+SET sort_order = NULL;
+
+-- 2) flavour_sort_rank 재계산
+UPDATE flavour f
+JOIN flavour_type ft ON ft.id = f.flavour_type_id
+SET f.flavour_sort_rank = CASE
+  WHEN f.is_new = 1 THEN 0
+  ELSE COALESCE(ft.sort_priority, 9)
+END;
+
+-- 3)  variant_sourcing.sort_order 보정
+UPDATE variant_sourcing vs
+JOIN sourcing_feature sf ON vs.feature_id = sf.id
+SET vs.sort_order = CASE sf.code
+  WHEN 'NON_GMO'                       THEN 1
+  WHEN 'CAGE_FREE_EGGS'                THEN 2
+  WHEN 'FAIRTRADE'                     THEN 3
+  WHEN 'FREE_RANGE_EGGS'               THEN 4
+  WHEN 'GREYSTON_BROWNIES'             THEN 5
+  WHEN 'CARING_DAIRY'                  THEN 6
+  WHEN 'OPEN_CHAIN_SOURCING'           THEN 7
+  WHEN 'RESPONSIBLY_SOURCED_PACKAGING' THEN 8
+  ELSE 99
+END;
+
+-- 4) variant_cert.sort_order 보정
+UPDATE variant_cert vc
+JOIN dietary_cert dc ON vc.cert_id = dc.id
+SET vc.sort_order = CASE dc.code
+  WHEN 'HALAL'        THEN 1
+  WHEN 'KOSHER_DAIRY' THEN 2
+  WHEN 'GLUTEN_FREE'  THEN 3
+  ELSE 99
+END;
+
+
+
+-- 3) 최신 cohort 승격 (선택)
+-- CALL promote_latest_cohort();
 
 SET FOREIGN_KEY_CHECKS = 1;
-

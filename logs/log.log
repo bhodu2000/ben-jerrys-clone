@@ -1,157 +1,61 @@
-[INFO ] 25-09-12 20:23:56 [BenjerryscloneApplication:53] - Starting BenjerryscloneApplication using Java 17.0.14 with PID 61519 (/Users/sieun/ben-jerrys-clone/build/classes/java/main started by sieun in /Users/sieun/ben-jerrys-clone)
-[DEBUG] 25-09-12 20:23:56 [BenjerryscloneApplication:54] - Running with Spring Boot v3.5.5, Spring v6.2.10
-[INFO ] 25-09-12 20:23:56 [BenjerryscloneApplication:652] - No active profile set, falling back to 1 default profile: "default"
-[WARN ] 25-09-12 20:23:58 [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[kr.bhodu.benjerrysclone]' package. Please check your configuration.
-[INFO ] 25-09-12 20:24:00 [BenjerryscloneApplication:59] - Started BenjerryscloneApplication in 4.788 seconds (process running for 5.43)
-[INFO ] 25-09-12 20:24:46 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:24:46 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-12 20:24:46 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new
-[INFO ] 25-09-12 20:24:46 [MyInterceptor:122] - running time: 430(ms)
-[INFO ] 25-09-12 20:25:47 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:25:48 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-12 20:25:48 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new/
-[INFO ] 25-09-12 20:25:48 [MyInterceptor:122] - running time: 153(ms)
-[INFO ] 25-09-12 20:25:54 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:25:54 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-12 20:25:54 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new/list
-[INFO ] 25-09-12 20:25:54 [MyInterceptor:122] - running time: 97(ms)
-[INFO ] 25-09-12 20:26:16 [BenjerryscloneApplication:53] - Starting BenjerryscloneApplication using Java 17.0.14 with PID 61715 (/Users/sieun/ben-jerrys-clone/build/classes/java/main started by sieun in /Users/sieun/ben-jerrys-clone)
-[DEBUG] 25-09-12 20:26:16 [BenjerryscloneApplication:54] - Running with Spring Boot v3.5.5, Spring v6.2.10
-[INFO ] 25-09-12 20:26:16 [BenjerryscloneApplication:652] - No active profile set, falling back to 1 default profile: "default"
-[WARN ] 25-09-12 20:26:18 [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[kr.bhodu.benjerrysclone]' package. Please check your configuration.
-[INFO ] 25-09-12 20:26:20 [BenjerryscloneApplication:59] - Started BenjerryscloneApplication in 4.726 seconds (process running for 5.336)
-[INFO ] 25-09-12 20:26:32 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:26:32 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-12 20:26:32 [MyInterceptor:85] - [GET] http://localhost:8080/whatsnew
-[INFO ] 25-09-12 20:26:32 [MyInterceptor:122] - running time: 383(ms)
-[INFO ] 25-09-12 20:29:09 [BenjerryscloneApplication:53] - Starting BenjerryscloneApplication using Java 17.0.14 with PID 61948 (/Users/sieun/ben-jerrys-clone/build/classes/java/main started by sieun in /Users/sieun/ben-jerrys-clone)
-[DEBUG] 25-09-12 20:29:09 [BenjerryscloneApplication:54] - Running with Spring Boot v3.5.5, Spring v6.2.10
-[INFO ] 25-09-12 20:29:09 [BenjerryscloneApplication:652] - No active profile set, falling back to 1 default profile: "default"
-[WARN ] 25-09-12 20:29:11 [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[kr.bhodu.benjerrysclone]' package. Please check your configuration.
-[INFO ] 25-09-12 20:29:13 [BenjerryscloneApplication:59] - Started BenjerryscloneApplication in 4.86 seconds (process running for 5.487)
-[INFO ] 25-09-12 20:29:53 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:29:53 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-12 20:29:53 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new
-[INFO ] 25-09-12 20:29:53 [MyInterceptor:122] - running time: 480(ms)
-[INFO ] 25-09-12 20:30:15 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:30:15 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-12 20:30:15 [MyInterceptor:85] - [GET] http://localhost:8080/flavours
-[INFO ] 25-09-12 20:30:15 [MyInterceptor:122] - running time: 152(ms)
-[INFO ] 25-09-12 20:30:25 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:30:25 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-12 20:30:25 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new
-[INFO ] 25-09-12 20:30:25 [MyInterceptor:122] - running time: 106(ms)
-[INFO ] 25-09-12 20:30:48 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:30:48 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Safari 18.6
-[INFO ] 25-09-12 20:30:48 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new
-[INFO ] 25-09-12 20:30:48 [MyInterceptor:122] - running time: 127(ms)
-[INFO ] 25-09-12 20:31:00 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:31:00 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-12 20:31:00 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
-[INFO ] 25-09-12 20:33:11 [BenjerryscloneApplication:53] - Starting BenjerryscloneApplication using Java 17.0.14 with PID 62259 (/Users/sieun/ben-jerrys-clone/build/classes/java/main started by sieun in /Users/sieun/ben-jerrys-clone)
-[DEBUG] 25-09-12 20:33:11 [BenjerryscloneApplication:54] - Running with Spring Boot v3.5.5, Spring v6.2.10
-[INFO ] 25-09-12 20:33:11 [BenjerryscloneApplication:652] - No active profile set, falling back to 1 default profile: "default"
-[WARN ] 25-09-12 20:33:13 [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[kr.bhodu.benjerrysclone]' package. Please check your configuration.
-[INFO ] 25-09-12 20:33:15 [BenjerryscloneApplication:59] - Started BenjerryscloneApplication in 4.71 seconds (process running for 5.327)
-[INFO ] 25-09-12 20:33:55 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:33:55 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Safari 18.6
-[INFO ] 25-09-12 20:33:55 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new
-[INFO ] 25-09-12 20:33:55 [MyInterceptor:122] - running time: 364(ms)
-[INFO ] 25-09-12 20:33:55 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:33:56 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Safari 18.6
-[INFO ] 25-09-12 20:33:56 [MyInterceptor:85] - [GET] http://localhost:8080/style.css
-[INFO ] 25-09-12 20:33:56 [MyInterceptor:101] - - REFERER : time=258, url=http://localhost:8080/whats-new
-[INFO ] 25-09-12 20:33:56 [MyInterceptor:122] - running time: 150(ms)
-[INFO ] 25-09-12 20:34:02 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:34:02 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Safari 18.6
-[INFO ] 25-09-12 20:34:02 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new
-[INFO ] 25-09-12 20:34:02 [MyInterceptor:122] - running time: 116(ms)
-[INFO ] 25-09-12 20:34:02 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:34:02 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Safari 18.6
-[INFO ] 25-09-12 20:34:02 [MyInterceptor:85] - [GET] http://localhost:8080/style.css
-[INFO ] 25-09-12 20:34:02 [MyInterceptor:101] - - REFERER : time=62, url=http://localhost:8080/whats-new
-[INFO ] 25-09-12 20:34:02 [MyInterceptor:122] - running time: 40(ms)
-[INFO ] 25-09-12 20:35:30 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:35:30 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Safari 18.6
-[INFO ] 25-09-12 20:35:30 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new
-[INFO ] 25-09-12 20:35:30 [MyInterceptor:122] - running time: 104(ms)
-[INFO ] 25-09-12 20:35:30 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:35:30 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Safari 18.6
-[INFO ] 25-09-12 20:35:30 [MyInterceptor:85] - [GET] http://localhost:8080/style.css
-[INFO ] 25-09-12 20:35:30 [MyInterceptor:101] - - REFERER : time=114, url=http://localhost:8080/whats-new
-[INFO ] 25-09-12 20:35:30 [MyInterceptor:122] - running time: 87(ms)
-[INFO ] 25-09-12 20:35:57 [BenjerryscloneApplication:53] - Starting BenjerryscloneApplication using Java 17.0.14 with PID 62513 (/Users/sieun/ben-jerrys-clone/build/classes/java/main started by sieun in /Users/sieun/ben-jerrys-clone)
-[DEBUG] 25-09-12 20:35:57 [BenjerryscloneApplication:54] - Running with Spring Boot v3.5.5, Spring v6.2.10
-[INFO ] 25-09-12 20:35:57 [BenjerryscloneApplication:652] - No active profile set, falling back to 1 default profile: "default"
-[WARN ] 25-09-12 20:35:59 [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[kr.bhodu.benjerrysclone]' package. Please check your configuration.
-[INFO ] 25-09-12 20:36:01 [BenjerryscloneApplication:59] - Started BenjerryscloneApplication in 4.696 seconds (process running for 5.301)
-[INFO ] 25-09-12 20:37:15 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:37:16 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Safari 18.6
-[INFO ] 25-09-12 20:37:16 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new
-[INFO ] 25-09-12 20:37:16 [MyInterceptor:122] - running time: 399(ms)
-[INFO ] 25-09-12 20:39:11 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:39:11 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Safari 18.6
-[INFO ] 25-09-12 20:39:11 [MyInterceptor:85] - [GET] http://localhost:8080/
-[INFO ] 25-09-12 20:39:11 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:39:11 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Safari 18.6
-[INFO ] 25-09-12 20:39:11 [MyInterceptor:85] - [GET] http://localhost:8080/files/2025/07/30/17538757345920.jpeg
-[INFO ] 25-09-12 20:39:15 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:39:15 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Safari 18.6
-[INFO ] 25-09-12 20:39:15 [MyInterceptor:85] - [GET] http://localhost:8080/flavours
-[INFO ] 25-09-12 20:39:15 [MyInterceptor:122] - running time: 88(ms)
-[INFO ] 25-09-12 20:48:27 [BenjerryscloneApplication:53] - Starting BenjerryscloneApplication using Java 17.0.14 with PID 63453 (/Users/sieun/ben-jerrys-clone/build/classes/java/main started by sieun in /Users/sieun/ben-jerrys-clone)
-[DEBUG] 25-09-12 20:48:27 [BenjerryscloneApplication:54] - Running with Spring Boot v3.5.5, Spring v6.2.10
-[INFO ] 25-09-12 20:48:27 [BenjerryscloneApplication:652] - No active profile set, falling back to 1 default profile: "default"
-[WARN ] 25-09-12 20:48:29 [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[kr.bhodu.benjerrysclone]' package. Please check your configuration.
-[INFO ] 25-09-12 20:48:31 [BenjerryscloneApplication:59] - Started BenjerryscloneApplication in 4.734 seconds (process running for 5.332)
-[INFO ] 25-09-12 20:48:53 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:48:53 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-12 20:48:53 [MyInterceptor:85] - [GET] http://localhost:8080/news/top-ben-jerrys-flavours-of-2022
-[INFO ] 25-09-12 20:48:53 [MyInterceptor:122] - running time: 380(ms)
-[INFO ] 25-09-12 20:48:54 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:48:54 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-12 20:48:54 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
-[INFO ] 25-09-12 20:49:49 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:49:50 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-12 20:49:50 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new/top-ben-jerrys-flavours-of-2022
-[INFO ] 25-09-12 20:49:50 [MyInterceptor:122] - running time: 105(ms)
-[INFO ] 25-09-12 20:49:50 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:49:50 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-12 20:49:50 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
-[INFO ] 25-09-12 20:50:02 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:50:02 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-12 20:50:02 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
-[INFO ] 25-09-12 20:50:02 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:50:02 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-12 20:50:02 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
-[INFO ] 25-09-12 20:50:05 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:50:05 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-12 20:50:05 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
-[INFO ] 25-09-12 20:50:05 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:50:05 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-12 20:50:05 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
-[INFO ] 25-09-12 20:50:07 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:50:07 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-12 20:50:07 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
-[INFO ] 25-09-12 20:50:07 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:50:07 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-12 20:50:07 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
-[INFO ] 25-09-12 20:54:26 [BenjerryscloneApplication:53] - Starting BenjerryscloneApplication using Java 17.0.14 with PID 63899 (/Users/sieun/ben-jerrys-clone/build/classes/java/main started by sieun in /Users/sieun/ben-jerrys-clone)
-[DEBUG] 25-09-12 20:54:26 [BenjerryscloneApplication:54] - Running with Spring Boot v3.5.5, Spring v6.2.10
-[INFO ] 25-09-12 20:54:26 [BenjerryscloneApplication:652] - No active profile set, falling back to 1 default profile: "default"
-[WARN ] 25-09-12 20:54:28 [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[kr.bhodu.benjerrysclone]' package. Please check your configuration.
-[INFO ] 25-09-12 20:54:30 [BenjerryscloneApplication:59] - Started BenjerryscloneApplication in 4.819 seconds (process running for 5.416)
-[INFO ] 25-09-12 20:54:35 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:54:36 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-12 20:54:36 [MyInterceptor:85] - [GET] http://localhost:8080/news/top-ben-jerrys-flavours-of-2022
-[INFO ] 25-09-12 20:54:36 [MyInterceptor:122] - running time: 398(ms)
-[INFO ] 25-09-12 20:54:36 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:54:36 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-12 20:54:36 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
-[INFO ] 25-09-12 20:54:50 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:54:50 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-12 20:54:50 [MyInterceptor:85] - [GET] http://localhost:8080/whats-new/top-ben-jerrys-flavours-of-2022
-[INFO ] 25-09-12 20:54:50 [MyInterceptor:122] - running time: 125(ms)
-[INFO ] 25-09-12 20:54:50 [MyInterceptor:47] - ---------- new client connect ----------
-[INFO ] 25-09-12 20:54:50 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
-[INFO ] 25-09-12 20:54:50 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
+[INFO ] 25-09-14 15:44:59 [BenjerryscloneApplication:53] - Starting BenjerryscloneApplication using Java 17.0.14 with PID 16834 (/Users/sieun/ben-jerrys-clone/build/classes/java/main started by sieun in /Users/sieun/ben-jerrys-clone)
+[DEBUG] 25-09-14 15:44:59 [BenjerryscloneApplication:54] - Running with Spring Boot v3.5.5, Spring v6.2.10
+[INFO ] 25-09-14 15:44:59 [BenjerryscloneApplication:652] - No active profile set, falling back to 1 default profile: "default"
+[WARN ] 25-09-14 15:45:01 [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[kr.bhodu.benjerrysclone]' package. Please check your configuration.
+[WARN ] 25-09-14 15:45:02 [AnnotationConfigServletWebServerApplicationContext:635] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
+[ERROR] 25-09-14 15:45:02 [LoggingFailureAnalysisReporter:40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+[INFO ] 25-09-14 16:07:44 [BenjerryscloneApplication:53] - Starting BenjerryscloneApplication using Java 17.0.14 with PID 18379 (/Users/sieun/ben-jerrys-clone/build/classes/java/main started by sieun in /Users/sieun/ben-jerrys-clone)
+[DEBUG] 25-09-14 16:07:44 [BenjerryscloneApplication:54] - Running with Spring Boot v3.5.5, Spring v6.2.10
+[INFO ] 25-09-14 16:07:44 [BenjerryscloneApplication:652] - No active profile set, falling back to 1 default profile: "dev"
+[WARN ] 25-09-14 16:07:46 [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[kr.bhodu.benjerrysclone]' package. Please check your configuration.
+[INFO ] 25-09-14 16:07:48 [BenjerryscloneApplication:59] - Started BenjerryscloneApplication in 5.172 seconds (process running for 6.01)
+[INFO ] 25-09-14 16:09:59 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-14 16:10:00 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-14 16:10:00 [MyInterceptor:85] - [GET] http://localhost:8080/
+[INFO ] 25-09-14 16:10:00 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-14 16:10:00 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-14 16:10:00 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
+[INFO ] 25-09-14 16:10:10 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-14 16:10:10 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-14 16:10:10 [MyInterceptor:85] - [GET] http://localhost:8080/flavours/detail
+[INFO ] 25-09-14 16:10:10 [MyInterceptor:122] - running time: 112(ms)
+[INFO ] 25-09-14 16:10:10 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-14 16:10:10 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-14 16:10:10 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
+[INFO ] 25-09-14 16:10:13 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-14 16:10:13 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-14 16:10:13 [MyInterceptor:85] - [GET] http://localhost:8080/flavours/new-york-super-fudge-chunk-ice-cream/pint
+[INFO ] 25-09-14 16:10:13 [MyInterceptor:101] - - REFERER : time=3271, url=http://localhost:8080/flavours/detail
+[INFO ] 25-09-14 16:10:13 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-14 16:10:13 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-14 16:10:13 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json
+[INFO ] 25-09-14 16:11:49 [BenjerryscloneApplication:53] - Starting BenjerryscloneApplication using Java 17.0.14 with PID 18700 (/Users/sieun/ben-jerrys-clone/build/classes/java/main started by sieun in /Users/sieun/ben-jerrys-clone)
+[DEBUG] 25-09-14 16:11:49 [BenjerryscloneApplication:54] - Running with Spring Boot v3.5.5, Spring v6.2.10
+[INFO ] 25-09-14 16:11:49 [BenjerryscloneApplication:652] - No active profile set, falling back to 1 default profile: "dev"
+[WARN ] 25-09-14 16:11:51 [ClassPathMapperScanner:44] - No MyBatis mapper was found in '[kr.bhodu.benjerrysclone]' package. Please check your configuration.
+[INFO ] 25-09-14 16:11:53 [BenjerryscloneApplication:59] - Started BenjerryscloneApplication in 4.926 seconds (process running for 5.537)
+[INFO ] 25-09-14 16:12:08 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-14 16:12:08 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-14 16:12:08 [MyInterceptor:85] - [GET] http://localhost:8080/detail
+[INFO ] 25-09-14 16:12:08 [MyInterceptor:122] - running time: 394(ms)
+[INFO ] 25-09-14 16:12:08 [MyInterceptor:47] - ---------- new client connect ----------
+[INFO ] 25-09-14 16:12:09 [MyInterceptor:67] - [Client] 0:0:0:0:0:0:0:1, Mac, Mac OS X 10.15, Chrome 139.0
+[INFO ] 25-09-14 16:12:09 [MyInterceptor:85] - [GET] http://localhost:8080/.well-known/appspecific/com.chrome.devtools.json

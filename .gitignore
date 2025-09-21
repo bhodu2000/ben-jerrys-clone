@@ -51,4 +51,5 @@ upload/
 # OS / 환경
 Thumbs.db
 .DS_Store
+application-dev.properties
 
