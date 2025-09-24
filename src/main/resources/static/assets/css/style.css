@@ -124,7 +124,7 @@ body {
   .navbar-nav .nav-link.nav-link-toggle::after {
     display: inline-block;
     margin-left: 8px;
-    width: 13.59;
+    width: 13.59px;
     height: auto;
     line-height: 0;
     vertical-align: middle;

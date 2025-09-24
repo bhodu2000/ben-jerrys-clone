@@ -446,9 +446,9 @@ SET NAMES utf8mb4;
 
 -- 0) Category
 INSERT INTO category (id, code, slug, list_slug, name_ko, priority, packshot_basename, nutrition_basename) VALUES
-  (10001,'PINT','pint','pints','파인트',1,'main','473ml'),
-  (10002,'MINI_CUP','mini-cup','mini-cups','미니컵',2,'main','120ml'),
-  (10003,'SCOOP','scoop-shop','ice-cream-shop-flavors','스쿱 샵',3,'main',NULL)
+  (10001,'PINT','pint','ice-cream-pints','파인트',1,'main','473ml'),
+  (10002,'MINI_CUP','mini-cup','ice-cream-cups','미니컵',2,'main','120ml'),
+  (10003,'SCOOP','scoop-shop','ice-cream-shop-flavours','스쿱 샵',3,'main',NULL)
 ON DUPLICATE KEY UPDATE name_ko=VALUES(name_ko), priority=VALUES(priority),
   packshot_basename=VALUES(packshot_basename), nutrition_basename=VALUES(nutrition_basename);
 

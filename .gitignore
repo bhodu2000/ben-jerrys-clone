@@ -40,6 +40,7 @@ out/
 
 # Legacy publishing folder (보존용)
 benjerry 5/
+src/main/resources/references_templates/
 
 # Logs
 logs/

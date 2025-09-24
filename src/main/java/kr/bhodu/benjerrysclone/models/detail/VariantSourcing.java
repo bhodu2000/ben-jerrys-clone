@@ -1,12 +1,9 @@
-package kr.bhodu.benjerrysclone.models;
+package kr.bhodu.benjerrysclone.models.detail;
 
 import lombok.Data;
 
-import java.util.List;
-
 @Data
-public class DietaryCert {
-        private int id;
+public class VariantSourcing {
         private String code;
         private String nameKo;
         private String iconUrl;
