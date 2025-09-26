@@ -30,12 +30,26 @@ public interface FlavourMapper {
         List<FlavourSummary> selectAllFlavours();
 
 
+        /**
+         * 카테고리 slug 존재 여부 확인
+         * @param slug 카테고리 slug
+         * @return 존재하면 1 이상, 없으면 0
+         */
+        @Select("""
+        SELECT COUNT(*)
+        FROM category
+        WHERE list_slug = #{slug}
+    """)
+        int existsCategorySlug(String slug);
+
+
         //  특정 카테고리 전체 리스트
         @Select("""
         SELECT v.id as variantId,
                f.slug as flavourSlug,
                f.name_ko as flavourNameKo,
                f.is_new as isNew,
+               f.flavour_type_id as flavourTypeId,
                c.list_slug as categoryListSlug,
                c.name_ko as categoryNameKo,
                vm.url as imageUrl
@@ -53,44 +67,67 @@ public interface FlavourMapper {
         List<FlavourSummary> selectByCategory(String listSlug);
 
 
-        //  상세페이지 (기본 정보)
+        // variant 상세 (카테고리 지정)
         @Select("""
-        SELECT v.id as variantId,
-               f.slug as flavourSlug,
-               f.name_ko as flavourNameKo,
-               f.description_ko as flavourDescriptionKo,
-               f.is_new as isNew,
-               c.list_slug as categoryListSlug,
-               c.name_ko as categoryNameKo
-        FROM product_variant v
-        JOIN flavour f ON v.flavour_id = f.id
-        JOIN category c ON v.category_id = c.id
-        WHERE v.is_active = 1
-          AND f.slug = #{flavourSlug}
-          AND c.slug = #{categorySlug}
-        """)
+    SELECT v.id         AS variantId,
+           f.id         AS flavourId,
+           f.slug       AS flavourSlug,
+           f.name_ko    AS flavourNameKo,
+           f.description_ko AS flavourDescriptionKo,
+           f.is_new     AS isNew,
+           c.slug       AS categorySlug,
+           c.list_slug  AS categoryListSlug,
+           c.name_ko    AS categoryNameKo
+    FROM product_variant v
+    JOIN flavour f ON v.flavour_id = f.id
+    JOIN category c ON v.category_id = c.id
+    WHERE v.is_active = 1
+      AND f.slug = #{flavourSlug}
+      AND c.slug = #{categorySlug}
+    """)
         VariantDetail selectVariantDetail(@Param("flavourSlug") String flavourSlug,
                                           @Param("categorySlug") String categorySlug);
 
 
-        //  카테고리 slug 없이 flavourSlug만 들어왔을 때 → PINT > MINI_CUP > SCOOP
+
+        // variant 상세 (카테고리 없이 flavourSlug만 들어왔을 때 기본 우선순위: PINT > MINI_CUP > SCOOP)
         @Select("""
-        SELECT v.id as variantId,
-               f.slug as flavourSlug,
-               f.name_ko as flavourNameKo,
-               f.description_ko as flavourDescriptionKo,
-               f.is_new as isNew,
-               c.list_slug as categoryListSlug,
-               c.name_ko as categoryNameKo
-        FROM product_variant v
-        JOIN flavour f ON v.flavour_id = f.id
-        JOIN category c ON v.category_id = c.id
-        WHERE v.is_active = 1
-          AND f.slug = #{flavourSlug}
-        ORDER BY c.priority ASC
-        LIMIT 1
-        """)
-        VariantDetail selectVariantDetailDefault(String flavourSlug);
+    SELECT v.id         AS variantId,
+           f.id         AS flavourId,
+           f.slug       AS flavourSlug,
+           f.name_ko    AS flavourNameKo,
+           f.description_ko AS flavourDescriptionKo,
+           f.is_new     AS isNew,
+           c.slug       AS categorySlug,
+           c.list_slug  AS categoryListSlug,
+           c.name_ko    AS categoryNameKo
+    FROM product_variant v
+    JOIN flavour f ON v.flavour_id = f.id
+    JOIN category c ON v.category_id = c.id
+    WHERE v.is_active = 1
+      AND f.slug = #{flavourSlug}
+    ORDER BY c.priority ASC
+    LIMIT 1
+    """)
+        VariantDetail selectVariantDetailDefault(@Param("flavourSlug") String flavourSlug);
+
+
+
+        // 같은 flavour 가 가진 모든 카테고리 목록 조회
+        @Select("""
+            SELECT c.code,
+                   c.slug       AS slug,
+                   c.name_ko    AS nameKo,
+                   v.id         AS variantId
+            FROM product_variant v
+            JOIN category c ON v.category_id = c.id
+            WHERE v.flavour_id = #{flavourId}
+              AND v.is_active = 1
+            ORDER BY c.priority
+            """)
+        List<VariantDetail.AvailableCategory> selectAvailableCategories(Long flavourId);
+
+
 
 
         //  미디어
@@ -141,6 +178,7 @@ public interface FlavourMapper {
                f.slug as flavourSlug,
                f.name_ko as flavourNameKo,
                f.is_new as isNew,
+               c.slug as categorySlug,
                c.list_slug as categoryListSlug,
                c.name_ko as categoryNameKo,
                vm.url as imageUrl

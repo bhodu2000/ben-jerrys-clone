@@ -33,23 +33,39 @@ public class FlavourController {
                 return "flavours/list";
         }
 
-        /**
-         *  /flavours/{listSlug}
-         * 카테고리 상세 페이지
-         */
-        @GetMapping("/flavours/{listSlug}")
-        public String listByCategory(@PathVariable String listSlug, Model model) {
-                List<FlavourSummary> flavours = flavourService.getFlavoursByCategory(listSlug);
-                model.addAttribute("flavours", flavours);
-                model.addAttribute("listSlug", listSlug);
-                return "flavours/category";
-        }
 
         /**
-         *  /{flavourSlug}/{categorySlug}
+         * Spring url 충돌 방지용 통합 handler
+         *
+         * /flavours/{listSlug} 카테고리 상세 페이지
+         * or
+         * /flavours/{flavourSlug}  카테고리 slug 없이 들어온 경우 → 기본 variant (PINT > MINI_CUP > SCOOP)
+         */
+        @GetMapping("/flavours/{slug}")
+        public String handleSlug(@PathVariable String slug, Model model) {
+                // 1. 카테고리 listSlug 인지 확인
+                if (flavourService.isCategory(slug)) {
+                        Map<String, List<FlavourSummary>> groupedFlavours = flavourService.getFlavoursByCategory(slug);
+                        model.addAttribute("groupedFlavours", groupedFlavours);
+                        model.addAttribute("listSlug", slug);
+                        return "flavours/category";
+                }
+
+                // 2. 아니면 제품 slug 로 간주
+                VariantDetail detail = flavourService.getVariantDetailDefault(slug);
+                if (detail == null) {
+                        return "error/404";
+                }
+                model.addAttribute("detail", detail);
+                return "flavours/detail";
+        }
+
+
+        /**
+         *  /flavours/{flavourSlug}/{categorySlug}
          * 특정 variant 상세 페이지
          */
-        @GetMapping("/{flavourSlug}/{categorySlug}")
+        @GetMapping("/flavours/{flavourSlug}/{categorySlug}")
         public String productDetailByCategory(@PathVariable String flavourSlug,
                                               @PathVariable String categorySlug,
                                               Model model) {
@@ -61,26 +77,13 @@ public class FlavourController {
                 return "flavours/detail";
         }
 
-        /**
-         *  /{flavourSlug}
-         * 카테고리 slug 없이 들어온 경우 → 기본 variant (PINT > MINI_CUP > SCOOP)
-         */
-        @GetMapping("/{flavourSlug}")
-        public String productDetailDefault(@PathVariable String flavourSlug, Model model) {
-                VariantDetail detail = flavourService.getVariantDetailDefault(flavourSlug);
-                if (detail == null) {
-                        return "error/404";
-                }
-                model.addAttribute("detail", detail);
-                return "flavours/detail";
-        }
 
         /**
          *  /variant/{variantId}/next
          * 다음 variant navigation (JSON 반환)
          * → 뷰에서 AJAX 호출 후 /{flavourSlug}/{categorySlug}로 이동 가능
          */
-        @GetMapping("/variant/{variantId}/next")
+        @GetMapping("/flavours/variant/{variantId}/next")
         @ResponseBody
         public VariantNavigation getNextVariant(@PathVariable Long variantId) {
                 return flavourService.getNextVariant(variantId);

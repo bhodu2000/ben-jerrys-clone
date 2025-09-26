@@ -32,10 +32,33 @@ public class FlavourServiceImpl implements FlavourService {
                                 ));
         }
 
+
         @Override
-        public List<FlavourSummary> getFlavoursByCategory(String listSlug) {
-                return flavourMapper.selectByCategory(listSlug);
+        public boolean isCategory(String slug) {
+                // mapper 에서 카테고리 slug 존재 여부 확인
+                return flavourMapper.existsCategorySlug(slug) > 0;
         }
+
+
+        @Override
+        public Map<String, List<FlavourSummary>> getFlavoursByCategory(String listSlug) {
+                List<FlavourSummary> flavours = flavourMapper.selectByCategory(listSlug);
+
+                return flavours.stream().collect(Collectors.groupingBy(
+                                f -> {
+                                        if (f.isNew()) return "NEW"; // 대문자
+                                        switch (f.getFlavourTypeId()) {
+                                                case 1: return "ORIGINAL";
+                                                case 2: return "CORE";
+                                                case 3: return "SORBET";
+                                                default: return "OTHER";
+                                        }
+                                },
+                                LinkedHashMap::new,
+                                Collectors.toList()
+                ));
+        }
+
 
         @Override
         public VariantDetail getVariantDetail(String flavourSlug, String categorySlug) {
@@ -48,6 +71,11 @@ public class FlavourServiceImpl implements FlavourService {
                 detail.setSourcingFeatures(flavourMapper.selectVariantSourcing(variantId));
                 detail.setDietaryCerts(flavourMapper.selectVariantCerts(variantId));
                 detail.setRecommendations(flavourMapper.selectRecommendations(variantId));
+                detail.setAvailableCategories(flavourMapper.selectAvailableCategories(detail.getFlavourId()));
+
+                //  다음 variant 정보 세팅
+                VariantNavigation next = getNextVariant(variantId);
+                detail.setNextVariant(next);
 
                 return detail;
         }
@@ -63,6 +91,11 @@ public class FlavourServiceImpl implements FlavourService {
                 detail.setSourcingFeatures(flavourMapper.selectVariantSourcing(variantId));
                 detail.setDietaryCerts(flavourMapper.selectVariantCerts(variantId));
                 detail.setRecommendations(flavourMapper.selectRecommendations(variantId));
+                detail.setAvailableCategories(flavourMapper.selectAvailableCategories(detail.getFlavourId()));
+
+                //  다음 variant 정보 세팅
+                VariantNavigation next = getNextVariant(variantId);
+                detail.setNextVariant(next);
 
                 return detail;
         }

@@ -12,15 +12,18 @@ public interface FlavourService {
         // /flavours → 카테고리별 상위 5개
         Map<String, List<FlavourSummary>> getTopFlavoursGroupedByCategory();
 
-        // /flavours/{listSlug} → 카테고리 상세
-        List<FlavourSummary> getFlavoursByCategory(String listSlug);
+        // /flavours/{listSlug} → 카테고리 상세 (그룹핑 버전)
+        Map<String, List<FlavourSummary>> getFlavoursByCategory(String listSlug);
 
-        // /{flavourSlug}/{categorySlug} → variant 상세
+        // /flavours/{flavourSlug}/{categorySlug} → variant 상세
         VariantDetail getVariantDetail(String flavourSlug, String categorySlug);
 
-        // /{flavourSlug} → 카테고리 생략 시 기본 variant (우선순위 적용)
+        // /flavours/{flavourSlug} → 카테고리 생략 시 기본 variant (우선순위 적용)
         VariantDetail getVariantDetailDefault(String flavourSlug);
 
-        // /variant/{variantId}/next → 다음 variant navigation
+        // slug 가 카테고리인지 여부 확인
+        boolean isCategory(String slug);
+
+        // /flavours/variant/{variantId}/next → 다음 variant navigation
         VariantNavigation getNextVariant(Long variantId);
 }

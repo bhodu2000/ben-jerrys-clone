@@ -462,12 +462,12 @@ ON DUPLICATE KEY UPDATE name_ko=VALUES(name_ko), sort_priority=VALUES(sort_prior
 -- 2) Values-led features
 INSERT INTO sourcing_feature (id, code, name_ko, icon_url) VALUES
   (90001,'NON_GMO','Non-GMO','/assets/img/misc/90001_Non-GMO_VLS_Simpler_Icons.avif'),
-  (90002,'CAGE_FREE_EGGS','Cage-Free Eggs','/assets/img/misc/90002_Cage-free_Eggs_VLS_Simpler_Icons.avif'),
-  (90003,'FREE_RANGE_EGGS','Free Range Eggs','/assets/img/misc/90003_Free-range_Eggs_VLS_Simpler_Icons.avif'),
+  (90002,'CAGE_FREE_EGGS','Cage-Free Eggs','/assets/img/misc/90002_Cage-free_Eggs_VLS_Simpler_Icons.webp'),
+  (90003,'FREE_RANGE_EGGS','Free Range Eggs','/assets/img/misc/90003_Free-range_Eggs_VLS_Simpler_Icons.webp'),
   (90004,'FAIRTRADE','Fairtrade','/assets/img/misc/90004_Fairtrade_VLS_Simpler_Icons.avif'),
   (90005,'CARING_DAIRY','Caring Dairy','/assets/img/misc/90005_Caring_Dairy_VLS_Simpler_Icons.avif'),
   (90006,'RESPONSIBLY_SOURCED_PACKAGING','Responsibly Sourced Packaging','/assets/img/misc/90006_Responsibly_Sourced_Packaging_VLS_Simpler_Icons.avif'),
-  (90007,'GREYSTON_BROWNIES','Greyston Brownies','/assets/img/misc/90007_Greyston_Brownies_VLS_Simpler_Icons.avif'),
+  (90007,'GREYSTON_BROWNIES','Greyston Brownies','/assets/img/misc/90007_Greyston_Brownies_VLS_Simpler_Icons.png'),
   (90008,'OPEN_CHAIN_SOURCING','Open Chain Sourcing','/assets/img/misc/90008_Cocoa_Sourcing_VLS_Simpler_Icons.avif')
 ON DUPLICATE KEY UPDATE name_ko=VALUES(name_ko), icon_url=VALUES(icon_url);
 
