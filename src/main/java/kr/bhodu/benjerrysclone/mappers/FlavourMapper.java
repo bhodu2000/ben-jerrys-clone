@@ -70,6 +70,7 @@ public interface FlavourMapper {
         // variant 상세 (카테고리 지정)
         @Select("""
     SELECT v.id         AS variantId,
+          v.variant_description_ko     AS variantDescriptionKo,
            f.id         AS flavourId,
            f.slug       AS flavourSlug,
            f.name_ko    AS flavourNameKo,
@@ -93,6 +94,7 @@ public interface FlavourMapper {
         // variant 상세 (카테고리 없이 flavourSlug만 들어왔을 때 기본 우선순위: PINT > MINI_CUP > SCOOP)
         @Select("""
     SELECT v.id         AS variantId,
+           v.variant_description_ko     AS variantDescriptionKo,
            f.id         AS flavourId,
            f.slug       AS flavourSlug,
            f.name_ko    AS flavourNameKo,
@@ -129,15 +131,25 @@ public interface FlavourMapper {
 
 
 
-
         //  미디어
         @Select("""
-        SELECT role, url, alt_ko as altKo
-        FROM variant_media
-        WHERE variant_id = #{variantId}
-        ORDER BY role, sort_order
+          SELECT role, url, alt_ko AS altKo, sort_order AS sortOrder
+          FROM variant_media
+          WHERE variant_id = #{variantId}
+          ORDER BY role, sort_order
         """)
         List<VariantDetail.Media> selectVariantMedia(Long variantId);
+
+
+        // 미디어 - 갤러리
+        @Select("""
+        SELECT role, url, alt_ko AS altKo, sort_order AS sortOrder
+        FROM variant_media
+        WHERE variant_id = #{variantId}
+          AND role = 'GALLERY'
+        ORDER BY sort_order
+        """)
+        List<VariantDetail.Media> selectVariantGallery(Long variantId);
 
 
         //  원재료

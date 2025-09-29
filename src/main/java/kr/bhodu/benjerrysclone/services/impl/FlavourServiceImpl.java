@@ -60,23 +60,14 @@ public class FlavourServiceImpl implements FlavourService {
         }
 
 
+
+
         @Override
         public VariantDetail getVariantDetail(String flavourSlug, String categorySlug) {
                 VariantDetail detail = flavourMapper.selectVariantDetail(flavourSlug, categorySlug);
                 if (detail == null) return null;
 
-                Long variantId = detail.getVariantId();
-                detail.setMediaList(flavourMapper.selectVariantMedia(variantId));
-                detail.setIngredients(flavourMapper.selectVariantIngredients(variantId));
-                detail.setSourcingFeatures(flavourMapper.selectVariantSourcing(variantId));
-                detail.setDietaryCerts(flavourMapper.selectVariantCerts(variantId));
-                detail.setRecommendations(flavourMapper.selectRecommendations(variantId));
-                detail.setAvailableCategories(flavourMapper.selectAvailableCategories(detail.getFlavourId()));
-
-                //  다음 variant 정보 세팅
-                VariantNavigation next = getNextVariant(variantId);
-                detail.setNextVariant(next);
-
+                hydrateVariantDetail(detail);
                 return detail;
         }
 
@@ -85,20 +76,40 @@ public class FlavourServiceImpl implements FlavourService {
                 VariantDetail detail = flavourMapper.selectVariantDetailDefault(flavourSlug);
                 if (detail == null) return null;
 
+                hydrateVariantDetail(detail);
+                return detail;
+        }
+
+        /** 공통 하이드레이션: 미디어/원재료/배지/추천/카테고리/네비 세팅 */
+        private void hydrateVariantDetail(VariantDetail detail) {
                 Long variantId = detail.getVariantId();
-                detail.setMediaList(flavourMapper.selectVariantMedia(variantId));
+
+                List<VariantDetail.Media> all = flavourMapper.selectVariantMedia(variantId);
+                if (all == null) all = Collections.emptyList();
+                detail.setMediaList(all);
+
+                // 갤러리: 전용 쿼리 + null-safe
+                List<VariantDetail.Media> gallery = flavourMapper.selectVariantGallery(variantId);
+                if (gallery == null) gallery = Collections.emptyList();
+                detail.setGalleryList(gallery);
+
+                detail.setPackshot(all.stream().filter(m -> "PACKSHOT".equals(m.getRole())).findFirst().orElse(null));
+                detail.setNutrition(all.stream().filter(m -> "NUTRITION".equals(m.getRole())).findFirst().orElse(null));
+
                 detail.setIngredients(flavourMapper.selectVariantIngredients(variantId));
                 detail.setSourcingFeatures(flavourMapper.selectVariantSourcing(variantId));
                 detail.setDietaryCerts(flavourMapper.selectVariantCerts(variantId));
                 detail.setRecommendations(flavourMapper.selectRecommendations(variantId));
                 detail.setAvailableCategories(flavourMapper.selectAvailableCategories(detail.getFlavourId()));
 
-                //  다음 variant 정보 세팅
                 VariantNavigation next = getNextVariant(variantId);
                 detail.setNextVariant(next);
-
-                return detail;
         }
+
+
+
+
+
 
         @Override
         public VariantNavigation getNextVariant(Long variantId) {

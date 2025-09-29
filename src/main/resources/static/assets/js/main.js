@@ -77,54 +77,38 @@
   if (initialId) applyPackage(initialId);
 })();
 
-
 /* =========================
-   갤러리: 불릿 클릭 시 해당 슬라이드 표시
+   갤러리: 1장일 때 스와이프/네비 비활성화
 ========================= */
-(function () {
-  function initGallery(gallery) {
-    const wrapper = gallery.querySelector('.swiper-wrapper');
-    if (!wrapper) return;
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('[data-swiper]').forEach(function (el) {
+    var slides = parseInt(el.getAttribute('data-slides') || '0', 10);
+    var hasMultiple = slides > 1;
+    var paginationEl = el.querySelector('[data-swiper-pagination]');
 
-    const slides  = Array.from(wrapper.querySelectorAll('.swiper-slide'));
-    const bullets = Array.from(gallery.querySelectorAll('.swiper-pagination .swiper-pagination-bullet'));
-    if (!slides.length || !bullets.length) return;
-
-    function showSlide(index) {
-      const slideWidth = slides[0].offsetWidth; 
-      const offset = -(slideWidth * index);
-
-      wrapper.style.transitionDuration = '300ms';
-      wrapper.style.transitionDelay = '0ms';
-      wrapper.style.transform = `translate3d(${offset}px, 0px, 0px)`;
-
-      bullets.forEach((b, i) => {
-        b.classList.toggle('swiper-pagination-bullet-active', i === index);
-        b.setAttribute('aria-current', i === index ? 'true' : 'false');
-      });
-    }
-
-    bullets.forEach((b, i) => {
-      b.addEventListener('click', (e) => {
-        e.preventDefault();
-        showSlide(i);
-      });
+    // eslint-disable-next-line no-undef
+    var swiper = new Swiper(el, {
+      loop: false,
+      observer: true,
+      observeParents: true,
+      watchSlidesProgress: true,
+      //  2장 이상일 때만 불릿 활성화
+      pagination: hasMultiple ? {
+        el: paginationEl,
+        clickable: true
+      } : undefined,
+      //  1장일 때는 스와이프/키보드/마우스휠 비활성화
+      allowTouchMove: hasMultiple,
+      keyboard: hasMultiple ? { enabled: true } : false,
+      mousewheel: hasMultiple ? { forceToAxis: true } : false
     });
 
-    const initial = bullets.findIndex(b => b.classList.contains('swiper-pagination-bullet-active'));
-    showSlide(initial >= 0 ? initial : 0);
-  }
-
-  function initAllGalleries() {
-    document.querySelectorAll('section.gallery[data-module="Gallery"]').forEach(initGallery);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAllGalleries);
-  } else {
-    initAllGalleries();
-  }
-})();
+    // 혹시 렌더돼 있으면 숨김
+    if (!hasMultiple && paginationEl) {
+      paginationEl.style.display = 'none';
+    }
+  });
+});
 
 
 

@@ -12,6 +12,7 @@ public class VariantDetail {
         private String flavourSlug;
         private String flavourNameKo;
         private String flavourDescriptionKo;
+        private String variantDescriptionKo;
         private boolean isNew;
         private String categorySlug;
         private String categoryListSlug;
@@ -20,6 +21,13 @@ public class VariantDetail {
 
         // 상세 데이터
         private List<Media> mediaList;
+
+        //  역할별 접근자
+        private List<Media> galleryList; // 갤러리
+        private Media packshot;          // 1장
+        private Media nutrition;         // 1장
+
+
         private Ingredients ingredients;
         private List<SourcingFeature> sourcingFeatures;
         private List<DietaryCert> dietaryCerts;
@@ -31,6 +39,7 @@ public class VariantDetail {
                 private String role;    // PACKSHOT, GALLERY, NUTRITION
                 private String url;
                 private String altKo;
+                private Integer sortOrder;
         }
 
         @Data

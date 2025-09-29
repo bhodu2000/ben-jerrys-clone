@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>detail</title>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="/assets/css/style.css">
     </head>
@@ -207,10 +208,13 @@
                                     <article class="hero theme-light view-default flavour-hero">
                                             <div class="hero-background bg-bnj-pale-sky-blue">
                                                     <div class="hero-background-images d-lg-flex" role="presentation">
+                                                            <picture>
+                                                                    <img src="/assets/img/homepage/PDP_background_desktop.avif" alt="" class="" loading="lazy">
+                                                            </picture>
                                                             <!-- PACKSHOT 이미지 -->
-                                                            <div class="product-image" th:each="media : ${detail.mediaList}" th:if="${media.role == 'PACKSHOT'}">
+                                                            <div class="product-image" th:if="${detail.packshot != null}">
                                                                     <picture>
-                                                                            <img th:src="@{${media.url}}" th:alt="${media.altKo}" loading="lazy">
+                                                                            <img th:src="@{${detail.packshot.url}}" th:alt="${detail.packshot.altKo}" loading="lazy">
                                                                     </picture>
                                                             </div>
                                                     </div>
@@ -220,7 +224,6 @@
                                                     <div class="hero-content">
                                                             <h1 class="heading-1">
                                                                     <span th:text="${detail.flavourNameKo}">제품명</span>
-                                                                    <span th:if="${detail.isNew}" class="badge">신제품!</span>
                                                             </h1>
                                                             <div class="hero-body" th:text="${detail.flavourDescriptionKo}">제품 설명</div>
                                                             <div class="hero-buttons">
@@ -238,7 +241,7 @@
                                                     <!-- 맛 소개 -->
                                                     <section class="flavour-about">
                                                             <h2 class="heading heading-2">맛 소개</h2>
-                                                            <div th:text="${detail.flavourDescriptionKo}"></div>
+                                                            <div th:text="${detail.variantDescriptionKo}"></div>
                                                     </section>
 
                                                     <!-- 카테고리 전환 -->
@@ -251,11 +254,13 @@
                                                                                th:attr="data-flavour-package-change=${cat.code}"
                                                                                class="card view-filter">
                                                                                     <div class="card-image">
-                                                                                            <img th:src="${cat.code == 'PINT' ? '/assets/img/misc/IceCreamPints_flavor_Landing_Icons.png' :
-                                                 (cat.code == 'MINI_CUP' ? '/assets/img/misc/Mini_Cups_flavor_Landing_Icons.png' :
-                                                 (cat.code == 'SCOOP' ? '/assets/img/misc/Scoop_Shops_flavor_Landing_Icons.png' :
-                                                 '/assets/img/misc/default.png'))}"
-                                                                                                 th:alt="${cat.nameKo}" loading="lazy">
+                                                                                            <picture>
+                                                                                                    <img th:src="${cat.code == 'PINT' ? '/assets/img/misc/IceCreamPints_flavor_Landing_Icons.png' :
+                                                         (cat.code == 'MINI_CUP' ? '/assets/img/misc/Mini_Cups_flavor_Landing_Icons.png' :
+                                                         (cat.code == 'SCOOP' ? '/assets/img/misc/Scoop_Shops_flavor_Landing_Icons.png' :
+                                                         '/assets/img/misc/default.png'))}"
+                                                                                                         th:alt="${cat.nameKo}" loading="lazy">
+                                                                                            </picture>
                                                                                     </div>
                                                                                     <span th:text="${cat.nameKo}"></span>
                                                                             </a>
@@ -263,18 +268,47 @@
                                                             </ul>
                                                     </div>
 
-                                                    <!-- 갤러리 이미지 -->
-                                                    <section class="gallery" th:if="${detail.mediaList != null}">
-                                                            <h3 class="visually-hidden" th:text="${detail.flavourNameKo} + ' gallery'">Gallery</h3>
-                                                            <div class="swiper">
-                                                                    <div class="swiper-wrapper flex-wrap">
-                                                                            <div class="swiper-slide" th:each="media : ${detail.mediaList}" th:if="${media.role == 'GALLERY'}">
+                                                    <!-- 갤러리 -->
+                                                    <section class="gallery" data-module="Gallery"
+                                                             th:if="${detail.galleryList != null and #lists.size(detail.galleryList) > 0}"
+                                                             th:with="gallery=${detail.galleryList}">
+                                                            <h3 class="visually-hidden"
+                                                                th:text="${detail.flavourNameKo} + ' gallery'">Gallery</h3>
+
+                                                            <div class="swiper" data-swiper th:attr="data-slides=${#lists.size(gallery)}">
+                                                                    <div class="swiper-wrapper">
+                                                                            <div class="swiper-slide" th:each="media : ${gallery}">
                                                                                     <picture>
-                                                                                            <img th:src="@{${media.url}}" th:alt="${media.altKo}" loading="lazy">
+                                                                                            <img th:src="@{${media.url}}"
+                                                                                                 th:alt="${media.altKo ?: detail.flavourNameKo + ' 이미지'}"
+                                                                                                 loading="lazy">
                                                                                     </picture>
                                                                             </div>
                                                                     </div>
+                                                                    <div class="swiper-pagination" data-swiper-pagination
+                                                                         th:if="${#lists.size(gallery) > 1}"></div>
                                                             </div>
+                                                    </section>
+
+
+
+
+
+                                                    <!-- 원료 출처 -->
+                                                    <section class="flavour-values" th:if="${detail.sourcingFeatures != null}">
+                                                            <h3 class="heading heading-3">Values-led Sourcing</h3>
+                                                            <ul>
+                                                                    <li th:each="sf : ${detail.sourcingFeatures}">
+                                                                            <div class="card view-filter">
+                                                                                    <div class="card-image">
+                                                                                            <picture>
+                                                                                                <img th:src="@{${sf.iconUrl}}" th:alt="${sf.nameKo}" loading="lazy">
+                                                                                            </picture>
+                                                                                    </div>
+                                                                                    <span th:text="${sf.nameKo}"></span>
+                                                                            </div>
+                                                                    </li>
+                                                            </ul>
                                                     </section>
 
                                                     <!-- 원재료 -->
@@ -290,8 +324,12 @@
                                                                             <div class="accordion-body">
                                                                                     <p th:text="${detail.ingredients.ingredientsKo}"></p>
                                                                                     <!-- NUTRITION 이미지 -->
-                                                                                    <div th:each="media : ${detail.mediaList}" th:if="${media.role == 'NUTRITION'}">
-                                                                                            <img th:src="@{${media.url}}" th:alt="${media.altKo}" loading="lazy">
+                                                                                    <div class="nutrition-image" th:if="${detail.nutrition != null}">
+                                                                                            <picture class="d-block my-3">
+                                                                                                    <img th:src="@{${detail.nutrition.url}}"
+                                                                                                         th:alt="${detail.nutrition.altKo ?: detail.flavourNameKo + ' 영양성분표'}"
+                                                                                                         loading="lazy">
+                                                                                            </picture>
                                                                                     </div>
                                                                                     <a th:if="${detail.ingredients.smartlabelUrl != null}"
                                                                                        th:href="${detail.ingredients.smartlabelUrl}" target="_blank">
@@ -301,21 +339,6 @@
                                                                     </div>
                                                             </div>
                                                     </div>
-
-                                                    <!-- 원료 출처 -->
-                                                    <section class="flavour-values" th:if="${detail.sourcingFeatures != null}">
-                                                            <h3 class="heading heading-3">Values-led Sourcing</h3>
-                                                            <ul>
-                                                                    <li th:each="sf : ${detail.sourcingFeatures}">
-                                                                            <div class="card view-filter">
-                                                                                    <div class="card-image">
-                                                                                            <img th:src="@{${sf.iconUrl}}" th:alt="${sf.nameKo}" loading="lazy">
-                                                                                    </div>
-                                                                                    <span th:text="${sf.nameKo}"></span>
-                                                                            </div>
-                                                                    </li>
-                                                            </ul>
-                                                    </section>
 
                                                     <!-- 식이 인증 -->
                                                     <div class="accordion-item" th:if="${detail.dietaryCerts != null}">
@@ -462,6 +485,7 @@
         </footer>
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
         <script src="/assets/js/main.js"></script>
             
     </body>

@@ -444,13 +444,15 @@ p:last-of-type {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
   margin-right: -16px;
   padding: 0;
 }
 
 .flavour-available-as ul li {
-  width: 33%;
+  width: 25%;
   padding: 0 16px 16px 0;
+  flex: 0 0 auto;
 }
 
 .card.view-filter.active {
@@ -488,6 +490,7 @@ p:last-of-type {
   height: auto;
   object-fit: cover;
   object-position: center;
+  margin-bottom: 16px;
 }
 
 .card .card-buttons {
@@ -633,11 +636,6 @@ p:last-of-type {
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
-}
-
-.flavour-available-as ul li {
-  width: 33%;
-  padding: 0 16px 16px 0;
 }
 
 ul li {
@@ -1756,7 +1754,7 @@ ol, ul {
 }
 
 .flavour-values ul li {
-  width: 33%;
+  width: 25%;
   padding: 0 16px 16px 0;
 }
 
@@ -1869,7 +1867,6 @@ img.article {
   display: block;        
   margin: 0 auto;         
 }
-
 
 
 
