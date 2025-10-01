@@ -608,11 +608,15 @@ INSERT INTO variant_media (id, variant_id, role, url, alt_ko, sort_order) VALUES
   (41015,30003,'GALLERY','/assets/img/flavours/chocolate-fudge-brownie-ice-cream/pint/gallery/05-hero.jpg',NULL,0),
 
   (41016,30004,'GALLERY','/assets/img/flavours/strawberry-cheesecake-ice-cream/pint/gallery/01-tower.png',NULL,0),
+  (41020,30004,'GALLERY','/assets/img/flavours/strawberry-cheesecake-ice-cream/pint/gallery/05-hero.png',NULL,0),
+
 
   (41021,30005,'GALLERY','/assets/img/flavours/chocolate-chip-cookie-dough-ice-cream/pint/gallery/01-tower.png',NULL,0),
   (41022,30005,'GALLERY','/assets/img/flavours/chocolate-chip-cookie-dough-ice-cream/pint/gallery/02-envirolid.jpg',NULL,0),
   (41023,30005,'GALLERY','/assets/img/flavours/chocolate-chip-cookie-dough-ice-cream/pint/gallery/03-scooped.jpg',NULL,0),
   (41024,30005,'GALLERY','/assets/img/flavours/chocolate-chip-cookie-dough-ice-cream/pint/gallery/04-enviro.jpg',NULL,0),
+  (41025,30005,'GALLERY','/assets/img/flavours/chocolate-chip-cookie-dough-ice-cream/pint/gallery/05-hero.png',NULL,0),
+
 
   (41026,30006,'GALLERY','/assets/img/flavours/cherry-garcia-ice-cream/pint/gallery/01-tower.png',NULL,0),
   (41027,30006,'GALLERY','/assets/img/flavours/cherry-garcia-ice-cream/pint/gallery/02-envirolid.jpg',NULL,0),
@@ -1300,118 +1304,127 @@ VALUES (
 -- 파인트 보유 → 파인트로 매핑, 파인트 없고 스쿱만 보유 → 스쿱으로 매핑
 -- ======================
 
--- 30001 chunky-monkey-ice-cream (pint)
+-- 10001 (Pint)
+-- 30001 chunky-monkey-ice-cream
 INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
-  (30001,30010,1),
-  (30001,30006,2),
-  (30001,30011,3);
+  (30001,30010,1),(30001,30006,2),(30001,30011,3);
 
--- 30002 half-baked-ice-cream (pint)
+-- 30002 half-baked-ice-cream
 INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
-  (30002,30005,1),
-  (30002,30003,2),
-  (30002,30009,3);
+  (30002,30005,1),(30002,30003,2),(30002,30009,3);
 
--- 30003 chocolate-fudge-brownie-ice-cream (pint)
+-- 30003 chocolate-fudge-brownie-ice-cream
 INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
-  (30003,30009,1),
-  (30003,30002,2),
-  (30003,30004,3);
+  (30003,30009,1),(30003,30002,2),(30003,30004,3);
 
--- 30004 strawberry-cheesecake-ice-cream (pint)
+-- 30004 strawberry-cheesecake-ice-cream
 INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
-  (30004,30009,1),
-  (30004,30006,2),
-  (30004,30003,3);
+  (30004,30009,1),(30004,30006,2),(30004,30003,3);
 
--- 30005 chocolate-chip-cookie-dough-ice-cream (pint)
+-- 30005 chocolate-chip-cookie-dough-ice-cream
 INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
-  (30005,30013,1),
-  (30005,30002,2),
-  (30005,30010,3);
+  (30005,30013,1),(30005,30002,2),(30005,30010,3);
 
--- 30006 cherry-garcia-ice-cream (pint)
+-- 30006 cherry-garcia-ice-cream
 INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
-  (30006,30001,1),
-  (30006,30004,2),
-  (30006,30010,3);
+  (30006,30001,1),(30006,30004,2),(30006,30010,3);
 
--- 30007 coffee-coffee-buzz-buzz-buzz-ice-cream (pint)
+-- 30007 coffee-coffee-buzz-buzz-buzz-ice-cream
 INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
-  (30007,30009,1),
-  (30007,30013,2),
-  (30007,30011,3);
+  (30007,30009,1),(30007,30013,2),(30007,30011,3);
 
--- 30008 karamel-sutra-core (pint)
+-- 30008 karamel-sutra-core
 INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
-  (30008,30004,1),
-  (30008,30010,2),
-  (30008,30009,3);
+  (30008,30004,1),(30008,30010,2),(30008,30009,3);
 
--- 30009 mint-chocolate-cookie-ice-cream (pint)
+-- 30009 mint-chocolate-cookie-ice-cream
 INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
-  (30009,30004,1),
-  (30009,30003,2),
-  (30009,30013,3);
+  (30009,30004,1),(30009,30003,2),(30009,30013,3);
 
--- 30010 new-york-super-fudge-chunk-ice-cream (pint)
+-- 30010 new-york-super-fudge-chunk-ice-cream
 INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
-  (30010,30001,1),
-  (30010,30011,2),
-  (30010,30012,3);
+  (30010,30001,1),(30010,30011,2),(30010,30012,3);
 
--- 30011 peanut-butter-cup-ice-cream (pint)
+-- 30011 peanut-butter-cup-ice-cream
 INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
-  (30011,30012,1),
-  (30011,30010,2),
-  (30011,30009,3);
+  (30011,30012,1),(30011,30010,2),(30011,30009,3);
 
--- 30012 pistachio-pistachio-ice-cream (pint)
+-- 30012 pistachio-pistachio-ice-cream
 INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
-  (30012,30011,1),
-  (30012,30010,2),
-  (30012,30009,3);
+  (30012,30011,1),(30012,30010,2),(30012,30009,3);
 
--- 30013 vanilla-ice-cream (pint)
+-- 30013 vanilla-ice-cream
 INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
-  (30013,30005,1),
-  (30013,30009,2),
-  (30013,30007,3);
+  (30013,30005,1),(30013,30009,2),(30013,30007,3);
 
-  -- 30032 chocolate-ice-cream (scoop-shop only)
-INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
-  (30032,30038,1),
-  (30032,30039,2),
-  (30032,30031,3);
 
--- 30037 lemonade-sorbet (scoop-shop only)
+-- 10002 (Minicup)  ※ 파인트로 매핑
+-- 30021 chocolate-fudge-brownie-ice-cream
 INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
-  (30037,30042,1),
-  (30037,30032,2),
-  (30037,30039,3);
+  (30021,30009,1),(30021,30002,2),(30021,30004,3);
 
--- 30038 mint-chocolate-chunk-ice-cream (scoop-shop only)
+-- 30022 chocolate-chip-cookie-dough-ice-cream
 INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
-  (30038,30032,1),
-  (30038,30039,2),
-  (30038,30031,3);
+  (30022,30013,1),(30022,30002,2),(30022,30010,3);
 
--- 30040 strawberry-ice-cream (scoop-shop only)
+-- 30023 cherry-garcia-ice-cream
 INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
-  (30040,30031,1),
-  (30040,30032,2);
+  (30023,30001,1),(30023,30004,2),(30023,30010,3);
 
--- 30042 berry-berry-extraordinary-sorbet (scoop-shop only)
-INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
-  (30042,30037,1),
-  (30042,30032,2),
-  (30042,30039,3);
 
--- 30043 sweet-cream-and-cookies-ice-cream (scoop-shop only)
+-- 10003 (Scoop-shop only)  ※ 스쿱끼리 매핑
+-- 30031 cherry-garcia-ice-cream
 INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
-  (30043,30034,1),
-  (30043,30032,2),
-  (30043,30038,3);
+  (30031,30035,1),(30031,30039,2),(30031,30032,3);
+
+-- 30032 chocolate-ice-cream
+INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
+  (30032,30038,1),(30032,30039,2),(30032,30031,3);
+
+-- 30033 chocolate-chip-cookie-dough-ice-cream
+INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
+  (30033,30041,1),(30033,30036,2),(30033,30039,3);
+
+-- 30034 chocolate-fudge-brownie-ice-cream
+INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
+  (30034,30038,1),(30034,30036,2),(30034,30032,3);
+
+-- 30035 chunky-monkey-ice-cream
+INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
+  (30035,30039,1),(30035,30031,2),(30035,30033,3);
+
+-- 30036 half-baked-ice-cream
+INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
+  (30036,30033,1),(30036,30034,2),(30036,30038,3);
+
+-- 30037 lemonade-sorbet
+INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
+  (30037,30042,1),(30037,30032,2),(30037,30039,3);
+
+-- 30038 mint-chocolate-chunk-ice-cream
+INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
+  (30038,30032,1),(30038,30039,2),(30038,30031,3);
+
+-- 30039 new-york-super-fudge-chunk-ice-cream
+INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
+  (30039,30035,1),(30039,30031,2),(30039,30033,3);
+
+-- 30040 strawberry-ice-cream
+INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
+  (30040,30031,1),(30040,30032,2),(30040,30041,3);
+
+-- 30041 vanilla-ice-cream
+INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
+  (30041,30033,1),(30041,30038,2),(30041,30032,3);
+
+-- 30042 berry-berry-extraordinary-sorbet
+INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
+  (30042,30037,1),(30042,30032,2),(30042,30039,3);
+
+-- 30043 sweet-cream-and-cookies-ice-cream
+INSERT INTO variant_reco (source_variant_id, target_variant_id, slot) VALUES
+  (30043,30034,1),(30043,30032,2),(30043,30038,3);
+
 
 
 /* ======================

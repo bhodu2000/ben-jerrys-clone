@@ -184,22 +184,35 @@ public interface FlavourMapper {
         List<VariantDetail.DietaryCert> selectVariantCerts(Long variantId);
 
 
-        //  추천
+        // 추천
+        // GALLERY(sort_order = 5) 우선, 없으면 PACKSHOT
         @Select("""
-        SELECT v.id as variantId,
-               f.slug as flavourSlug,
-               f.name_ko as flavourNameKo,
-               f.is_new as isNew,
-               c.slug as categorySlug,
-               c.list_slug as categoryListSlug,
-               c.name_ko as categoryNameKo,
-               vm.url as imageUrl
+        SELECT
+            v.id AS variantId,
+            f.slug AS flavourSlug,
+            f.name_ko AS flavourNameKo,
+            f.is_new AS isNew,
+            c.slug AS categorySlug,
+            c.list_slug AS categoryListSlug,
+            c.name_ko AS categoryNameKo,
+        
+            COALESCE(vm_g5.url, vm_p.url)       AS imageUrl,
+            COALESCE(vm_g5.sort_order, vm_p.sort_order) AS sortOrder
+        
         FROM variant_reco r
         JOIN product_variant v ON r.target_variant_id = v.id
         JOIN flavour f ON v.flavour_id = f.id
         JOIN category c ON v.category_id = c.id
-        LEFT JOIN variant_media vm
-               ON vm.variant_id = v.id AND vm.role = 'PACKSHOT'
+        
+        LEFT JOIN variant_media vm_p
+               ON vm_p.variant_id = v.id
+              AND vm_p.role = 'PACKSHOT'
+        
+        LEFT JOIN variant_media vm_g5
+               ON vm_g5.variant_id = v.id
+              AND vm_g5.role = 'GALLERY'
+              AND vm_g5.gallery_num_prefix = 5
+        
         WHERE r.source_variant_id = #{variantId}
         ORDER BY r.slot
         """)
