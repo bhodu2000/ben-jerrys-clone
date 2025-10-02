@@ -295,7 +295,7 @@
 
 
                                                     <!-- 원료 출처 -->
-                                                    <section class="flavour-values" th:if="${detail.sourcingFeatures != null}">
+                                                    <section class="flavour-values" th:if="${detail.sourcingFeatures != null and !#lists.isEmpty(detail.sourcingFeatures)}">
                                                             <h3 class="heading heading-3">Values-led Sourcing</h3>
                                                             <ul>
                                                                     <li th:each="sf : ${detail.sourcingFeatures}">
@@ -331,7 +331,7 @@
                                                                                                          loading="lazy">
                                                                                             </picture>
                                                                                     </div>
-                                                                                    <a th:if="${detail.ingredients.smartlabelUrl != null}"
+                                                                                    <a th:if="${detail.ingredients.smartlabelUrl != null and !#strings.isEmpty(detail.ingredients.smartlabelUrl)}"
                                                                                        th:href="${detail.ingredients.smartlabelUrl}" target="_blank" th:text="${'SmartLabel (스마트라벨) - ' + detail.flavourNameKo + ' 영양 세부 사항 전체 보기'}">
                                                                                     </a>
                                                                             </div>
@@ -340,7 +340,7 @@
 
 
                                                             <!-- 식이 인증 -->
-                                                            <div class="accordion-item" th:if="${detail.dietaryCerts != null}">
+                                                            <div class="accordion-item" th:if="${detail.dietaryCerts != null and !#lists.isEmpty(detail.dietaryCerts)}">
                                                                     <h3 class="accordion-header heading-3" id="accordion-item">
                                                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                                                                     data-bs-target="#collapse-dietary">
@@ -383,7 +383,7 @@
                                     </div>
 
                                     <!-- 추천 맛 -->
-                                    <section class="carousel view-recommended" th:if="${detail.recommendations != null}">
+                                    <section class="carousel view-recommended" th:if="${detail.recommendations != null and !#lists.isEmpty(detail.recommendations)}">
                                             <header>
                                                     <h2 class="heading heading-2">추천하는 맛</h2>
                                             </header>

@@ -296,14 +296,15 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
+   z-index: 0;
 }
 
 .hero-background .hero-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: bottom right;    
+  object-position: bottom right;
+  z-index: 0;
 }
 
 
@@ -325,6 +326,14 @@ body {
   z-index: 1;                            
   pointer-events: none;
 }
+
+.hero-background .spoon {
+  position: absolute; left: 0;
+  width: 100%; height: auto;
+  z-index: 2;
+  pointer-events: none;
+}
+
 
 .hero-background .whatsnew {
   transform: translateX(160px);
