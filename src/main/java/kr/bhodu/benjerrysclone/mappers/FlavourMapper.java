@@ -76,6 +76,7 @@ public interface FlavourMapper {
            f.name_ko    AS flavourNameKo,
            f.description_ko AS flavourDescriptionKo,
            f.is_new     AS isNew,
+           f.flavour_type_id as flavourTypeId,
            c.slug       AS categorySlug,
            c.list_slug  AS categoryListSlug,
            c.name_ko    AS categoryNameKo
@@ -100,6 +101,7 @@ public interface FlavourMapper {
            f.name_ko    AS flavourNameKo,
            f.description_ko AS flavourDescriptionKo,
            f.is_new     AS isNew,
+           f.flavour_type_id as flavourTypeId,
            c.slug       AS categorySlug,
            c.list_slug  AS categoryListSlug,
            c.name_ko    AS categoryNameKo
@@ -195,6 +197,8 @@ public interface FlavourMapper {
             c.slug AS categorySlug,
             c.list_slug AS categoryListSlug,
             c.name_ko AS categoryNameKo,
+            f.flavour_type_id as flavourTypeId,
+            ft.code AS flavourTypeCode,
         
             COALESCE(vm_g5.url, vm_p.url)       AS imageUrl,
             COALESCE(vm_g5.sort_order, vm_p.sort_order) AS sortOrder
@@ -203,6 +207,7 @@ public interface FlavourMapper {
         JOIN product_variant v ON r.target_variant_id = v.id
         JOIN flavour f ON v.flavour_id = f.id
         JOIN category c ON v.category_id = c.id
+        JOIN flavour_type ft ON ft.id = f.flavour_type_id
         
         LEFT JOIN variant_media vm_p
                ON vm_p.variant_id = v.id
@@ -280,4 +285,95 @@ public interface FlavourMapper {
         LIMIT 1
         """)
         VariantNavigation findFirstVariant();
+
+
+        @Select("""
+        WITH
+        kw AS (
+        SELECT
+        TRIM(#{keyword})                               AS q,
+        REPLACE(TRIM(#{keyword}), '®', '')             AS q_clean,
+        LOWER(REPLACE(TRIM(#{keyword}), ' ', '-'))     AS q_slug,
+        CONCAT(TRIM(#{keyword}), '%')                  AS q_prefix,
+        CONCAT('%', TRIM(#{keyword}), '%')             AS q_like,
+        CONCAT(REPLACE(TRIM(#{keyword}), '®', ''), '%')       AS q_clean_prefix,
+        CONCAT('%', REPLACE(TRIM(#{keyword}), '®', ''), '%')  AS q_clean_like,
+        CONCAT(LOWER(REPLACE(TRIM(#{keyword}), ' ', '-')), '%')     AS q_slug_prefix,
+        CONCAT('%', LOWER(REPLACE(TRIM(#{keyword}), ' ', '-')), '%') AS q_slug_like
+        ),
+        base AS (
+        /* 이름/별칭/슬러그 매칭 + 가중치 */
+        SELECT f.id AS flavour_id, 100 AS score
+        FROM flavour f, kw
+        WHERE f.is_active = 1 AND f.name_ko = kw.q
+        UNION ALL
+        SELECT f.id, 98 FROM flavour f, kw
+        WHERE f.is_active = 1 AND REPLACE(f.name_ko,'®','') = kw.q_clean
+        UNION ALL
+        SELECT f.id, 97 FROM flavour f, kw
+        WHERE f.is_active = 1 AND f.slug = kw.q_slug
+        UNION ALL
+        SELECT f.id, 95
+        FROM flavour f JOIN flavour_tag ft ON ft.flavour_id=f.id
+                   JOIN tag_alias ta   ON ta.tag_id=ft.tag_id, kw
+        WHERE f.is_active = 1 AND ta.alias = kw.q
+        UNION ALL
+        SELECT f.id, 90 FROM flavour f, kw
+        WHERE f.is_active = 1 AND f.name_ko LIKE kw.q_prefix
+        UNION ALL
+        SELECT f.id, 88 FROM flavour f, kw
+        WHERE f.is_active = 1 AND REPLACE(f.name_ko,'®','') LIKE kw.q_clean_prefix
+        UNION ALL
+        SELECT f.id, 87 FROM flavour f, kw
+        WHERE f.is_active = 1 AND f.slug LIKE kw.q_slug_prefix
+        UNION ALL
+        SELECT f.id, 82 FROM flavour f, kw
+        WHERE f.is_active = 1 AND f.slug LIKE kw.q_slug_like
+        UNION ALL
+        SELECT f.id, 80
+        FROM flavour f JOIN flavour_tag ft ON ft.flavour_id=f.id
+                   JOIN tag_alias ta   ON ta.tag_id=ft.tag_id, kw
+        WHERE f.is_active = 1 AND ta.alias LIKE kw.q_like
+        ),
+        ranked AS (
+        SELECT flavour_id, MAX(score) AS score
+        FROM base
+        GROUP BY flavour_id
+        )
+        SELECT
+        v.id                AS variantId,
+        f.slug              AS flavourSlug,
+        f.name_ko           AS flavourNameKo,
+        f.description_ko        AS flavourDescriptionKo,
+        f.is_new            AS isNew,
+        c.slug              AS categorySlug,
+        c.list_slug         AS categoryListSlug,
+        c.name_ko           AS categoryNameKo,
+        vm_p.url AS imageUrl,
+        f.flavour_type_id   AS flavourTypeId,
+        ft.code             AS flavourTypeCode
+        FROM ranked r
+        JOIN flavour f         ON f.id = r.flavour_id
+        JOIN product_variant v ON v.is_active = 1
+                        AND v.flavour_id = f.id
+                        AND v.id = (
+                          SELECT pv.id
+                          FROM product_variant pv
+                          JOIN category c2 ON c2.id = pv.category_id
+                          WHERE pv.is_active = 1
+                            AND pv.flavour_id = f.id
+                          ORDER BY c2.priority ASC, COALESCE(pv.sort_order, 999), pv.id
+                          LIMIT 1
+                        )
+        JOIN category c        ON c.id = v.category_id
+        LEFT JOIN flavour_type ft ON ft.id = f.flavour_type_id
+        LEFT JOIN variant_media vm_p
+        ON vm_p.variant_id = v.id AND vm_p.role = 'PACKSHOT'
+        ORDER BY
+        r.score DESC,
+        CASE WHEN f.is_new = 1 THEN 0 ELSE 1 END,
+        f.flavour_type_id ASC,
+        f.name_ko ASC
+        """)
+        List<FlavourSummary> searchFlavoursAll(@Param("keyword") String keyword);
 }

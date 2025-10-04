@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Controller
@@ -54,7 +56,7 @@ public class FlavourController {
                 // 2. 아니면 제품 slug 로 간주
                 VariantDetail detail = flavourService.getVariantDetailDefault(slug);
                 if (detail == null) {
-                        return "error/404";
+                        return "errors/404";
                 }
                 model.addAttribute("detail", detail);
                 return "flavours/detail";
@@ -89,10 +91,34 @@ public class FlavourController {
                 return flavourService.getNextVariant(variantId);
         }
 
-        // 키워드 검색
-        @GetMapping("/search")
-        public String search() {
 
+        // 검색 결과 페이지
+        @GetMapping("/search")
+        public String search(@RequestParam(name = "q", required = false) String q,
+                             Model model) {
+                List<FlavourSummary> results = flavourService.searchFlavours(q);
+                model.addAttribute("q", q == null ? "" : q.trim());
+                model.addAttribute("results", results);
+                model.addAttribute("resultsCount", results.size());
                 return "flavours/search-results";
         }
+
+        // 오토서제스트 JSON
+        @GetMapping(value = "/search-results/pagecontent/search-results.json",
+                        produces = "application/json;charset=UTF-8")
+        @ResponseBody
+        public Map<String, Object> autoSuggest(@RequestParam(name = "q", required = false) String q) {
+                List<FlavourSummary> top = flavourService.suggestFlavours(q, 5);
+                List<Map<String, Object>> suggestions = top.stream()
+                                .map(rec -> {
+                                        Map<String, Object> m = new LinkedHashMap<>();
+                                        m.put("title", rec.getFlavourNameKo());
+                                        m.put("imageUrl", rec.getImageUrl()); // null 허용
+                                        m.put("url", "/flavours/" + rec.getFlavourSlug() + "/" + rec.getCategorySlug());
+                                        return m;
+                                })
+                                .collect(Collectors.toList());
+                return Map.of("suggestions", suggestions, "count", suggestions.size());
+        }
+
 }

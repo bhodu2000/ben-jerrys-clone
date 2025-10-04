@@ -130,7 +130,7 @@
                         aria-controls="navbar-collapse-search" aria-expanded="false" aria-label="토글 검색">
                             <span class="navbar-toggler-icon"></span>    
                         </button>
-                        <button class="navbar-toggler navbar-toggler-nav" 
+                        <button class="navbar-toggler navbar-toggler-nav"
                                 data-toggle="nav" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse-nav"
                                 aria-controls="navbar-collapse-nav" aria-expanded="false" aria-haspopup="true" aria-label="토글 탐색" 
                                 style="display: revert; visibility: visible;">
@@ -139,45 +139,34 @@
 
                         <div id="navbar-collapse-search" data-collapse="search" data-bs-parent="#navbar-primary" class="navbar-collapse navbar-collapse-search collapse" style="">
                             <div class="d-none d-md-block">
-                                <section id="search-auto-suggest" data-module="SearchAutoSuggest" class="search-auto-suggest" data-search-auto-suggest-url="/search-results/pagecontent/search-results.json">
-                                    <form role="search" method="post" name="searchForm" action="/search-results" id="search-auto-suggest-form" class="search-auto-suggest">
-                                        <input type="hidden" name="jcrMethodToCall" value="get">
-                                        <input type="hidden" name="src_originSiteKey" value="kr">
-                                        <input name="src_pagePath.value" id="search-auto-suggest-page-pathValue" type="hidden" value="/sites/kr/home">
-                                        <input type="hidden" name="src_pagePath.includeChildren" value="true">
-                                        <div class="d-flex">
-                                            <div class="input-group">
-                                                <label id="search-auto-suggest-label" for="search-auto-suggest-input" class="visually-hidden">
-                            Search Our Website</label>
-                                                <div data-divbox="" aria-owns="search-auto-suggest-combobox-listbox" class="combobox">
-                                                    <input aria-autocomplete="list" role="combobox" aria-controls="search-auto-suggest-combobox-listbox" autocomplete="off" maxlength="100" aria-expanded="false" aria-haspopup="listbox" type="search" autocapitalize="none" name="src_terms[0].term" id="search-auto-suggest-input" placeholder="Search Flavours" class="form-control" aria-label="Search Our Website" value="" aria-activedescendant="">
-                                                    <input type="hidden" name="src_terms[0].applyFilter" value="true">
-                                                    <input type="hidden" name="src_terms[0].match" value="all_words">
-                                                    <input type="hidden" name="src_terms[0].fields.siteContent" value="true">
-                                                    <input type="hidden" name="src_terms[0].fields.tags" value="true">
-                                                    <div id="search-auto-suggest-combobox-listbox" role="listbox" tabindex="0" class="combobox-listbox" hidden="true"></div>
-                                                    <div role="status" aria-atomic="true" aria-live="polite" class="visually-hidden">
-                                                        <span data-aria-status-results="" data-template-sizenotexact="{0}개 이상 결과 제공됨." data-template="{0}개 결과 제공됨."></span>
-                                                        <span data-aria-status-focus="" data-template="{0}개 살펴보기."></span>
+                                    <!-- 오토서제스트 (상단) -->
+                                    <section id="search-auto-suggest" data-module="SearchAutoSuggest"
+                                             class="search-auto-suggest"
+                                             data-search-auto-suggest-url="/search-results/pagecontent/search-results.json">
+                                            <form role="search" method="get" th:action="@{/search}" name="searchForm"
+                                                  id="search-auto-suggest-form" class="search-auto-suggest">
+                                                    <div class="d-flex">
+                                                            <div class="input-group">
+                                                                    <label id="search-auto-suggest-label" for="search-auto-suggest-input" class="visually-hidden">Search Flavours</label>
+                                                                    <div data-divbox="" aria-owns="search-auto-suggest-combobox-listbox" class="combobox">
+                                                                            <input aria-autocomplete="list" role="combobox"
+                                                                                   aria-controls="search-auto-suggest-combobox-listbox"
+                                                                                   autocomplete="off" maxlength="100" aria-expanded="false" aria-haspopup="listbox"
+                                                                                   type="search" autocapitalize="none" name="q" id="search-auto-suggest-input"
+                                                                                   placeholder="Search Flavours" class="form-control" aria-label="Search Our Website"
+                                                                                   th:value="${q}">
+                                                                            <div id="search-auto-suggest-combobox-listbox" role="listbox" tabindex="0" class="combobox-listbox" hidden></div>
+                                                                            <div role="status" aria-atomic="true" aria-live="polite" class="visually-hidden">
+                                                                                    <span data-aria-status-results="" data-template-sizenotexact="{0}개 이상 결과 제공됨." data-template="{0}개 결과 제공됨."></span>
+                                                                                    <span data-aria-status-focus="" data-template="{0}개 살펴보기."></span>
+                                                                            </div>
+                                                                            <div class="no-results" data-no-results="" data-template="결과를 찾을 수 없음: {0}" style="display: none;"></div>
+                                                                    </div>
+                                                            </div>
+                                                            <button type="submit" class="visually-hidden-focusable btn btn-primary">검색</button>
                                                     </div>
-                                    
-                                                    <div class="no-results" data-no-results="" data-template="결과를 찾을 수 없음: {0}" style="display: none;"></div>
-                                                </div>
-                                            </div>
-                                            <button type="submit" class="visually-hidden-focusable btn btn-primary" disabled="">
-                                        검색</button>
-                                        </div>
-
-                                        <input type="hidden" name="src_sites.values" value="kr">
-                                        <input type="hidden" name="src_sitesForReferences.values" value="systemsite">
-                                        <input type="hidden" name="src_languages.values" value="ko_KR">
-                                    </form>
-                                    <div role="status" aria-atomic="true" aria-live="polite" class="visually-hidden">
-                                        <span data-aria-status-results="" data-template="{0}개 결과 제공됨."></span>
-                                        <span data-aria-status-focus="" data-template="{0}개 살펴보기."></span>
-                                    </div>
-                                    <div class="no-results" data-no-results="" data-template="결과를 찾을 수 없음: {0}"></div>
-                                </section>
+                                            </form>
+                                    </section>
                             </div>
                         </div>
                     </nav>  
@@ -194,82 +183,90 @@
 
         <main id="main" style="margin-top: 112px;">
             <div class="container-fluid  ">
-            
-            
-            <section id="search-auto-suggest-search-results" data-module="SearchAutoSuggest" class="search-auto-suggest" data-search-auto-suggest-url="/search-results/pagecontent/search-results.json">
-                    <form role="search" method="post" name="searchForm" action="/search-results" id="search-auto-suggest-search-results-form" class="search-auto-suggest">
-                <input type="hidden" name="jcrMethodToCall" value="get">
-                <input type="hidden" name="src_originSiteKey" value="kr">
-                <input name="src_pagePath.value" id="search-auto-suggest-search-results-page-pathValue" type="hidden" value="/sites/kr/home">
-            
-            <input type="hidden" name="src_pagePath.includeChildren" value="true">
-            <div class="d-flex">
-                            <div class="input-group">
-                                <label id="search-auto-suggest-search-results-label" for="search-auto-suggest-search-results-input" class="visually-hidden">
-                                        Search Our Website</label>
-            
-                                <div data-divbox="" aria-owns="search-auto-suggest-search-results-combobox-listbox" class="combobox">
-                                    <input aria-autocomplete="list" role="combobox" aria-controls="search-auto-suggest-search-results-combobox-listbox" autocomplete="off" maxlength="100" aria-expanded="false" aria-haspopup="listbox" type="search" autocapitalize="none" name="src_terms[0].term" id="search-auto-suggest-search-results-input" placeholder="Search Our Website" class="form-control" aria-label="Search Our Website" value="딸기" aria-activedescendant="">
-            <input type="hidden" name="src_terms[0].applyFilter" value="true">
-            <input type="hidden" name="src_terms[0].match" value="all_words">
-            <input type="hidden" name="src_terms[0].fields.siteContent" value="true">
-            <input type="hidden" name="src_terms[0].fields.tags" value="true">
-            <div id="search-auto-suggest-search-results-combobox-listbox" role="listbox" tabindex="0" class="combobox-listbox" aria-labelledby="search-auto-suggest-search-results-label" hidden="true"></div>
-            
-                                    <div class="visually-hidden">
-                                        제안은 3자 이상 입력 시 제공됩니다. 결과 제공 시 상하 화살표를 이용하여 검토하고 선택하여 입력할 수 있습니다. 터치 기기 이용자의 경우 터치하거나 스와이프 동작으로 둘러볼 수 있습니다.</div>
-            
-                                    <div role="status" aria-atomic="true" aria-live="polite" class="visually-hidden">
-                                        <span data-aria-status-results="" data-template-sizenotexact="{0}개 이상 결과 제공됨." data-template="{0}개 결과 제공됨."></span>
-                                        <span data-aria-status-focus="" data-template="{0}개 살펴보기."></span>
+
+
+                    <!-- 본문 검색창 (검색결과 상단) -->
+                    <section id="search-auto-suggest-search-results" data-module="SearchAutoSuggest"
+                             class="search-auto-suggest"
+                             data-search-auto-suggest-url="/search-results/pagecontent/search-results.json">
+                            <form role="search" method="get" th:action="@{/search}" name="searchForm"
+                                  id="search-auto-suggest-search-results-form" class="search-auto-suggest">
+                                    <div class="d-flex">
+                                            <div class="input-group">
+                                                    <label id="search-auto-suggest-search-results-label"
+                                                           for="search-auto-suggest-search-results-input"
+                                                           class="visually-hidden">Search Our Website</label>
+
+                                                    <div data-divbox="" aria-owns="search-auto-suggest-search-results-combobox-listbox" class="combobox">
+                                                            <input aria-autocomplete="list" role="combobox"
+                                                                   aria-controls="search-auto-suggest-search-results-combobox-listbox"
+                                                                   autocomplete="off" maxlength="100" aria-expanded="false" aria-haspopup="listbox"
+                                                                   type="search" autocapitalize="none" name="q" id="search-auto-suggest-search-results-input"
+                                                                   placeholder="Search Our Website" class="form-control" aria-label="Search Our Website"
+                                                                   th:value="${q}">
+                                                            <div id="search-auto-suggest-search-results-combobox-listbox" role="listbox" tabindex="0" class="combobox-listbox" hidden
+                                                                 th:attr="aria-labelledby=${'search-auto-suggest-search-results-label'}"></div>
+
+                                                            <div class="visually-hidden">
+                                                                    제안은 3자 이상 입력 시 제공됩니다. 결과 제공 시 상하 화살표를 이용하여 검토하고 선택하여 입력할 수 있습니다. 터치 기기 이용자의 경우 터치하거나 스와이프 동작으로 둘러볼 수 있습니다.
+                                                            </div>
+
+                                                            <div role="status" aria-atomic="true" aria-live="polite" class="visually-hidden">
+                                                                    <span data-aria-status-results="" data-template-sizenotexact="{0}개 이상 결과 제공됨." data-template="{0}개 결과 제공됨."></span>
+                                                                    <span data-aria-status-focus="" data-template="{0}개 살펴보기."></span>
+                                                            </div>
+
+                                                            <div class="no-results" data-no-results="" data-template="결과를 찾을 수 없음: {0}" style="display: none;"></div>
+                                                    </div>
+                                            </div>
+                                            <button type="submit" class="visually-hidden-focusable btn btn-primary">검색</button>
                                     </div>
-            
-                                    <div class="no-results" data-no-results="" data-template="결과를 찾을 수 없음: {0}" style="display: none;"></div>
-            
-                                </div>
-            
-                            </div>
-            
-                            <button type="submit" class="visually-hidden-focusable btn btn-primary">
-                                검색</button>
-                        </div>
-            
-                        <input type="hidden" name="src_sites.values" value="kr"><input type="hidden" name="src_sitesForReferences.values" value="systemsite">
-            <input type="hidden" name="src_languages.values" value="ko_KR"></form><div role="status" aria-atomic="true" aria-live="polite" class="visually-hidden">
-                        <span data-aria-status-results="" data-template="{0}개 결과 제공됨."></span>
-                        <span data-aria-status-focus="" data-template="{0}개 살펴보기."></span>
-                    </div>
-                    <div class="no-results" data-no-results="" data-template="결과를 찾을 수 없음: {0}">
-                    </div>
-                </section>
-            
-            <div id="search-results-flavour" class="search-results">
-                <h1 id="search-results-flavour-heading" class="visually-hidden"></h1>
-                <section class="results">
-            <h2 class="subheading">
-                                <em>“딸기”</em> 결과 5개</h2>
-                        <section class="search-result-group">
-                <h3 id="search-results-flavour-group-0" class="heading heading-2">아이스크림 맛</h3>
-                <ul>
-                    <li class="view-flavour">
-                            <div class="search-result-image" role="presentation">
-                                    <picture>
-                                        <img src="/assets/img/flavours/strawberry-ice-cream/scoop-shop/packshot/main.png" alt="스트로베리 아이스크림" loading="lazy">
-                                    </picture>
-                                </div>
-                            <div class="search-result-content">
-                                <div class="label">아이스크림 맛</div>
-                                <h4 class="heading heading-3">
-                                    <a id="search-results-flavour-result-0-0" href="/flavours/strawberry-ice-cream" >스트로베리 아이스크림</a>
-                                </h4>
-                                <div class="search-description">
-                                    딸기 아이스크림 베이스에 딸기 과육이 듬뿍 들어있는 아이스크림</div>
-                            </div>
-                        </li>
-                    </ul>
-            </section>
-            
-            </section>
+                            </form>
+                    </section>
+
+                    <!-- 검색 결과 -->
+                    <div id="search-results-flavour" class="search-results">
+                            <h1 id="search-results-flavour-heading" class="visually-hidden">검색 결과</h1>
+
+                            <section class="results" th:if="${results != null}">
+                                    <!-- 헤더: “q” 결과 N개 -->
+                                    <h2 class="subheading" th:if="${resultsCount > 0}">
+                                            <em th:text="${'“' + q + '”'}">“딸기”</em>
+                                            <span th:text="${' 결과 ' + resultsCount + '개'}"> 결과 0개</span>
+                                    </h2>
+                                    <h2 class="subheading" th:if="${resultsCount == 0}">
+                                            <span th:text="${q != null && #strings.isNotEmpty(q) ? ('“' + q + '” 에 대한 결과가 없어요.') : '검색어를 입력해 주세요.'}">검색어 안내</span>
+                                    </h2>
+
+                                    <!-- 결과 그룹 -->
+                                    <section class="search-result-group" th:if="${resultsCount > 0}">
+                                            <h3 id="search-results-flavour-group-0" class="heading heading-2">아이스크림 맛</h3>
+
+                                            <ul>
+                                                    <li class="view-flavour" th:each="rec, idx : ${results}">
+                                                            <div class="search-result-image" role="presentation">
+                                                                    <picture>
+                                                                            <img th:src="@{${rec.imageUrl}}"
+                                                                                 th:alt="${rec.flavourNameKo}"
+                                                                                 loading="lazy">
+                                                                    </picture>
+                                                            </div>
+
+                                                            <div class="search-result-content">
+                                                                    <div class="label">아이스크림 맛</div>
+                                                                    <h4 class="heading heading-3">
+                                                                            <a th:id="${'search-results-flavour-result-0-' + idx.index}"
+                                                                               th:href="@{/flavours/{flavourSlug}/{categorySlug}(flavourSlug=${rec.flavourSlug}, categorySlug=${rec.categorySlug})}"
+                                                                               th:text="${rec.flavourNameKo}">
+                                                                                    플레이버 이름
+                                                                            </a>
+                                                                    </h4>
+                                                                    <div class="search-description" th:text="${rec.flavourDescriptionKo}">맛 설명</div>
+                                                            </div>
+                                                    </li>
+                                            </ul>
+                                    </section>
+                            </section>
                 </div></div>
             </main>
 

@@ -313,14 +313,14 @@ BEGIN
   DECLARE v_sorbet_id   TINYINT;
   DECLARE v_pri         TINYINT;
 
-  SELECT id INTO v_original_id FROM flavour_type WHERE code='ORIGINAL' LIMIT 1;
+  SELECT id INTO v_original_id FROM flavour_type WHERE code='ORIGINAL ICE CREAM' LIMIT 1;
   IF v_original_id IS NULL THEN
-    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='flavour_type ORIGINAL is missing';
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='flavour_type ORIGINAL ICE CREAM is missing';
   END IF;
   SELECT id INTO v_core_id   FROM flavour_type WHERE code='CORE'   LIMIT 1;
   SELECT id INTO v_sorbet_id FROM flavour_type WHERE code='SORBET' LIMIT 1;
 
-  -- 기본은 항상 ORIGINAL
+  -- 기본은 항상 ORIGINAL ICE CREAM
   SET NEW.flavour_type_id = v_original_id;
 
   -- slug 접미사 규칙 오버라이드
@@ -355,9 +355,9 @@ BEGIN
   DECLARE v_sorbet_id   TINYINT;
   DECLARE v_pri         TINYINT;
 
-  SELECT id INTO v_original_id FROM flavour_type WHERE code='ORIGINAL' LIMIT 1;
+  SELECT id INTO v_original_id FROM flavour_type WHERE code='ORIGINAL ICE CREAM' LIMIT 1;
   IF v_original_id IS NULL THEN
-    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='flavour_type ORIGINAL is missing';
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='flavour_type ORIGINAL ICE CREAM is missing';
   END IF;
   SELECT id INTO v_core_id   FROM flavour_type WHERE code='CORE'   LIMIT 1;
   SELECT id INTO v_sorbet_id FROM flavour_type WHERE code='SORBET' LIMIT 1;
@@ -454,7 +454,7 @@ ON DUPLICATE KEY UPDATE name_ko=VALUES(name_ko), priority=VALUES(priority),
 
 -- 1) Flavour types
 INSERT INTO flavour_type (id, code, name_ko, sort_priority) VALUES
-  (1, 'ORIGINAL', '오리지널 아이스크림', 1),
+  (1, 'ORIGINAL ICE CREAM', '오리지널 아이스크림', 1),
   (2, 'CORE',     '코어', 2),
   (3, 'SORBET',   '소르베(셔벗)', 3)
 ON DUPLICATE KEY UPDATE name_ko=VALUES(name_ko), sort_priority=VALUES(sort_priority);

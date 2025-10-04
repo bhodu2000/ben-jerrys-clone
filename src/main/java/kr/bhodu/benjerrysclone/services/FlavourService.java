@@ -26,4 +26,10 @@ public interface FlavourService {
 
         // /flavours/variant/{variantId}/next → 다음 variant navigation
         VariantNavigation getNextVariant(Long variantId);
+
+        // 검색 결과 화면용
+        List<FlavourSummary> searchFlavours(String q);
+
+        // 오토서제스트용: 상위 N개만 */
+        List<FlavourSummary> suggestFlavours(String q, int topN);
 }

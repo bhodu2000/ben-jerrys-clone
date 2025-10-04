@@ -48,7 +48,7 @@ public class FlavourServiceImpl implements FlavourService {
                                 f -> {
                                         if (f.isNew()) return "NEW"; // 대문자
                                         switch (f.getFlavourTypeId()) {
-                                                case 1: return "ORIGINAL";
+                                                case 1: return "ORIGINAL ICE CREAM";
                                                 case 2: return "CORE";
                                                 case 3: return "SORBET";
                                                 default: return "OTHER";
@@ -107,10 +107,6 @@ public class FlavourServiceImpl implements FlavourService {
         }
 
 
-
-
-
-
         @Override
         public VariantNavigation getNextVariant(Long variantId) {
                 VariantNavigation next = flavourMapper.findNextVariant(variantId);
@@ -118,5 +114,28 @@ public class FlavourServiceImpl implements FlavourService {
                         return flavourMapper.findFirstVariant(); // 마지막이면 첫 번째로 순환
                 }
                 return next;
+        }
+
+
+        @Override
+        public List<FlavourSummary> searchFlavours(String q) {
+                String keyword = (q == null) ? "" : q.trim();
+                if (keyword.isEmpty()) {
+                        // 빈 검색어는 결과를 비워서 반환
+                        return List.of();
+                }
+                // 상관 서브쿼리 + slug/® 처리한 쿼리
+                return flavourMapper.searchFlavoursAll(keyword);
+        }
+
+        @Override
+        public List<FlavourSummary> suggestFlavours(String q, int topN) {
+                String keyword = (q == null) ? "" : q.trim();
+                if (keyword.length() < 2) {
+                        return List.of();
+                }
+                List<FlavourSummary> all = flavourMapper.searchFlavoursAll(keyword);
+                if (all.size() <= topN) return all;
+                return all.subList(0, topN);
         }
 }

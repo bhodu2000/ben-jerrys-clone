@@ -111,6 +111,51 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+/* =========================
+   검색창 폼 제출
+========================= */
+(function () {
+    function submitForm(input) {
+      const form  = input.form;
+      const q     = (input.value || '').trim();
+      const action= form?.getAttribute('action') || '/search';
+      // GET으로 강제 이동 (다른 스크립트 간섭 회피)
+      const u = new URL(action, window.location.origin);
+      if (q.length) u.searchParams.set('q', q); else u.searchParams.delete('q');
+      window.location.href = u.pathname + (u.search.length ? '?' + u.searchParams.toString() : '');
+    }
+
+    function attach(el) {
+      // IME 조합 중 엔터는 무시하고, 조합 끝나면 처리
+      let pending = false;
+
+      el.addEventListener('compositionstart', () => { pending = true; }, true);
+      el.addEventListener('compositionend',   () => { pending = false; }, true);
+
+      // keydown 캡처 단계에서 엔터를 선점
+      el.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          if (pending || e.isComposing) return;  // 한글 조합 중이면 패스
+          e.preventDefault();
+          e.stopPropagation();
+          submitForm(this);
+        }
+      }, true);
+
+      // 일부 브라우저에서 search 이벤트(돋보기/엔터)도 발생
+      el.addEventListener('search', function () {
+        submitForm(this);
+      }, true);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      document
+        .querySelectorAll('form.search-auto-suggest input[type="search"][name="q"]')
+        .forEach(attach);
+    });
+  })();
+
+
 
 
 
