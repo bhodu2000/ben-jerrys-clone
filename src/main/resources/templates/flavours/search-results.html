@@ -267,6 +267,23 @@
                                             </ul>
                                     </section>
                             </section>
+
+
+                            <section class="no-results" th:if="${results == null or #lists.isEmpty(results)}">
+                                <div class="banner">
+                                    <div class="banner-content">
+                                        <span class="subheading">
+                                        0개 결과를 찾음</span>
+                                        <span class="heading-1 my-3">“?” </span>
+                                        <p>죄송합니다, 결과를 찾을 수 없습니다. 아직 이 페이지를 준비 중입니다!</p>
+                                    </div>
+                                    <div class="banner-image" role="presentation">
+                                            <picture>
+                                                    <img src="/assets/img/misc/no-results.jpeg"  alt="">
+                                            </picture>
+                                    </div>
+                                </div>
+                            </section>
                 </div></div>
             </main>
 
